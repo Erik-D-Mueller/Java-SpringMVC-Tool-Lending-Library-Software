@@ -71,36 +71,6 @@
 			<version>1.10.19</version>
 			<scope>test</scope>
 		</dependency>
-        <dependency>
-		    <groupId>org.seleniumhq.selenium</groupId>
-		    <artifactId>selenium-java</artifactId>
-		    <version>3.0.1</version>
-		    <scope>test</scope>
-		</dependency>
-		<dependency>
-		    <groupId>org.seleniumhq.selenium</groupId>
-		    <artifactId>selenium-chrome-driver</artifactId>
-		    <version>3.0.1</version>
-		    <scope>test</scope>
-		</dependency>
-        <dependency>
-            <groupId>info.cukes</groupId>
-            <artifactId>cucumber-java</artifactId>
-            <version>1.2.4</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-		    <groupId>info.cukes</groupId>
-		    <artifactId>cucumber-spring</artifactId>
-		    <version>1.2.4</version>
-		    <scope>test</scope>
-		</dependency>
-		<dependency>
-		    <groupId>info.cukes</groupId>
-		    <artifactId>cucumber-junit</artifactId>
-		    <version>1.2.4</version>
-		    <scope>test</scope>
-		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -110,6 +80,27 @@
 					<source>1.8</source>
 					<target>1.8</target>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<version>2.3</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals><goal>copy</goal></goals>
+						<configuration>
+							<artifactItems>
+								<artifactItem>
+									<groupId>com.github.jsimone</groupId>
+									<artifactId>webapp-runner-main</artifactId>
+									<version>8.5.15.1</version>
+									<destFileName>webapp-runner.jar</destFileName>
+								</artifactItem>
+							</artifactItems>
+						</configuration>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

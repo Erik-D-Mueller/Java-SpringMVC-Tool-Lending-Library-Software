@@ -88,13 +88,24 @@ public class MyJdbcDaoIntegrationTest extends DAOIntegrationTest {
 }
 ```
 
-### Cucumber Tests
+## Deploying
 
-#### Running Cucumber Tests
-`com.techelevator.cukes.RunCukesTest` has been provided to launch your Cucumber tests. Run this class as a JUnit test from Eclipse in order to run your Cucumber tests. You should not need to modify this file.
+The project is set up and ready to be deployed to Heroku. You will need to create a new Heroku application using these commands at the root directory:
 
-#### Feature Files
-You should store your `.feature` files in the `<project-root>/src/test/resources/com/techelevator/cukes/` directory. You will find `examples.feature` is already there.
+```
+heroku create
+heroku config:set SPRING_PROFILES_ACTIVE=heroku
+```
 
-#### Step Definitions (Glue Code)
-Your step definition files should be saved under `<project-root>/src/test/java/com/techelevator/cukes/`.  An example step definition file named `ExampleSteps.java` is already there.
+And then use this command to push your application:
+
+```
+git push heroku master
+```
+
+Once that's complete, you will want to set up the database on Heroku by sending your SQL files up:
+
+```
+heroku psql < database/schema.sql
+heroku psql < database/data.sql
+```
