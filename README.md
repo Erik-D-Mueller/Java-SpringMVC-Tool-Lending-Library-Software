@@ -33,7 +33,7 @@ The database superuser (i.e. `postgres`) should only be used for database admini
 
 ### Datasource
 
-A Datasource has been configured that can be injected into your DAO objects. It connects to the database using the `capstone_appuser` database user.
+A Datasource has been configured that can be injected into your DAO objects. It connects to the database using the `capstone_appuser` database user. You can change the name of this database if you wish, but remember to change it here and in the `create-capstone-db.sh` script in the database folder.
 
 #### Database Transactions
 
@@ -90,7 +90,7 @@ public class MyJdbcDaoIntegrationTest extends DAOIntegrationTest {
 
 ## Deploying
 
-The project is set up and ready to be deployed to Heroku. You will need to create a new Heroku application using these commands at the root directory:
+The project is already set up and ready to be deployed to Heroku. You will need to create a new Heroku application using these commands at the root directory:
 
 ```
 heroku create
@@ -103,7 +103,7 @@ And then use this command to push your application:
 git push heroku master
 ```
 
-Once that's complete, you will want to set up the database on Heroku by sending your SQL files up:
+Once that's complete, you will want to set up the database on Heroku by sending your SQL files up to it:
 
 ```
 heroku psql < database/schema.sql
