@@ -46,6 +46,12 @@
 		<property name="password" value="capstone_appuser1" />
 	
 	</bean>
+	
+    <!-- enable the configuration of transactional behavior based on annotations -->
+    <tx:annotation-driven transaction-manager="txManager"/>
+    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
 
 	<beans profile="heroku">
 		<bean class="java.net.URI" id="dbUrl">
@@ -57,10 +63,4 @@
 			<property name="password" value="#{ @dbUrl.getUserInfo().split(':')[1] }"/>
 		</bean>	
 	</beans>
-	
-    <!-- enable the configuration of transactional behavior based on annotations -->
-    <tx:annotation-driven transaction-manager="txManager"/>
-    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
 </beans>
