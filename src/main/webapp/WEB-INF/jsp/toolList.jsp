@@ -25,8 +25,56 @@
 	});
 </script>
 
+<div id="masterToolList">
+<h2>Master Tool List</h2>
 
-<h3>Test</h3>
+<div id="toolTable">
+<table class="table table-striped">
+<thead class="thead-dark">
+<tr>
+	<th scope="col" >Individual Tool id</th>
+	<th scope="col">Tool Name</th>
+	<th scope="col">Tool Description</th>
+	<th scope="col">Reservation From-Date</th>
+	<th scope="col">Reservation To-date</th>
+	
+</tr>
+</thead>
+
+<tbody>
+<%-- <c:for each var="tool" toolsByToolId="${toolsByToolIdList}"> --%>
+<tr>
+<td>tool.tool_id</td>
+<td>tool.tool_name</td>
+<td>tool.tool_description description descritpiopn descipt</td>
+<td>tool.tool_id</td>
+<td>tool.tool_name</td>
+</tr>
+
+<tr>
+<td>tool.tool_id</td>
+<td>tool.tool_name</td>
+<td>tool.tool_description</td>
+<td>tool.tool_id</td>
+<td>tool.tool_name</td>
+</tr>
+
+<tr>
+<td>tool.tool_id</td>
+<td>tool.tool_name</td>
+<td>tool.tool_description</td>
+<td>tool.tool_id</td>
+<td>tool.tool_name</td>
+</tr>
+
+<%-- </c:for> --%>
+</tbody>
+</table>
+
+</div>
+</div>
+
+
 
 
 

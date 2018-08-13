@@ -4,12 +4,6 @@
 
 BEGIN;
 
-DROP TABLE IF EXISTS tool_reservation;
-DROP TABLE IF EXISTS reservation;
-DROP TABLE IF EXISTS app_user;
-DROP TABLE IF EXISTS tool;
-DROP TABLE IF EXISTS tool_type;
-
 CREATE TABLE app_user (
   app_user_id SERIAL PRIMARY KEY,
   user_name varchar(32) NOT NULL UNIQUE,
