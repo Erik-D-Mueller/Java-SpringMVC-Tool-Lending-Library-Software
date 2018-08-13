@@ -3,6 +3,7 @@ package com.techelevator.model;
 import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,19 +45,22 @@ public class JDBCToolDAO implements ToolDAO {
 	}
 	
 	@Override
-	public List<Tool> getAllAvailableTools(String toolName, String to_date, String from_date){
+	public List<Tool> getAllAvailableTools(){
 		
 		List<Tool> listOfAvailableTools = new ArrayList<>();
 		
-		String sqlListAllTools = "SELECT t.tool_id, tt.tool_name "
+		LocalDate date = LocalDate.now();
+		date.toString();
+		
+		String sqlListAllTools = "SELECT t.tool_id, tt.tool_name, tt.tool_description "
 								+"FROM tool t JOIN tool_type tt ON tt.tool_type_id = t.tool_type_id "
-								+"WHERE tt.tool_name = ? AND t.tool_id NOT IN "
+								+"WHERE t.tool_id NOT IN "
 								+"(SELECT t.tool_id "
 								+"FROM tool t JOIN tool_reservation tr ON t.tool_id = tr.tool_id "
 								+"JOIN reservation r ON r.reservation_id = tr.reservation_id "
 								+"WHERE ((to_date(?, 'YYYY/MM/DD')) <= r.to_date AND (to_date(?, 'YYYY/MM/DD')) >= r.from_date))";
 		
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlListAllTools, toolName, to_date, from_date);
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlListAllTools, date.toString(), date.toString());
 		
 		while(results.next()) {
 			Tool theTool = mapRowToTool(results);

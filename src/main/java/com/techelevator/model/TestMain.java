@@ -1,5 +1,8 @@
 package com.techelevator.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.commons.dbcp2.BasicDataSource;
 
 public class TestMain {
@@ -15,7 +18,12 @@ public class TestMain {
 		
 		test = new JDBCToolDAO(dataSource);
 		
-		test.getAllTools();
+		List<Tool> testList = new ArrayList<>();
+		testList = test.getAllAvailableTools();
+		
+		for(Tool e: testList) {
+			System.out.println(e.getToolId());
+		}
 		
 	}
 
