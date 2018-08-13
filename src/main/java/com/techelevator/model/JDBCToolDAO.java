@@ -31,10 +31,8 @@ public class JDBCToolDAO implements ToolDAO {
 		
 		List<Tool> listOfAllTools = new ArrayList<>();
 		
-		String sqlListAllTools = "SELECT t.tool_id, tt.tool_name, tt.tool_description, r.to_date, r.from_date "
-								+ "FROM tool t JOIN tool_type tt ON tt.tool_type_id = t.tool_type_id "
-								+ "JOIN tool_reservation tr ON t.tool_id = tr.tool_id "
-								+ "JOIN reservation r ON r.reservation_id = tr.reservation_id";
+		String sqlListAllTools = "SELECT t.tool_id, tt.tool_name, tt.tool_description "
+								+ "FROM tool t JOIN tool_type tt ON tt.tool_type_id = t.tool_type_id ";
 		
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlListAllTools);
 		
@@ -46,12 +44,19 @@ public class JDBCToolDAO implements ToolDAO {
 	}
 	
 	@Override
-	public List<Tool> getAllAvailableTools(){
+	public List<Tool> getAllAvailableTools(String toolName, String to_date, String from_date){
 		
 		List<Tool> listOfAvailableTools = new ArrayList<>();
 		
-		String sqlListAllTools = "SELECT * FROM tool t JOIN tool_type tt ON t.tool_type_id = tt.tool_type_id";
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlListAllTools);
+		String sqlListAllTools = "SELECT t.tool_id, tt.tool_name "
+								+"FROM tool t JOIN tool_type tt ON tt.tool_type_id = t.tool_type_id "
+								+"WHERE tt.tool_name = ? AND t.tool_id NOT IN "
+								+"(SELECT t.tool_id "
+								+"FROM tool t JOIN tool_reservation tr ON t.tool_id = tr.tool_id "
+								+"JOIN reservation r ON r.reservation_id = tr.reservation_id "
+								+"WHERE ((to_date(?, 'YYYY/MM/DD')) <= r.to_date AND (to_date(?, 'YYYY/MM/DD')) >= r.from_date))";
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlListAllTools, toolName, to_date, from_date);
 		
 		while(results.next()) {
 			Tool theTool = mapRowToTool(results);
@@ -65,25 +70,10 @@ public class JDBCToolDAO implements ToolDAO {
 		
 		Tool newTool = new Tool();
 		
-		String pattern = "yyyy-MM-dd";
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-		
-		try {
-			date = simpleDateFormat.parse(results.getString("to_date"));
-		} catch (InvalidResultSetAccessException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
 		newTool.setToolId(results.getInt("tool_id"));
 		newTool.setName(results.getString("tool_name"));
 		newTool.setDescription(results.getString("tool_description"));
-					
-		System.out.println(date);
-		
+							
 		return newTool;
 	}
 }
