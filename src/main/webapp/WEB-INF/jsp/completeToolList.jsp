@@ -42,7 +42,7 @@
 </thead>
 
 <tbody>
-<%-- <c:for each var="tool" toolsByToolId="${toolsByToolIdList}"> --%>
+<c:forEach completeTools="${completeToolList}" var="tool" >
 <tr>
 <td>tool.tool_id</td>
 <td>tool.tool_name</td>
@@ -67,7 +67,7 @@
 <td>tool.tool_name</td>
 </tr>
 
-<%-- </c:for> --%>
+</c:forEach>
 </tbody>
 </table>
 
