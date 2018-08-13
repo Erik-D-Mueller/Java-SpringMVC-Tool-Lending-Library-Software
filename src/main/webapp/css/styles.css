@@ -1,3 +1,27 @@
-body {
-	background-color: light-green;
+body{
+	background-color: MediumSeaGreen;
+}
+
+tr nth-child(even){
+  background-color: yellow !important;
+}
+tr nth-child(odd){
+  background-color: red !important;
+}
+
+thead {
+	background-color : Peru; 
+	color: black;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: LightSteelBlue;
+}
+
+table {
+	background-color: white;
+}
+
+.toolListHeader {
+	text-align: center;
 }

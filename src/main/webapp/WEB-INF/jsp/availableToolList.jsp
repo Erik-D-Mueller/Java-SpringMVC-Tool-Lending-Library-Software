@@ -25,49 +25,27 @@
 	});
 </script>
 
-<div id="masterToolList">
-<h2>Master Tool List</h2>
+<div class="noHeader" id="masterToolList">
+<h2> <span class="toolListHeader"> Master Tool List </span></h2>
 
 <div id="toolTable">
-<table class="table table-striped">
+<table class="table table-striped table-hover table-bordered">
 <thead class="thead-dark">
 <tr>
 	<th scope="col" >Individual Tool id</th>
 	<th scope="col">Tool Name</th>
 	<th scope="col">Tool Description</th>
-	<th scope="col">Reservation From-Date</th>
-	<th scope="col">Reservation To-date</th>
-	
 </tr>
 </thead>
 
 <tbody>
-<%-- <c:for each var="tool" toolsByToolId="${toolsByToolIdList}"> --%>
-<tr>
-<td>tool.tool_id</td>
-<td>tool.tool_name</td>
-<td>tool.tool_description</td>
-<td>tool.tool_id</td>
-<td>tool.tool_name</td>
-</tr>
-
-<tr>
-<td>tool.tool_id</td>
-<td>tool.tool_name</td>
-<td>tool.tool_description</td>
-<td>tool.tool_id</td>
-<td>tool.tool_name</td>
-</tr>
-
-<tr>
-<td>tool.tool_id</td>
-<td>tool.tool_name</td>
-<td>tool.tool_description</td>
-<td>tool.tool_id</td>
-<td>tool.tool_name</td>
-</tr>
-
-<%-- </c:for> --%>
+	<c:forEach items="${availableTools}" var="tool" >
+		<tr>
+			<td>${tool.toolId}</td>
+			<td>${tool.name}</td>
+			<td>${tool.description}</td>
+		</tr>
+	</c:forEach>
 </tbody>
 </table>
 

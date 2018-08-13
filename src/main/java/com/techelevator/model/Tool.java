@@ -5,7 +5,6 @@ public class Tool {
 	private int toolId;
 	private String name;
 	private String description;
-	private boolean isAvailable;
 	
 
 	public Tool() {
@@ -28,11 +27,5 @@ public class Tool {
 	}
 	public void setDescription(String description) {
 		this.description = description;
-	}
-	public boolean isAvailable() {
-		return isAvailable;
-	}
-	public void setAvailable(boolean isAvailable) {
-		this.isAvailable = isAvailable;
 	}
 }

@@ -34,7 +34,8 @@ public class ToolController {
 	
 	@RequestMapping(path="/availableToolList", method=RequestMethod.GET)
 	public String displayAvailableToolList(HttpServletRequest request) {
-//		List<Tool> listOfTools = toolDAO.getAllAvailableTools(today)
+		request.setAttribute("availableTools", toolDAO.getAllAvailableTools());
+		
 		return "availableToolList";
 	}
 	
