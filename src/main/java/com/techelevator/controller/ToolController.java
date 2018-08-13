@@ -19,9 +19,14 @@ public class ToolController {
 	
 	
 	
-	@RequestMapping(path="/toolList", method=RequestMethod.GET)
-	public String displayToolList() {
-		return "toolList";
+	@RequestMapping(path="/completetoolList", method=RequestMethod.GET)
+	public String displayCompleteToolList() {
+		return "availableToolList";
+	}
+	
+	@RequestMapping(path="/availabletoolList", method=RequestMethod.GET)
+	public String displayAvailableToolList() {
+		return "competeToolList";
 	}
 	
 	

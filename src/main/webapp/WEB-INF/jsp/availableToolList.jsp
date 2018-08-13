@@ -46,7 +46,7 @@
 <tr>
 <td>tool.tool_id</td>
 <td>tool.tool_name</td>
-<td>tool.tool_description description descritpiopn descipt</td>
+<td>tool.tool_description</td>
 <td>tool.tool_id</td>
 <td>tool.tool_name</td>
 </tr>
