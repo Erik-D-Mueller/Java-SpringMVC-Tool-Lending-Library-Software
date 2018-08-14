@@ -4,10 +4,10 @@ import java.util.List;
 
 public interface ReservationDAO {
 
-	public List<Tool> searchToolsByName();
+	public List<Reservation> searchToolsByName(String userName);
 	
-	public List<Tool> searchToolsByDriversLicense();
+	public List<Reservation> searchToolsByDriversLicense(String driversLicense);
 
-	public List<Tool> searchToolsByToolNumber();
+	public List<Reservation> searchToolsByToolNumber(int toolId);
 
 }
