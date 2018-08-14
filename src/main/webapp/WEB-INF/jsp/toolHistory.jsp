@@ -69,10 +69,10 @@
 	<c:forEach items="${reservedTools}" var="tool" >
 		<tr>
 			<td>${tool.toolId}</td>
-			<td>${tool.name}</td>
 			<td>${tool.toolName}</td>
-			<td>${tool.dateOut}</td>
+			<td>${tool.name}</td>
 			<td>${tool.dateIn}</td>
+			<td>${tool.dateOut}</td>
 		</tr>
 	</c:forEach>
 </tbody>
