@@ -17,12 +17,8 @@ import com.techelevator.model.UserDAO;
 @Controller
 public class UserController {
 
-	private UserDAO userDAO;
-
 	@Autowired
-	public UserController(UserDAO userDAO) {
-		this.userDAO = userDAO;
-	}
+	private UserDAO userDAO;
 
 	@RequestMapping(path="/users/new", method=RequestMethod.GET)
 	public String displayNewUserForm(ModelMap modelHolder) {

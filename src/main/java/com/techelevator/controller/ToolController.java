@@ -16,14 +16,8 @@ import com.techelevator.model.UserDAO;
 @Controller
 public class ToolController {
 
-	private ToolDAO toolDAO;
-
 	@Autowired
-	public ToolController(ToolDAO toolDAO) {
-		this.toolDAO = toolDAO;
-	}
-	
-	
+	private ToolDAO toolDAO;
 	
 	@RequestMapping(path="/completeToolList", method=RequestMethod.GET)
 	public String displayCompleteToolList(HttpServletRequest request) {

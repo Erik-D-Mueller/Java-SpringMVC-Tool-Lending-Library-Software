@@ -14,12 +14,8 @@ import com.techelevator.model.UserDAO;
 @Controller
 public class AuthenticationController {
 
-	private UserDAO userDAO;
-
 	@Autowired
-	public AuthenticationController(UserDAO userDAO) {
-		this.userDAO = userDAO;
-	}
+	private UserDAO userDAO;
 
 	@RequestMapping(path="/login", method=RequestMethod.GET)
 	public String displayLoginForm() {
