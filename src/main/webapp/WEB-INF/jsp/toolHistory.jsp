@@ -28,6 +28,30 @@
 
 <h1>Search for a Tool!</h1>
 
+<div id="newReviewForm">
+	<c:url value="/toolHistory" var="formAction" />
+	<form action="${formAction}" method="POST" >			
+		
+		<div id="searchTerms">
+			<label for="searchTerms">Enter search terms here: </label> 
+			<input type="text" name="searchTerms" id="searchTerms"> 
+		</div>
+		
+		<div id="searchTypeDropBox">
+		<label for="searchType">Search By: </label> <select name="searchType">
+			<option value="driversLicense">driver's license</option>
+			<option value="toolId">tool ID#</option>
+			<option value="userName">user name</option>
+		</select>
+		</div>
+
+		<div id="submitButtonDiv">
+			<input id="formSubmitButton" type="submit" value="Search" />
+		</div>
+	</form>
+
+</div>
+
 
 <div id="toolTable">
 <table class="table table-striped table-hover table-bordered">
