@@ -38,14 +38,18 @@ public class ReservationController {
 			//System.out.println("The big long statement says " + reservationDAO.searchToolsByToolNumber(Integer.parseInt(request.getParameter("toolId"))));
 				request.setAttribute("reservedTools", reservationDAO.searchToolsByToolNumber(Integer.parseInt(request.getParameter("searchString"))));
 			}
-			if (request.getParameter("searchType").equals("userName")) {
+			if (request.getParameter("searchType").equals("userName")) {  
 				System.out.println("You selected UserName");
+				reservationDAO.searchToolsByName(request.getParameter("searchString"));
+				System.out.println("You got past the reservationDAO statement!");
 				System.out.println("The big sql statementn is " + reservationDAO.searchToolsByName(request.getParameter("searchString")) );
 				request.setAttribute("reservedTools", reservationDAO.searchToolsByName(request.getParameter("searchString")));
+			
+			
 			}
 		} 
 		return "toolHistory";
-	}
+	}   
 	
 	@RequestMapping(path= {"/", "/toolHistory"}, method=RequestMethod.GET)
 	public String displayToolHistoryFirst(HttpServletRequest request) {
