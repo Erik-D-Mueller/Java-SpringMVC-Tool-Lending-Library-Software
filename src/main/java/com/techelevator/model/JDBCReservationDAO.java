@@ -33,7 +33,7 @@ public class JDBCReservationDAO implements ReservationDAO {
 				+ "WHERE au.user_name = ? "
 				+ "AND (to_date(?, 'YYYY/MM/DD')) <= r.to_date AND (to_date(?, 'YYYY/MM/DD')) >= r.from_date";
 
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSearchToolsByName, userName, date.toString(),
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSearchToolsByName, userName.toUpperCase(), date.toString(),
 				date.toString());
 
 		while (results.next()) {
