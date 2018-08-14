@@ -32,9 +32,9 @@
 	<c:url value="/toolHistory" var="formAction" />
 	<form action="${formAction}" method="POST" >			
 		
-		<div id="searchTerms">
-			<label for="searchTerms">Enter search terms here: </label> 
-			<input type="text" name="searchTerms" id="searchTerms"> 
+		<div id="searchString">
+			<label for="searchString">Enter search terms here: </label> 
+			<input type="text" name="searchString" id="searchString"> 
 		</div>
 		
 		<div id="searchTypeDropBox">
