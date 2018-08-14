@@ -7,6 +7,12 @@ public class ToolSearch {
 	private String driversLicense;
 	private String toolName;
 	private String toolDescription;
+	
+	public ToolSearch() {
+		
+	}
+	
+	
 	public int getToolId() {
 		return toolId;
 	}
