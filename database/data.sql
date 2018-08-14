@@ -5,14 +5,14 @@
 BEGIN;
 
 -- INSERT statements go here
-INSERT INTO app_user (user_name, password, role, salt) VALUES ('Beth', 'beth', 'librarian', 'abcde');
-INSERT INTO app_user (user_name, password, role, salt) VALUES ('Mason', 'mason', 'member', 'xyz');
-INSERT INTO app_user (user_name, password, role, salt) VALUES ('Oprah', 'oprah', 'member', 'harpo');
-INSERT INTO app_user (user_name, password, role, salt) VALUES ('Erik', 'erik', 'librarian', 'erik');
-INSERT INTO app_user (user_name, password, role, salt) VALUES ('Steve', 'steve', 'member', 'steve');
+INSERT INTO app_user (user_name, password, role, drivers_license, salt) VALUES ('Beth', 'beth', 'librarian', 'AA123456', 'abcde');
+INSERT INTO app_user (user_name, password, role, drivers_license, salt) VALUES ('Mason', 'mason', 'member', 'BB123456', 'xyz');
+INSERT INTO app_user (user_name, password, role, drivers_license, salt) VALUES ('Oprah', 'oprah', 'member', 'CC123456', 'harpo');
+INSERT INTO app_user (user_name, password, role, drivers_license, salt) VALUES ('Erik', 'erik', 'librarian', 'DD123456', 'erik');
+INSERT INTO app_user (user_name, password, role, drivers_license, salt) VALUES ('Steve', 'steve', 'member', 'EE123456', 'steve');
 INSERT INTO app_user (user_name, password, role, salt) VALUES ('Bella', 'bella', 'librarian', 'bella');
-INSERT INTO app_user (user_name, password, role, salt) VALUES ('Kyle', 'kyle', 'member', 'kyle');
-INSERT INTO app_user (user_name, password, role, salt) VALUES ('Andrew', 'andrew', 'member', 'andrew');
+INSERT INTO app_user (user_name, password, role, drivers_license, salt) VALUES ('Kyle', 'kyle', 'member', 'FF123456', 'kyle');
+INSERT INTO app_user (user_name, password, role, drivers_license, salt) VALUES ('Andrew', 'andrew', 'member', 'GG123456', 'andrew');
 
 INSERT INTO tool_type (tool_name, tool_description) VALUES ('HAMMER', 'This is a hammer');
 INSERT INTO tool_type (tool_name, tool_description) VALUES ('SAW', 'This is a saw');
