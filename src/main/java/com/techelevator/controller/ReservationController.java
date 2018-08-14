@@ -20,10 +20,10 @@ public class ReservationController {
 	public String displayToolHistory(HttpServletRequest request) {
 		System.out.println("You hit the BIG controller!");
 		
-		String temp = request.getParameter("toolId");
+		//String temp = request.getParameter("searchString");
 		
-		System.out.println("Your search string in integer is: " + Integer.valueOf(request.getParameter("toolId")));
-		System.out.println("Your search parameter is " + request.getParameter("searchType"));
+	//	System.out.println("Your search string in integer is: " + Integer.parseInt(temp));
+		System.out.println("Your search parameter is " + request.getParameter("searchString"));
 		
 		if (request.getParameter("searchString") != null && !request.getParameter("searchString").isEmpty() /*&& 
 				request.getParameter("searchType") != null && !request.getParameter("searchType").isEmpty()*/) {	
@@ -31,16 +31,17 @@ public class ReservationController {
 			
 			if (request.getParameter("searchType").equals("driversLicense")) {
 				System.out.println("You selected Drivers License");
-				request.setAttribute("reservedTools", reservationDAO.searchToolsByDriversLicense(request.getParameter("driversLicense")));
+				request.setAttribute("reservedTools", reservationDAO.searchToolsByDriversLicense(request.getParameter("searchString")));
 			}
 			if (request.getParameter("searchType").equals("toolId")) {
 				System.out.println("you selected Tool Id");
-			//	System.out.println(reservationDAO.searchToolsByToolNumber(Integer.parseInt(request.getParameter("toolId"))));
-				request.setAttribute("reservedTools", reservationDAO.searchToolsByToolNumber(Integer.parseInt(request.getParameter("toolId"))));
+			//System.out.println("The big long statement says " + reservationDAO.searchToolsByToolNumber(Integer.parseInt(request.getParameter("toolId"))));
+				request.setAttribute("reservedTools", reservationDAO.searchToolsByToolNumber(Integer.parseInt(request.getParameter("searchString"))));
 			}
 			if (request.getParameter("searchType").equals("userName")) {
 				System.out.println("You selected UserName");
-				request.setAttribute("reservedTools", reservationDAO.searchToolsByName(request.getParameter("userName")));
+				System.out.println("The big sql statementn is " + reservationDAO.searchToolsByName(request.getParameter("searchString")) );
+				request.setAttribute("reservedTools", reservationDAO.searchToolsByName(request.getParameter("searchString")));
 			}
 		} 
 		return "toolHistory";
