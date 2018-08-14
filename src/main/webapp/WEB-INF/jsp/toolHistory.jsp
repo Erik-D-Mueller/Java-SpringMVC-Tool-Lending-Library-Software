@@ -25,8 +25,9 @@
 	});
 </script>
 
-<div class="noHeader" id="masterToolList">
-<h2> <span class="toolListHeader"> Master Tool List </span></h2>
+
+<h1>Search for a Tool!</h1>
+
 
 <div id="toolTable">
 <table class="table table-striped table-hover table-bordered">
@@ -39,7 +40,7 @@
 </thead>
 
 <tbody>
-	<c:forEach items="${availableTools}" var="tool" >
+	<c:forEach items="${reservedTools}" var="tool" >
 		<tr>
 			<td>${tool.toolId}</td>
 			<td>${tool.name}</td>
@@ -50,10 +51,6 @@
 </table>
 
 </div>
-</div>
-
-
-
 
 
 

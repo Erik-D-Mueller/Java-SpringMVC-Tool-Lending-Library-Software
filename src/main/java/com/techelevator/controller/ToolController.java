@@ -38,20 +38,4 @@ public class ToolController {
 		
 		return "availableToolList";
 	}
-	
-	@RequestMapping(path="toolHistoryByDrivers", method=RequestMethod.POST)
-	public String displayToolHistoryByDrivers(HttpServletRequest request) {
-		
-		return "toolHistory";
-	}
-	@RequestMapping(path="toolHistoryByToolId", method=RequestMethod.POST)
-	public String displayToolHistoryByToolId(HttpServletRequest request) {
-		
-		return "toolHistory";
-	}
-	@RequestMapping(path="toolHistoryByName", method=RequestMethod.POST)
-	public String displayToolHistoryByName(HttpServletRequest request) {
-		
-		return "toolHistory";
-	}
 }
