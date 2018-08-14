@@ -11,6 +11,7 @@ public class TestMain {
 	public static void main(String[] args) {
 
 		ToolDAO test;
+		ReservationDAO test2;
 		
 		BasicDataSource dataSource = new BasicDataSource();
 		dataSource.setUrl("jdbc:postgresql://localhost:5432/capstone");
@@ -18,13 +19,45 @@ public class TestMain {
 		
 		test = new JDBCToolDAO(dataSource);
 		
-		List<Tool> testList = new ArrayList<>();
-		testList = test.getAllAvailableTools();
+//		List<Tool> testList = new ArrayList<>();
+//		testList = test.getAllAvailableTools();
+//		
+//		for(Tool e: testList) {
+//			System.out.println(e.getToolId());
+//		}
 		
-		for(Tool e: testList) {
+		test2 = new JDBCReservationDAO(dataSource);
+		
+		List<Reservation> testList = new ArrayList<>();
+		testList = test2.searchToolsByToolNumber(1);
+		
+		for(Reservation e: testList) {
 			System.out.println(e.getToolId());
+			System.out.println(e.getToolName());
+			System.out.println(e.getName());
+			System.out.println(e.getDateOut());
+			System.out.println(e.getDateIn());
 		}
 		
+		testList = test2.searchToolsByName("Erik");
+		
+		for(Reservation e: testList) {
+			System.out.println(e.getToolId());
+			System.out.println(e.getToolName());
+			System.out.println(e.getName());
+			System.out.println(e.getDateOut());
+			System.out.println(e.getDateIn());
+		}
+		
+		testList = test2.searchToolsByDriversLicense("DD123456");
+		
+		for(Reservation e: testList) {
+			System.out.println(e.getToolId());
+			System.out.println(e.getToolName());
+			System.out.println(e.getName());
+			System.out.println(e.getDateOut());
+			System.out.println(e.getDateIn());
+		}
 	}
 
 }
