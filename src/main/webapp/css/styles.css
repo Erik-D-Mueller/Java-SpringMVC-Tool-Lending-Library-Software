@@ -1,5 +1,5 @@
 body{
-	background-color: MediumSeaGreen;
+	background-color: LightBlue;
 }
 
 tr nth-child(even){
@@ -10,7 +10,7 @@ tr nth-child(odd){
 }
 
 thead {
-	background-color : Peru; 
+	background-color : DarkGray; 
 	color: black;
 }
 
@@ -20,8 +20,31 @@ thead {
 
 table {
 	background-color: white;
+	margin-top: 10px;
 }
 
 .toolListHeader {
 	text-align: center;
 }
+
+footer {
+	background-color: LightBlue;
+	position:fixed;
+	bottom: 0px;
+	width: 300px;
+	text-align: center;
+}
+
+#formSubmitButton {
+	border-radius: 8px !important; 
+}
+
+ #logo {
+	height: auto; 
+    width: auto; 
+    max-width: 70px; 
+    max-height: 70px;
+    position: relative;
+    margin-top: -10px;
+    
+} 

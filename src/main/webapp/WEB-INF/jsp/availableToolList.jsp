@@ -26,7 +26,7 @@
 </script>
 
 <div class="noHeader" id="masterToolList">
-<h2> <span class="toolListHeader"> Master Tool List </span></h2>
+<h2> <span class="toolListHeader">Currently Available Tools</span></h2>
 
 <div id="toolTable">
 <table class="table table-striped table-hover table-bordered">

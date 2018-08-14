@@ -35,14 +35,27 @@
 	<body>
 		<header>
 			<c:url var="homePageHref" value="/" />
-			<c:url var="imgSrc" value="/img/logo.png" />
-			<a href="${homePageHref}"><img src="${imgSrc}" class="img-responsive" /></a>
+			<c:url var="imgSrc" value="/img/logo.jpg" />
 		</header>
 		<nav class="navbar navbar-default">
-			<div class="container-fluid">
+		<a href="${homePageHref}"></a>
+			<div class="container-fluid">	
+				<div class="navbar-header">	
+					<a class="navbar-brand" href="${homePageHref}">
+						<img id="logo" src="${imgSrc}" class="img-responsive" />
+					</a>
+				</div>
+				
 				<ul class="nav navbar-nav">
 					<c:url var="homePageHref" value="/" />
+					<c:url var="toolSearchHref" value="/toolHistory" />
+					<c:url var="toolMasterHref" value="/completeToolList" />
+					<c:url var="availableToolHref" value="/availableToolList" />
+					
 					<li><a href="${homePageHref}">Home</a></li>
+					<li><a href="${toolSearchHref}">Tool Search</a></li>
+					<li><a href="${toolMasterHref}">Tool Master List</a></li>
+					<li><a href="${availableToolHref}">Available Tool List</a></li>
 					<c:if test="${not empty currentUser}">
 						<c:url var="dashboardHref" value="/users/${currentUser}" />
 						<li><a href="${dashboardHref}">Private Messages</a></li>
