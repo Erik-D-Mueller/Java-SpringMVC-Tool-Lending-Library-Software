@@ -2,7 +2,7 @@ package com.techelevator.model;
 
 import java.util.List;
 
-public interface ToolSearchDAO {
+public interface ReservationDAO {
 
 	public List<Tool> searchToolsByName();
 	

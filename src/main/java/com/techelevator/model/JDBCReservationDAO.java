@@ -17,13 +17,13 @@ import org.springframework.stereotype.Component;
 
 
 @Component
-public class JDBCToolSearchDAO implements ToolSearchDAO {
+public class JDBCReservationDAO implements ReservationDAO {
 
 	private JdbcTemplate jdbcTemplate;
 
 
 	@Autowired
-	public JDBCToolSearchDAO(DataSource dataSource) {
+	public JDBCReservationDAO(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 	
