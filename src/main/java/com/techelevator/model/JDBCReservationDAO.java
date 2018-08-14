@@ -31,8 +31,7 @@ public class JDBCReservationDAO implements ReservationDAO {
 				+ "JOIN tool_reservation tr ON r.reservation_id = tr.reservation_id "
 				+ "JOIN tool t ON tr.tool_id = t.tool_id " + "JOIN tool_type tt ON t.tool_type_id = tt.tool_type_id "
 				+ "WHERE au.user_name = ? "
-				+ "AND (to_date(?, 'YYYY/MM/DD')) <= r.to_date AND (to_date(?, 'YYYY/MM/DD')) >= r.from_date"
-				+ "FROM tool t JOIN tool_type tt ON tt.tool_type_id = t.tool_type_id ";
+				+ "AND (to_date(?, 'YYYY/MM/DD')) <= r.to_date AND (to_date(?, 'YYYY/MM/DD')) >= r.from_date";
 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSearchToolsByName, userName, date.toString(),
 				date.toString());
@@ -56,8 +55,7 @@ public class JDBCReservationDAO implements ReservationDAO {
 				+ "JOIN tool_reservation tr ON r.reservation_id = tr.reservation_id "
 				+ "JOIN tool t ON tr.tool_id = t.tool_id " + "JOIN tool_type tt ON t.tool_type_id = tt.tool_type_id "
 				+ "WHERE au.drivers_license = ? "
-				+ "AND (to_date(?, 'YYYY/MM/DD')) <= r.to_date AND (to_date(?, 'YYYY/MM/DD')) >= r.from_date"
-				+ "FROM tool t JOIN tool_type tt ON tt.tool_type_id = t.tool_type_id ";
+				+ "AND (to_date(?, 'YYYY/MM/DD')) <= r.to_date AND (to_date(?, 'YYYY/MM/DD')) >= r.from_date";
 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSearchToolsByDriversLicense, driversLicense, date.toString(),
 				date.toString());
@@ -81,8 +79,7 @@ public class JDBCReservationDAO implements ReservationDAO {
 				+ "JOIN tool_reservation tr ON r.reservation_id = tr.reservation_id "
 				+ "JOIN tool t ON tr.tool_id = t.tool_id " + "JOIN tool_type tt ON t.tool_type_id = tt.tool_type_id "
 				+ "WHERE t.tool_id = ? "
-				+ "AND (to_date(?, 'YYYY/MM/DD')) <= r.to_date AND (to_date(?, 'YYYY/MM/DD')) >= r.from_date"
-				+ "FROM tool t JOIN tool_type tt ON tt.tool_type_id = t.tool_type_id ";
+				+ "AND (to_date(?, 'YYYY/MM/DD')) <= r.to_date AND (to_date(?, 'YYYY/MM/DD')) >= r.from_date";
 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSearchToolsByToolNumber, toolId, date.toString(),
 				date.toString());
