@@ -57,9 +57,11 @@
 <table class="table table-striped table-hover table-bordered">
 <thead class="thead-dark">
 <tr>
-	<th scope="col" >Individual Tool id</th>
+	<th scope="col">Individual Tool Id</th>
 	<th scope="col">Tool Name</th>
-	<th scope="col">Tool Description</th>
+	<th scope="col">User Name</th>
+	<th scope="col">Date Checked Out</th>
+	<th scope="col">Date Expected Back</th>
 </tr>
 </thead>
 
@@ -68,7 +70,9 @@
 		<tr>
 			<td>${tool.toolId}</td>
 			<td>${tool.name}</td>
-			<td>${tool.description}</td>
+			<td>${tool.toolName}</td>
+			<td>${tool.dateOut}</td>
+			<td>${tool.dateIn}</td>
 		</tr>
 	</c:forEach>
 </tbody>
