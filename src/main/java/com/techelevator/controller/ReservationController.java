@@ -78,12 +78,12 @@ public class ReservationController {
 			return "toolHistory";
 			}
 			if( request.getParameter("searchType").equals("toolId") && !onlyHasNums) {
-				request.setAttribute("charErrorMsg", "Please only enters numbers for a tool ID search");
+				request.setAttribute("charErrorMsg", "Please only enter numbers for a tool ID search");
 				request.setAttribute("charError", true);
 				return "toolHistory";
 			}
 			if(request.getParameter("searchType").equals("userName") && !onlyHasLetters ){
-				request.setAttribute("charErrorMsg", "Please only enters letters for a name search");
+				request.setAttribute("charErrorMsg", "Please only enter letters for a name search");
 				request.setAttribute("charError", true);
 				return "toolHistory";
 			}
