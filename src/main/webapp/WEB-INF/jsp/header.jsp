@@ -51,11 +51,13 @@
 					<c:url var="toolSearchHref" value="/toolHistory" />
 					<c:url var="toolMasterHref" value="/completeToolList" />
 					<c:url var="availableToolHref" value="/availableToolList" />
+					<c:url var="checkedOutToolsHref" value="/checkedOutTools" />
 					
 					<li><a href="${homePageHref}">Home</a></li>
 					<li><a href="${toolSearchHref}">Tool Search</a></li>
 					<li><a href="${toolMasterHref}">Tool Master List</a></li>
 					<li><a href="${availableToolHref}">Available Tool List</a></li>
+					<li><a href="${checkedOutToolsHref}">View Currently Checked Out Tools</a></li>
 					<c:if test="${not empty currentUser}">
 						<c:url var="dashboardHref" value="/users/${currentUser}" />
 						<li><a href="${dashboardHref}">Private Messages</a></li>

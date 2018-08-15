@@ -28,7 +28,6 @@ public class ReservationController {
 			if (request.getParameter("searchType").equals("userName")) {  
 				request.setAttribute("reservedTools", reservationDAO.searchToolsByName(request.getParameter("searchString")));
 			
-			
 			}
 		} 
 		return "toolHistory";
@@ -37,5 +36,13 @@ public class ReservationController {
 	@RequestMapping(path= {"/", "/toolHistory"}, method=RequestMethod.GET)
 	public String displayToolHistoryFirst(HttpServletRequest request) {
 		return "toolHistory";
+	}
+	
+	@RequestMapping("/checkedOutTools")
+	public String displayCheckedOutTools(HttpServletRequest request) {
+		
+		request.setAttribute("allCheckedOutTools", reservationDAO.getAllCheckedOutTools());
+		
+		return "checkedOutTools";
 	}
 }

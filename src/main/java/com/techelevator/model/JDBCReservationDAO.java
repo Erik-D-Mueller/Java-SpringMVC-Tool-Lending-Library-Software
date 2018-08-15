@@ -90,6 +90,29 @@ public class JDBCReservationDAO implements ReservationDAO {
 		}
 		return searchToolsByToolNumber;
 	}
+	
+	@Override
+	public List<Reservation> getAllCheckedOutTools(){
+		
+		List<Reservation> searchForCheckedOutTools = new ArrayList<>();
+		
+		LocalDate date = LocalDate.now();
+	
+		String sqlSearchCheckedOutTools = "SELECT t.tool_id, tt.tool_name, au.user_name, r.from_date, r.to_date "
+				+ "FROM app_user au " + "JOIN reservation r ON r.app_user_id = au.app_user_id "
+				+ "JOIN tool_reservation tr ON r.reservation_id = tr.reservation_id "
+				+ "JOIN tool t ON tr.tool_id = t.tool_id " + "JOIN tool_type tt ON t.tool_type_id = tt.tool_type_id "
+				+ "AND (to_date(?, 'YYYY/MM/DD')) <= r.to_date AND (to_date(?, 'YYYY/MM/DD')) >= r.from_date";
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSearchCheckedOutTools, date.toString(),
+				date.toString());
+		
+		while (results.next()) {
+			Reservation theReservation = mapRowToReservation(results);
+			searchForCheckedOutTools.add(theReservation);
+		}
+		return searchForCheckedOutTools;
+	}
 
 	public Reservation mapRowToReservation(SqlRowSet results) {
 
