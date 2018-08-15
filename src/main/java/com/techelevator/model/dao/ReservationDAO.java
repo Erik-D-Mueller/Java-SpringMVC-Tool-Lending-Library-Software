@@ -11,5 +11,7 @@ public interface ReservationDAO {
 	public List<Reservation> searchToolsByDriversLicense(String driversLicense);
 
 	public List<Reservation> searchToolsByToolNumber(int toolId);
+	
+	public List<Reservation> getAllCheckedOutTools();
 
 }
