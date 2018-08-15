@@ -14,18 +14,18 @@ public class ToolController {
 
 	@Autowired
 	private ToolDAO toolDAO;
-	
-	@RequestMapping(path="/completeToolList", method=RequestMethod.GET)
+
+	@RequestMapping(path = "/completeToolList", method = RequestMethod.GET)
 	public String displayCompleteToolList(HttpServletRequest request) {
 		request.setAttribute("allTools", toolDAO.getAllTools());
 
 		return "completeToolList";
 	}
-	
-	@RequestMapping(path="/availableToolList", method=RequestMethod.GET)
+
+	@RequestMapping(path = "/availableToolList", method = RequestMethod.GET)
 	public String displayAvailableToolList(HttpServletRequest request) {
 		request.setAttribute("availableTools", toolDAO.getAllAvailableTools());
-		
+
 		return "availableToolList";
 	}
 }
