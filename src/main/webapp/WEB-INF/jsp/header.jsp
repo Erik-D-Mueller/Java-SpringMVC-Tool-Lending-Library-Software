@@ -18,7 +18,7 @@
 <script
 	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 
-<c:url var="cssHref" value="css/styles.css" />
+<c:url var="cssHref" value="/css/styles.css" />
 <link rel="stylesheet" type="text/css" href="${cssHref}">
 
 <script type="text/javascript">
