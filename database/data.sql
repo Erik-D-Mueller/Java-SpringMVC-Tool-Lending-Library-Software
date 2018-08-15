@@ -67,5 +67,4 @@ INSERT INTO tool_reservation (tool_id, reservation_id) VALUES (7, 8);
 
 INSERT INTO tool_reservation (tool_id, reservation_id) VALUES (8, 9);
 
-
 COMMIT;
