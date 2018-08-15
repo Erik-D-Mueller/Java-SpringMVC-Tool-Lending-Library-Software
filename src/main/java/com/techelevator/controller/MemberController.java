@@ -7,9 +7,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.techelevator.model.dao.MemberDAO;
+import com.techelevator.model.domain.Member;
 
 @Controller
 public class MemberController {
+	
+	Member member;
 
 	@Autowired
 	private MemberDAO memberDAO;
@@ -21,4 +24,5 @@ public class MemberController {
 		
 		return "memberList";
 	}
+
 }

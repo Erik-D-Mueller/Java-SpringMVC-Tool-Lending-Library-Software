@@ -42,6 +42,26 @@ public class JDBCMemberDAO implements MemberDAO {
 		return searchForAllMembers;
 	}
 	
+	@Override
+	public Member getMemberById(int id) {
+		
+		Member theMember = new Member();
+		
+		String sqlSearchForAllMembers = "SELECT app_user_id, user_name "
+										+"FROM app_user "
+										+"WHERE role = 'MEMBER' AND app_user_id=?";
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSearchForAllMembers, id);
+		
+		while(results.next()) {
+			
+			theMember = mapRowToMember(results);
+		}
+		
+		return theMember;
+	}
+
+	
 	public Member mapRowToMember(SqlRowSet results) {
 		
 		Member theMember = new Member();
