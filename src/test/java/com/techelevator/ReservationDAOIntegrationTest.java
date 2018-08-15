@@ -7,9 +7,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.techelevator.model.JDBCReservationDAO;
-import com.techelevator.model.Reservation;
-import com.techelevator.model.ReservationDAO;
+import com.techelevator.model.dao.ReservationDAO;
+import com.techelevator.model.domain.Reservation;
+import com.techelevator.model.jdbc.JDBCReservationDAO;
 
 public class ReservationDAOIntegrationTest extends DAOIntegrationTest {
 

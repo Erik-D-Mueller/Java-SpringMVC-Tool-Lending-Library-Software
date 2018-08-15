@@ -5,6 +5,12 @@ import java.util.List;
 
 import org.apache.commons.dbcp2.BasicDataSource;
 
+import com.techelevator.model.dao.ReservationDAO;
+import com.techelevator.model.dao.ToolDAO;
+import com.techelevator.model.domain.Reservation;
+import com.techelevator.model.jdbc.JDBCReservationDAO;
+import com.techelevator.model.jdbc.JDBCToolDAO;
+
 public class TestMain {
 	
 	
@@ -26,7 +32,7 @@ public class TestMain {
 //			System.out.println(e.getToolId());
 //		}
 		
-		test2 = new JDBCReservationDAO(dataSource);
+		test2 = new com.techelevator.model.jdbc.JDBCReservationDAO(dataSource);
 		
 		List<Reservation> testList = new ArrayList<>();
 		testList = test2.searchToolsByToolNumber(1);

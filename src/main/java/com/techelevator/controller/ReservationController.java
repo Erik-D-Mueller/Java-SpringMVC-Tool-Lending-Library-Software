@@ -5,7 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import com.techelevator.model.ReservationDAO;
+
+import com.techelevator.model.dao.ReservationDAO;
 
 @Controller
 public class ReservationController {

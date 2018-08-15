@@ -1,4 +1,4 @@
-package com.techelevator.model;
+package com.techelevator.model.domain;
 
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;

@@ -10,9 +10,9 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.techelevator.model.JDBCToolDAO;
-import com.techelevator.model.Tool;
-import com.techelevator.model.ToolDAO;
+import com.techelevator.model.dao.ToolDAO;
+import com.techelevator.model.domain.Tool;
+import com.techelevator.model.jdbc.JDBCToolDAO;
 
 public class ToolDAOIntegrationTest extends DAOIntegrationTest {
 

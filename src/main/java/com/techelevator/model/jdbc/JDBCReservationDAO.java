@@ -1,4 +1,4 @@
-package com.techelevator.model;
+package com.techelevator.model.jdbc;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
+import com.techelevator.model.dao.ReservationDAO;
+import com.techelevator.model.domain.Reservation;
 
 @Component
 public class JDBCReservationDAO implements ReservationDAO {
