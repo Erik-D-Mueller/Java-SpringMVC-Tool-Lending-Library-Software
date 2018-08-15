@@ -56,6 +56,8 @@
 				<c:url var="toolMasterHref" value="/completeToolList" />
 				<c:url var="availableToolHref" value="/availableToolList" />
 				<c:url var="checkedOutToolsHref" value="/checkedOutTools" />
+				<c:url var="viewCartHref" value="/viewCart" />
+				<c:url var="memberListHref" value="/memberList" />
 
 				<li><a href="${homePageHref}">Home</a></li>
 				<li><a href="${toolSearchHref}">Tool Search</a></li>
@@ -63,6 +65,9 @@
 				<li><a href="${availableToolHref}">Available Tool List</a></li>
 				<li><a href="${checkedOutToolsHref}">View Currently Checked
 						Out Tools</a></li>
+				<li><a href="${viewCartHref}">View Cart</a></li>
+				<li><a href="${memberListHref}">Member List</a></li>
+				
 				<c:if test="${not empty currentUser}">
 					<c:url var="dashboardHref" value="/users/${currentUser}" />
 					<li><a href="${dashboardHref}">Private Messages</a></li>

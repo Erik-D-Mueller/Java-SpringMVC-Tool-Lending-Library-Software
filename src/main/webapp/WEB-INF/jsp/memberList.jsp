@@ -2,29 +2,6 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-<script type="text/javascript">
-	$(document).ready(function() {
-
-		$("form").validate({
-
-			rules : {
-				userName : {
-					required : true
-				},
-				password : {
-					required : true
-				}
-			},
-			messages : {
-				confirmPassword : {
-					equalTo : "Passwords do not match"
-				}
-			},
-			errorClass : "error"
-		});
-	});
-</script>
-
 <div class="noHeader" id="masterToolList">
 	<h2>
 		<span class="toolListHeader">List of All Members</span>

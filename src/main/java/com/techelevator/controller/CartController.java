@@ -29,5 +29,11 @@ public class CartController {
 		return "redirect:/availableToolList";
 	}
 	
+	@RequestMapping(path="/viewCart", method=RequestMethod.GET)
+	public String viewCart(HttpServletRequest request, ModelMap map) {
+				
+		return "viewCart";
+	}
+	
 	
 }

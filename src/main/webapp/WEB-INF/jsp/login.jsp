@@ -2,29 +2,6 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-<script type="text/javascript">
-	$(document).ready(function () {
-	
-		$("form").validate({
-			
-			rules : {
-				userName : {
-					required : true
-				},
-				password : {
-					required : true
-				}
-			},
-			messages : {			
-				confirmPassword : {
-					equalTo : "Passwords do not match"
-				}
-			},
-			errorClass : "error"
-		});
-	});
-</script>
-
 <div class="row">
 	<div class="col-sm-4"></div>
 	<div class="col-sm-4">

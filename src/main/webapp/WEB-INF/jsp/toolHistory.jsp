@@ -2,30 +2,6 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-<script type="text/javascript">
-	$(document).ready(function() {
-
-		$("form").validate({
-
-			rules : {
-				userName : {
-					required : true
-				},
-				password : {
-					required : true
-				}
-			},
-			messages : {
-				confirmPassword : {
-					equalTo : "Passwords do not match"
-				}
-			},
-			errorClass : "error"
-		});
-	});
-</script>
-
-
 <h1>Search currently checked out tools:</h1>
 
 
@@ -38,9 +14,9 @@
 				type="text" name="searchString" id="searchString">
 		</div>
 
-<c:if test="${charError==true}">
-<h4 style="color: red;">${charErrorMsg}</h4>
-</c:if>
+		<c:if test="${charError==true}">
+			<h4 style="color: red;">${charErrorMsg}</h4>
+		</c:if>
 
 		<div id="searchTypeDropBox">
 			<label for="searchType">Search By: </label> <select name="searchType">
