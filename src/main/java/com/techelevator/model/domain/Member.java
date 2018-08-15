@@ -1,10 +1,20 @@
 package com.techelevator.model.domain;
 
-public class Member {
+import java.util.List;
 
+public class Member {
+	
 	private int memberId;
 	private String userName;
+	private List<Reservation> listOfReservations;
 	
+	public List<Reservation> getListOfReservations() {
+		return listOfReservations;
+	}
+	public void setListOfReservations(List<Reservation> listOfReservations) {
+		this.listOfReservations = listOfReservations;
+	}
+
 	public int getMemberId() {
 		return memberId;
 	}

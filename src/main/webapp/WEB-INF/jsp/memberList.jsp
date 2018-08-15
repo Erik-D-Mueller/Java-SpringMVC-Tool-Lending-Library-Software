@@ -30,7 +30,7 @@
 		<span class="toolListHeader">List of All Members</span>
 	</h2>
 
-	<c:url value="/availableToolList" var="editCart"/>
+	<c:url value="/chooseMember" var="editCart"/>
 	<form action="${editCart}" method="POST">
 
 	<div id="toolTable">
@@ -48,7 +48,7 @@
 					<tr>
 						<td>${member.memberId}</td>
 						<td>${member.userName}</td>
-						<td><a href="${editCart}">edit cart</a></td>
+						<td><a href="${editCart}?memberId=${member.memberId}">edit cart</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
