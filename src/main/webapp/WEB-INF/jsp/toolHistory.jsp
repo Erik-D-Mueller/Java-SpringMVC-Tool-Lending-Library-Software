@@ -26,7 +26,8 @@
 </script>
 
 
-<h1>Search for a Tool!</h1>
+<h1>Search currently checked out tools:</h1>
+
 
 <div id="newReviewForm">
 	<c:url value="/toolHistory" var="formAction" />
@@ -36,6 +37,10 @@
 			<label for="searchString">Enter search terms here: </label> <input
 				type="text" name="searchString" id="searchString">
 		</div>
+
+<c:if test="${charError==true}">
+<h4 style="color: red;">${charErrorMsg}</h4>
+</c:if>
 
 		<div id="searchTypeDropBox">
 			<label for="searchType">Search By: </label> <select name="searchType">
@@ -51,7 +56,6 @@
 	</form>
 
 </div>
-
 
 <div id="toolTable">
 	<table class="table table-striped table-hover table-bordered">

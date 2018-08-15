@@ -7,4 +7,6 @@ import com.techelevator.model.domain.Member;
 public interface MemberDAO {
 
 	public List<Member> getAllMembers();
+	
+	public Member getMemberById(int id);
 }
