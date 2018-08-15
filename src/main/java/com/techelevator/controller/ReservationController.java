@@ -13,7 +13,7 @@ public class ReservationController {
 
 	@Autowired
 	private ReservationDAO reservationDAO;
-
+	
 	@RequestMapping(path = "/toolHistory", method = RequestMethod.POST)
 	public String displayToolHistory(HttpServletRequest request) {
 
@@ -48,4 +48,5 @@ public class ReservationController {
 
 		return "checkedOutTools";
 	}
+	
 }
