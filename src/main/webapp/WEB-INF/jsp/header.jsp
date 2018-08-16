@@ -41,40 +41,41 @@
 		<c:url var="homePageHref" value="/" />
 		<c:url var="imgSrc" value="/img/logo.jpg" />
 	</header>
-		<div class="jumbotron jumbotron-fluid">
-	  <div class="container">
-	    <h1 class="display-4">Tool Library</h1>
-	    <p class="lead">Welcome to our free tool library!</p>
-	  </div>
+	<div class="jumbotron jumbotron-fluid">
+		<div class="container">
+			<h1 class="display-4">Tool Library</h1>
+			<p class="lead">Welcome to our free tool library!</p>
+		</div>
 	</div>
+	<c:url var="homePageHref" value="/" />
+	<c:url var="toolSearchHref" value="/toolHistory" />
+	<c:url var="toolMasterHref" value="/completeToolList" />
+	<c:url var="availableToolHref" value="/availableToolList" />
+	<c:url var="checkedOutToolsHref" value="/checkedOutTools" />
+	<c:url var="viewCartHref" value="/viewCart" />
+	<c:url var="memberListHref" value="/memberList" />
 	
-	<nav class="navbar navbar-default">
-		<a href="${homePageHref}"></a>
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<a class="navbar-brand" href="${homePageHref}"> <img id="logo"
-					src="${imgSrc}" class="img-responsive" />
-				</a>
-			</div>
+	
+	<nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
+
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 
 			<ul class="nav navbar-nav">
-				<c:url var="homePageHref" value="/" />
-				<c:url var="toolSearchHref" value="/toolHistory" />
-				<c:url var="toolMasterHref" value="/completeToolList" />
-				<c:url var="availableToolHref" value="/availableToolList" />
-				<c:url var="checkedOutToolsHref" value="/checkedOutTools" />
-				<c:url var="viewCartHref" value="/viewCart" />
-				<c:url var="memberListHref" value="/memberList" />
 
-				<li><a href="${homePageHref}">Home</a></li>
+				<li class="nav-item"><a class="nav-link" href="${homePageHref}">Home</a></li>
 				<li><a href="${toolSearchHref}">Tool Search</a></li>
-				<li><a href="${toolMasterHref}">Tool Master List</a></li>
-				<li><a href="${availableToolHref}">Available Tool List</a></li>
-				<li><a href="${checkedOutToolsHref}">View Currently Checked
-						Out Tools</a></li>
+
+				<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tool Lists </a>
+					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<li><a href="${toolMasterHref}">Tool Master List</a> </li>
+						<li><a href="${availableToolHref}">Available Tools</a> </li>
+						<li class="dropdown-item nav-item" ><a href="${checkedOutToolsHref}">Currently Checked Out</a></li>
+					</ul>
+				</li>
 				<li><a href="${viewCartHref}">View Cart</a></li>
 				<li><a href="${memberListHref}">Member List</a></li>
-				
+
 				<c:if test="${not empty currentUser}">
 					<c:url var="dashboardHref" value="/users/${currentUser}" />
 					<li><a href="${dashboardHref}">Private Messages</a></li>
