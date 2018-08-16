@@ -10,7 +10,7 @@
 	<h2>${memberName}</h2>
 
 	<c:url value="/viewCart" var="formAction" />
-	<form action="${formAction}" method="GET">
+	<form action="${formAction}" method="POST">
 
 		<div id="toolTable">
 			<table class="table table-striped table-hover table-bordered">
@@ -32,9 +32,7 @@
 							<td>${tool.description}</td>
 							<td>
 								<c:if test="${member != null}">
-									<div id="submitButtonDiv">
-										<input id="formSubmitButton" type="submit" value="Add to Cart" />
-									</div>
+    								<button name="tool_id" value="${tool.toolId}">Add To Cart</button>
 								</c:if>
 							</td>
 						</tr>

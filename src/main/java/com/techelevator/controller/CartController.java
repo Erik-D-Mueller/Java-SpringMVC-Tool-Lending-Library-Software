@@ -38,7 +38,7 @@ public class CartController {
 		return "redirect:/availableToolList";
 	}
 	
-	@RequestMapping(path="/viewCart", method=RequestMethod.GET)
+	@RequestMapping(path="/viewCart", method=RequestMethod.POST)
 	public String viewCart(HttpServletRequest request, ModelMap model) {
 		
 		Tool toolToAdd = toolDAO.getToolById(Integer.parseInt(request.getParameter("tool_id")));

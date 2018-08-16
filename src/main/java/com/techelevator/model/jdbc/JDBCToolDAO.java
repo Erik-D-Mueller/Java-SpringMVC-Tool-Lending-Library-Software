@@ -66,7 +66,7 @@ public class JDBCToolDAO implements ToolDAO {
 		
 		String sqlGetToolById = "SELECT * FROM tool t JOIN tool_type tt ON t.tool_type_id = tt.tool_type_id WHERE t.tool_id = ?";
 		
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetToolById);
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetToolById, id);
 		
 		while(results.next()) {
 			newTool = mapRowToTool(results);
