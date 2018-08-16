@@ -1,8 +1,11 @@
 package com.techelevator.model.jdbc;
+
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
+import javax.sql.RowSet;
 
 //import javax.tools.Tool;
 import com.techelevator.model.domain.Tool;
@@ -17,7 +20,7 @@ import com.techelevator.model.domain.Reservation;
 
 
 @Component
-public class JDBCReservationDAO implements ReservationDAO {
+public class JDBCReservationDAO implements ReservationDAO, Statement{
 
 	private JdbcTemplate jdbcTemplate;
 
@@ -139,15 +142,19 @@ public class JDBCReservationDAO implements ReservationDAO {
 	@Override
 	public boolean saveNewReservation(Reservation reservation) {
 		
-		List<com.techelevator.model.domain.Tool> items = reservation.getItems();
+		List<Tool> items = reservation.getItems();
 		
 		String sqlSaveNewReservation = "insert into reservation (app_user_id, from_date, to_date) values (?,?,?)";
 		
 		jdbcTemplate.update(sqlSaveNewReservation, reservation.getApp_user_id(), reservation.getFrom_date(), reservation.getTo_date());
 		
-		// insert sql here to get new reservertion_id number and assign it to reservation.setId
+		// Is this the best way to get the new reservation.id?
+		String sqlGetReservationId = "SELECT reservation_id FROM reservation where reservation_id=(SELECT MAX(reservation_id) FROM reservation)";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetReservationId);
 		
-		reservation.getReservation_id();
+			
+		reservation.setReservation_id(  Integer.parseInt( results.getString("reservation_id") ) );
+			
 				
 		String sqlInsertTool = "insert into tool_reservation (tool_id, reservation_id) VALUES (?,?)";
 
