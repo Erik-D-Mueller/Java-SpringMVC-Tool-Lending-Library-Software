@@ -92,15 +92,15 @@ public class ReservationController {
 			
 			// This junk actually calls the SQL statements if it's a valid search string
 			if (request.getParameter("searchType").equals("driversLicense")) {
-				request.setAttribute("reservedTools",
+				request.setAttribute("reservations",
 						reservationDAO.searchToolsByDriversLicense(request.getParameter("searchString")));
 			}
 			if (request.getParameter("searchType").equals("toolId")) {
-				request.setAttribute("reservedTools",
+				request.setAttribute("reservations",
 						reservationDAO.searchToolsByToolNumber(Integer.parseInt(request.getParameter("searchString"))));
 			}
 			if (request.getParameter("searchType").equals("userName")) {
-				request.setAttribute("reservedTools",
+				request.setAttribute("reservations",
 						reservationDAO.searchToolsByName(request.getParameter("searchString")));
 			}
 		}
