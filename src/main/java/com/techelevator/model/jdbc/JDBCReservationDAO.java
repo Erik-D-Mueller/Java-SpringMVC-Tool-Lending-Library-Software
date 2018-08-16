@@ -20,7 +20,7 @@ import com.techelevator.model.domain.Reservation;
 
 
 @Component
-public class JDBCReservationDAO implements ReservationDAO, Statement{
+public class JDBCReservationDAO implements ReservationDAO {
 
 	private JdbcTemplate jdbcTemplate;
 
