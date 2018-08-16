@@ -11,8 +11,6 @@ public class ShoppingCart {
 		return items;
 	}
 
-	
-	
 	public void setItems(List<Tool> items) {
 		this.items = items;
 	}

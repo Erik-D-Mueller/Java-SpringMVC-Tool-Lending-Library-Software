@@ -16,4 +16,5 @@ public interface ReservationDAO {
 
 	public int saveNewReservation(Reservation reservation);
 
+	public List<Reservation> searchReservationsByReservationNumber(int reservationId);
 }

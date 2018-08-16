@@ -121,34 +121,57 @@ public class JDBCReservationDAO implements ReservationDAO {
 		return searchForCheckedOutTools;
 	}
 
+	public List<Reservation> searchReservationsByReservationNumber(int reservationId){
+		
+		List<Reservation> getReservationById = new ArrayList<>();
+		
+		String sqlSearchReservationById = "SELECT au.user_name, t.tool_id, tt.tool_name, r.to_date, r.from_date "
+										+"FROM reservation r "
+										+"JOIN tool_reservation tr ON r.reservation_id = tr.reservation_id "
+										+"JOIN app_user au ON r.app_user_id = au.app_user_id "
+										+"JOIN tool t ON t.tool_id = tr.tool_id "
+										+" JOIN tool_type tt ON t.tool_type_id = tt.tool_type_id "
+										+"WHERE r.reservation_id = ?";
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlSearchReservationById, reservationId);
+		
+		while (results.next()) {
+			Reservation theReservation = mapRowToReservation(results);
+			getReservationById.add(theReservation);
+		}
+		
+		return getReservationById;
+	}
+	
 	@Override
 	public int saveNewReservation(Reservation reservation) {
 		LocalDate date = LocalDate.now();
 		
-		
 		List<Tool> items = reservation.getItems();
+		if(items.size() == 0) {
+		}
+		String sqlSaveNewReservation = "INSERT INTO reservation (app_user_id, from_date, to_date) VALUES (?,?,?)";
 		
+		jdbcTemplate.update(sqlSaveNewReservation, reservation.getApp_user_id(), date, date.plusDays(7));
 		
-		String sqlSaveNewReservation = "insert into reservation (app_user_id, from_date, to_date) values (?,?,?)";
-		
-		jdbcTemplate.update(sqlSaveNewReservation, reservation.getApp_user_id(), date, date);
-		
-		// Is this the best way to get the new reservation.id?
 		String sqlGetReservationId = "SELECT reservation_id FROM reservation where reservation_id=(SELECT MAX(reservation_id) FROM reservation)";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetReservationId);
-		
-		//something below here is broken
-		reservation.setReservation_id(  Integer.parseInt( results.getString("reservation_id") ) );
-			
-			
-		String sqlInsertTool = "insert into tool_reservation (tool_id, reservation_id) VALUES (?,?)";
 
-		System.out.println("This is right before the set reservation");		
-		
-		for (Tool tool : items) {
-			jdbcTemplate.update(sqlInsertTool, tool.getToolId(), reservation.getReservation_id());	
+		int id = 0;
+	
+		while(results.next()) {
+			id = Integer.parseInt(results.getString("reservation_id"));
 		}
-
+		
+		reservation.setReservation_id(id);
+		
+		String sqlInsertTool = "INSERT INTO tool_reservation (tool_id, reservation_id) VALUES (?,?)";
+		
+		for (Tool e : items) {
+			
+			jdbcTemplate.update(sqlInsertTool, e.getToolId(), reservation.getReservation_id());	
+		}
+		
 		return reservation.getReservation_id();
 	}
 

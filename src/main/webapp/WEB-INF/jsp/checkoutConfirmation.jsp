@@ -10,15 +10,17 @@
 			<table class="table table-striped table-hover table-bordered">
 				<thead class="thead-dark">
 					<tr>
-						<th scope="col">Individual Tool id</th>
+						<th scope="col">Tool #</th>
 						<th scope="col">Tool Name</th>
+						<th scope="col">Due Date</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach items="${reservations}" var="reservation">
 						<tr>
+							<td>${reservation.toolId}</td>
 							<td>${reservation.toolName}</td>
-							<td>${reservation.toolName}</td>
+							<td>${reservation.to_date}</td>
 						</tr>
 					</c:forEach>
 				</tbody>

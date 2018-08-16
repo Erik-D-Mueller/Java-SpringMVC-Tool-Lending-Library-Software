@@ -30,6 +30,24 @@ INSERT INTO tool (tool_type_id) VALUES (3);
 INSERT INTO tool (tool_type_id) VALUES (1);
 INSERT INTO tool (tool_type_id) VALUES (2);
 INSERT INTO tool (tool_type_id) VALUES (1);
+INSERT INTO tool (tool_type_id) VALUES (1);
+INSERT INTO tool (tool_type_id) VALUES (1);
+INSERT INTO tool (tool_type_id) VALUES (1);
+INSERT INTO tool (tool_type_id) VALUES (1);
+INSERT INTO tool (tool_type_id) VALUES (1);
+INSERT INTO tool (tool_type_id) VALUES (1);
+INSERT INTO tool (tool_type_id) VALUES (1);
+INSERT INTO tool (tool_type_id) VALUES (1);
+INSERT INTO tool (tool_type_id) VALUES (1);
+INSERT INTO tool (tool_type_id) VALUES (1);
+INSERT INTO tool (tool_type_id) VALUES (1);
+INSERT INTO tool (tool_type_id) VALUES (1);
+INSERT INTO tool (tool_type_id) VALUES (1);
+INSERT INTO tool (tool_type_id) VALUES (1);
+INSERT INTO tool (tool_type_id) VALUES (1);
+INSERT INTO tool (tool_type_id) VALUES (1);
+INSERT INTO tool (tool_type_id) VALUES (1);
+
 
 INSERT INTO reservation (app_user_id, from_date, to_date) VALUES (2, NOW() - INTERVAL '2 days', NOW() + INTERVAL '2 days');
 INSERT INTO reservation (app_user_id, from_date, to_date) VALUES (3, NOW() - INTERVAL '2 days', NOW() + INTERVAL '2 days');
