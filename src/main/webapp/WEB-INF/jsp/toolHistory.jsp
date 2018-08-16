@@ -51,8 +51,8 @@
 					<td>${reservation.toolId}</td>
 					<td>${reservation.toolName}</td>
 					<td>${reservation.name}</td>
-					<td>${reservation.to_date}</td>
 					<td>${reservation.from_date}</td>
+					<td>${reservation.to_date}</td>
 				</tr>
 			</c:forEach>
 		</tbody>
