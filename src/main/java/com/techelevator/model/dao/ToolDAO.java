@@ -10,5 +10,5 @@ public interface ToolDAO {
 	
 	public List<Tool> getAllAvailableTools();
 
-	
+	public Tool getToolById(int id);
 }

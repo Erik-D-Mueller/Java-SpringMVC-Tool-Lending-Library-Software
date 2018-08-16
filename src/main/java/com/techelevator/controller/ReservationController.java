@@ -128,34 +128,5 @@ public class ReservationController {
 
 		return "checkedOutTools";
 	}
-	
-	@RequestMapping(path="checkOut")
-	public String checkOut(HttpSession session, ModelMap model) {
-		
-		ShoppingCart cart = getActiveShoppingCart(model);
-		
-		List<Tool> tools = cart.getItems();
-		
-		Reservation reservation = new Reservation();
-		
-		reservation.setItems(tools);
-		
-		int memberId = (int) model.get("member");
-				
-		reservation.setApp_user_id(memberId);
 
-		int confirmationNum = reservationDAO.saveNewReservation(reservation);
-		
-		model.addAttribute("confNum", confirmationNum);
-		model.addAttribute("reservation", reservation);
-		
-		return "redirect:confirmationPage";
-	}
-	
-	private ShoppingCart getActiveShoppingCart(ModelMap model) {
-		if(model.get("shoppingCart") == null) {
-			model.addAttribute("shoppingCart", new ShoppingCart());
-		}
-		return (ShoppingCart)model.get("shoppingCart");
-	}
 }

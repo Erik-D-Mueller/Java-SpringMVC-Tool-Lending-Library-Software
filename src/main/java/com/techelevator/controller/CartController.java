@@ -1,5 +1,7 @@
 package com.techelevator.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +18,11 @@ import com.techelevator.model.domain.ShoppingCart;
 import com.techelevator.model.domain.Tool;
 
 @Controller
-@SessionAttributes({"member", "memberName"})
+@SessionAttributes({"member", "memberName", "shoppingCart"})
 public class CartController {
 	
 	Member member;
-
+	
 	@Autowired
 	private MemberDAO memberDAO;
 	
@@ -36,21 +38,27 @@ public class CartController {
 		return "redirect:/availableToolList";
 	}
 	
-	@RequestMapping(path="/viewCart", method=RequestMethod.GET)
-	public String viewCart(HttpServletRequest request, ModelMap map) {
-//		Tool toolToAdd = toolDAO.getToolById(request.getAttribute("tool_id"));
-//		ShoppingCart newShoppingCart = ShoppingCart.add(toolToAdd);
-//		map.put("shoppingCart", request.getAttribute("tool_id"));		
+	@RequestMapping(path="/viewCart", method=RequestMethod.POST)
+	public String viewCart(HttpServletRequest request, ModelMap model) {
+		
+		Tool toolToAdd = toolDAO.getToolById(Integer.parseInt(request.getParameter("tool_id")));
+
+		ShoppingCart cart = getActiveShoppingCart(model);
+		List<Tool> tools = cart.getItems();
+		tools.add(toolToAdd);
+		cart.setItems(tools);
+		request.setAttribute("tools", tools);
+		
+		model.put("shoppingCart", cart);		
+		
 		return "viewCart";
 	}
 	
-	@RequestMapping(path="/checkoutConfirmation", method=RequestMethod.POST)
-	public String confirmCheckout(HttpServletRequest request, ModelMap map) {
-		
-		map.remove("member");
-		
-		return "checkoutConfirmation";
+	private ShoppingCart getActiveShoppingCart(ModelMap model) {
+		if(model.get("shoppingCart") == null) {
+			model.addAttribute("shoppingCart", new ShoppingCart());
+		}
+		return (ShoppingCart)model.get("shoppingCart");
 	}
-	
 	
 }

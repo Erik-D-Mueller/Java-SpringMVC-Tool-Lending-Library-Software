@@ -4,7 +4,7 @@
 
 	
 <h1>${memberName}, you have successfully checked out the following items: </h1>
-<h3> Your confirmation number is TEMPORARY<%-- ${reservation_id} --%></h3>
+<h3> Your confirmation number is ${confNum}</h3>
 
 <div id="toolTable">
 			<table class="table table-striped table-hover table-bordered">
@@ -12,27 +12,13 @@
 					<tr>
 						<th scope="col">Individual Tool id</th>
 						<th scope="col">Tool Name</th>
-						<th scope="col">Tool Description</th>
-						<c:if test="${member != null}">
-								<th>    
-									<input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-		    						<label class="custom-control-label" for="defaultUnchecked">Check out tool</label>	
-		    					</th>
-	    					</c:if>
 					</tr>
 				</thead>
 				<tbody>
-					<c:forEach items="${availableTools}" var="tool">
+					<c:forEach items="${reservations}" var="reservation">
 						<tr>
-							<td>${tool.toolId}</td>
-							<td>${tool.name}</td>
-							<td>${tool.description}</td>
-							<c:if test="${member != null}">
-								<td>    
-									<input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-		    						<label class="custom-control-label" for="defaultUnchecked">Check out tool</label>	
-		    					</td>
-	    					</c:if>
+							<td>${reservation.toolName}</td>
+							<td>${reservation.toolName}</td>
 						</tr>
 					</c:forEach>
 				</tbody>
