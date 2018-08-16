@@ -123,18 +123,21 @@ public class JDBCReservationDAO implements ReservationDAO {
 
 	@Override
 	public int saveNewReservation(Reservation reservation) {
+		LocalDate date = LocalDate.now();
+		
 		
 		List<Tool> items = reservation.getItems();
 		
+		
 		String sqlSaveNewReservation = "insert into reservation (app_user_id, from_date, to_date) values (?,?,?)";
 		
-		jdbcTemplate.update(sqlSaveNewReservation, reservation.getApp_user_id(), reservation.getFrom_date(), reservation.getTo_date());
+		jdbcTemplate.update(sqlSaveNewReservation, reservation.getApp_user_id(), date, date);
 		
 		// Is this the best way to get the new reservation.id?
 		String sqlGetReservationId = "SELECT reservation_id FROM reservation where reservation_id=(SELECT MAX(reservation_id) FROM reservation)";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetReservationId);
 		
-			
+		System.out.println("This is right before the set reservation");	
 		reservation.setReservation_id(  Integer.parseInt( results.getString("reservation_id") ) );
 			
 				

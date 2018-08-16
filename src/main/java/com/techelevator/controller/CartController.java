@@ -45,9 +45,11 @@ public class CartController {
 
 		ShoppingCart cart = getActiveShoppingCart(model);
 		List<Tool> tools = cart.getItems();
+		tools.add(toolToAdd);
+		cart.setItems(tools);
+		request.setAttribute("tools", tools);
 		
-//		ShoppingCart newShoppingCart = ShoppingCart.add(toolToAdd);
-//		map.put("shoppingCart", request.getAttribute("tool_id"));		
+		model.put("shoppingCart", cart);		
 		
 		return "viewCart";
 	}

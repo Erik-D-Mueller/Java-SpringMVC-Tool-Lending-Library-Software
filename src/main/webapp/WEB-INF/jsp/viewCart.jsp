@@ -15,17 +15,17 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach items="${cart}" var="cartItems">
+			<c:forEach items="${tools}" var="tool">
 				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
+					<td>${tool.toolId}</td>
+					<td>${tool.name}</td>
+					<td>${tool.description}</td>
 				</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 </div>
-	<c:url value="/checkoutConfirmation" var="formAction" />
+	<c:url value="/checkOut" var="formAction" />
 	<form action="${formAction}" method="POST">
 		<div id="submitButtonDiv">
 			<input id="formSubmitButton" type="submit" value="Check out cart" />

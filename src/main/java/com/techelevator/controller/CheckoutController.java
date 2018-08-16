@@ -18,7 +18,7 @@ import com.techelevator.model.domain.ShoppingCart;
 import com.techelevator.model.domain.Tool;
 
 @Controller
-@SessionAttributes({"confNum", "reservation", "memberName"})
+@SessionAttributes({"confNum", "reservation", "member", "memberName"})
 public class CheckoutController {
 	
 	@Autowired
@@ -35,11 +35,12 @@ public class CheckoutController {
 		
 		reservation.setItems(tools);
 		
-		int memberId = (int) model.get("member");
+		Integer memberId =  Integer.parseInt((String) model.get("member"));
 				
 		reservation.setApp_user_id(memberId);
 
 		int confirmationNum = reservationDAO.saveNewReservation(reservation);
+		
 		
 		model.addAttribute("confNum", confirmationNum);
 		model.addAttribute("reservation", reservation);
@@ -50,9 +51,13 @@ public class CheckoutController {
 	@RequestMapping(path="/checkoutConfirmation", method=RequestMethod.POST)
 	public String confirmCheckout(HttpSession session, HttpServletRequest request, ModelMap model) {
 		
+		System.out.println(model.get("memberName"));
+		System.out.println(model.get("confNum"));
+		
 		request.setAttribute("memberName", model.get("memberName"));
 		request.setAttribute("confNum", model.get("confNum"));
 		request.setAttribute("reservations", model.get("reservation"));
+		
 		
 		session.invalidate();
 		model.clear();
