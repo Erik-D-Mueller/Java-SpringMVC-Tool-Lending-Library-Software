@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.techelevator.model.dao.MemberDAO;
 import com.techelevator.model.dao.ToolDAO;
 
 @Controller
@@ -14,6 +15,9 @@ public class ToolController {
 
 	@Autowired
 	private ToolDAO toolDAO;
+	
+	@Autowired
+	private MemberDAO memberDAO;
 
 	@RequestMapping(path = "/completeToolList", method = RequestMethod.GET)
 	public String displayCompleteToolList(HttpServletRequest request) {

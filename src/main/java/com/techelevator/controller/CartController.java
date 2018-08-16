@@ -13,7 +13,7 @@ import com.techelevator.model.dao.MemberDAO;
 import com.techelevator.model.domain.Member;
 
 @Controller
-@SessionAttributes({"member"})
+@SessionAttributes({"member", "memberName"})
 public class CartController {
 	
 	Member member;
@@ -25,12 +25,13 @@ public class CartController {
 	public String choseMemberAndRedirect(HttpServletRequest request, ModelMap map) {
 				
 		map.addAttribute("member", request.getParameter("memberId"));
-				
+		map.addAttribute("memberName", memberDAO.getMemberById(Integer.parseInt(request.getParameter("memberId"))).getUserName());
+		
 		return "redirect:/availableToolList";
 	}
 	
 	@RequestMapping(path="/viewCart", method=RequestMethod.GET)
-	public String viewCart(HttpServletRequest request, ModelMap map) {
+	public String viewCart(HttpServletRequest request) {
 				
 		return "viewCart";
 	}
@@ -39,6 +40,7 @@ public class CartController {
 	public String confirmCheckout(HttpServletRequest request, ModelMap map) {
 		
 		map.remove("member");
+		
 		return "checkoutConfirmation";
 	}
 	

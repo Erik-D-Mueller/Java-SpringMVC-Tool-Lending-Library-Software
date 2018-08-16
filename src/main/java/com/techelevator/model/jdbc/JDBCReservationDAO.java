@@ -1,5 +1,9 @@
 package com.techelevator.model.jdbc;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.SQLWarning;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -20,7 +24,7 @@ import com.techelevator.model.domain.Reservation;
 
 
 @Component
-public class JDBCReservationDAO implements ReservationDAO, Statement{
+public class JDBCReservationDAO implements ReservationDAO {
 
 	private JdbcTemplate jdbcTemplate;
 
@@ -164,8 +168,5 @@ public class JDBCReservationDAO implements ReservationDAO, Statement{
 
 		return true;
 	}
-	
-	
-	
 
 }

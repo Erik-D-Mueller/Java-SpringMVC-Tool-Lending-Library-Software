@@ -4,9 +4,10 @@
 
 
 	<h1>
-		This is your cart
+		${memberName}'s cart
 	</h1>
 
+	 
 	<c:url value="/checkoutConfirmation" var="formAction" />
 	<form action="${formAction}" method="POST">
 		<div id="submitButtonDiv">
