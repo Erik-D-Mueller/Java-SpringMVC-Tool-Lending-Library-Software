@@ -46,13 +46,13 @@
 		</thead>
 
 		<tbody>
-			<c:forEach items="${reservedTools}" var="tool">
+			<c:forEach items="${reservations}" var="reservation">
 				<tr>
-					<td>${tool.toolId}</td>
-					<td>${tool.toolName}</td>
-					<td>${tool.name}</td>
-					<td>${tool.dateIn}</td>
-					<td>${tool.dateOut}</td>
+					<td>${reservation.toolId}</td>
+					<td>${reservation.toolName}</td>
+					<td>${reservation.name}</td>
+					<td>${reservation.to_date}</td>
+					<td>${reservation.from_date}</td>
 				</tr>
 			</c:forEach>
 		</tbody>
