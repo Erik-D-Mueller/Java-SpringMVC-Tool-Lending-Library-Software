@@ -14,6 +14,6 @@ public interface ReservationDAO {
 	
 	public List<Reservation> getAllCheckedOutTools();
 
-	public boolean saveNewReservation(Reservation reservation);
+	public int saveNewReservation(Reservation reservation);
 
 }

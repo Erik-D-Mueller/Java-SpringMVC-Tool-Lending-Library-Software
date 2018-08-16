@@ -1,16 +1,25 @@
 package com.techelevator.controller;
 
-import java.io.Console;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.techelevator.model.dao.ReservationDAO;
+import com.techelevator.model.domain.Reservation;
+import com.techelevator.model.domain.ShoppingCart;
+import com.techelevator.model.domain.Tool;
+
 
 @Controller
+@SessionAttributes({"shoppingCart", "member"})
 public class ReservationController {
 
 	@Autowired
@@ -107,8 +116,6 @@ public class ReservationController {
 		return "toolHistory";
 	}
 
-	
-	
 	@RequestMapping(path="/toolHistory", method = RequestMethod.GET)
 	public String displayToolHistoryFirst(HttpServletRequest request) {
 		return "toolHistory";
@@ -122,4 +129,33 @@ public class ReservationController {
 		return "checkedOutTools";
 	}
 	
+	@RequestMapping(path="checkOut")
+	public String checkOut(HttpSession session, ModelMap model) {
+		
+		ShoppingCart cart = getActiveShoppingCart(model);
+		
+		List<Tool> tools = cart.getItems();
+		
+		Reservation reservation = new Reservation();
+		
+		reservation.setItems(tools);
+		
+		int memberId = (int) model.get("member");
+				
+		reservation.setApp_user_id(memberId);
+
+		int confirmationNum = reservationDAO.saveNewReservation(reservation);
+		
+		model.addAttribute("confNum", confirmationNum);
+		model.addAttribute("reservation", reservation);
+		
+		return "redirect:confirmationPage";
+	}
+	
+	private ShoppingCart getActiveShoppingCart(ModelMap model) {
+		if(model.get("shoppingCart") == null) {
+			model.addAttribute("shoppingCart", new ShoppingCart());
+		}
+		return (ShoppingCart)model.get("shoppingCart");
+	}
 }
