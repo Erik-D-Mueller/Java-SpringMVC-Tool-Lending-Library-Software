@@ -1,15 +1,20 @@
 package com.techelevator.model.jdbc;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
+
+//import javax.tools.Tool;
+import com.techelevator.model.domain.Tool;
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 import com.techelevator.model.dao.ReservationDAO;
 import com.techelevator.model.domain.Reservation;
+
 
 @Component
 public class JDBCReservationDAO implements ReservationDAO {
@@ -124,10 +129,36 @@ public class JDBCReservationDAO implements ReservationDAO {
 		newReservation.setToolId(results.getInt("tool_id"));
 		newReservation.setName(results.getString("user_name"));
 		newReservation.setToolName(results.getString("tool_name"));
-		newReservation.setDateOut(results.getString("to_date"));
-		newReservation.setDateIn(results.getString("from_date"));
+		newReservation.setFrom_date(results.getString("to_date"));
+		newReservation.setTo_date(results.getString("from_date"));
 
 		return newReservation;
 	}
+
+	
+	@Override
+	public boolean saveNewReservation(Reservation reservation) {
+		
+		List<com.techelevator.model.domain.Tool> items = reservation.getItems();
+		
+		String sqlSaveNewReservation = "insert into reservation (app_user_id, from_date, to_date) values (?,?,?)";
+		
+		jdbcTemplate.update(sqlSaveNewReservation, reservation.getApp_user_id(), reservation.getFrom_date(), reservation.getTo_date());
+		
+		// insert sql here to get new reservertion_id number and assign it to reservation.setId
+		
+		reservation.getReservation_id();
+				
+		String sqlInsertTool = "insert into tool_reservation (tool_id, reservation_id) VALUES (?,?)";
+
+		for (Tool tool : items) {
+			jdbcTemplate.update(sqlInsertTool, tool.getToolId(), reservation.getReservation_id());	
+		}
+
+		return true;
+	}
+	
+	
+	
 
 }

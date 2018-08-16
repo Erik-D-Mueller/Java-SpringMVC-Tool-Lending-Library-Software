@@ -41,6 +41,13 @@
 		<c:url var="homePageHref" value="/" />
 		<c:url var="imgSrc" value="/img/logo.jpg" />
 	</header>
+		<div class="jumbotron jumbotron-fluid">
+	  <div class="container">
+	    <h1 class="display-4">Tool Library</h1>
+	    <p class="lead">Welcome to our free tool library!</p>
+	  </div>
+	</div>
+	
 	<nav class="navbar navbar-default">
 		<a href="${homePageHref}"></a>
 		<div class="container-fluid">

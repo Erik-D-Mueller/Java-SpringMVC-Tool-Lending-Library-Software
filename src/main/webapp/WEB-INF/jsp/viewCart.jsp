@@ -4,13 +4,15 @@
 
 
 	<h1>
-		ADD TO CART
+		This is your cart
 	</h1>
 
-
-
-
-
+	<c:url value="/checkoutConfirmation" var="formAction" />
+	<form action="${formAction}" method="POST">
+		<div id="submitButtonDiv">
+			<input id="formSubmitButton" type="submit" value="Check out cart" />
+		</div>
+	</form>
 
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />

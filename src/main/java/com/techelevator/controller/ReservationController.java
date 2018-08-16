@@ -109,7 +109,7 @@ public class ReservationController {
 
 	
 	
-	@RequestMapping(path = { "/", "/toolHistory" }, method = RequestMethod.GET)
+	@RequestMapping(path="/toolHistory", method = RequestMethod.GET)
 	public String displayToolHistoryFirst(HttpServletRequest request) {
 		return "toolHistory";
 	}

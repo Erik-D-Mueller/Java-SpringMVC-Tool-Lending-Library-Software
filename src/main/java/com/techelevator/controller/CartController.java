@@ -35,5 +35,12 @@ public class CartController {
 		return "viewCart";
 	}
 	
+	@RequestMapping(path="/checkoutConfirmation", method=RequestMethod.POST)
+	public String confirmCheckout(HttpServletRequest request, ModelMap map) {
+		
+		map.remove("member");
+		return "checkoutConfirmation";
+	}
+	
 	
 }

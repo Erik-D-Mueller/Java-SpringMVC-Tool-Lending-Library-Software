@@ -16,13 +16,12 @@
 					<th scope="col">Expected Return Date</th>
 				</tr>
 			</thead>
-
 			<tbody>
 				<c:forEach items="${allCheckedOutTools}" var="tool">
 					<tr>
 						<td>${tool.toolId}</td>
 						<td>${tool.toolName}</td>
-						<td>${tool.dateIn}</td>
+						<td>${tool.to_date}</td>
 					</tr>
 				</c:forEach>
 			</tbody>

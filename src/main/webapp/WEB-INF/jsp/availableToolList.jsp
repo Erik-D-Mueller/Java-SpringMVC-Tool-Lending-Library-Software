@@ -6,6 +6,7 @@
 	<h2>
 		<span class="toolListHeader">Currently Available Tools</span>
 	</h2>
+	<c:url value="/viewCart" var="formAction" />
 	<form action="${formAction}" method="GET">
 	
 		<div id="toolTable">
@@ -15,6 +16,12 @@
 						<th scope="col">Individual Tool id</th>
 						<th scope="col">Tool Name</th>
 						<th scope="col">Tool Description</th>
+						<c:if test="${member != null}">
+								<th>    
+									<input type="checkbox" class="custom-control-input" id="defaultUnchecked">
+		    						<label class="custom-control-label" for="defaultUnchecked">Check out tool</label>	
+		    					</th>
+	    					</c:if>
 					</tr>
 				</thead>
 				<tbody>
@@ -26,7 +33,7 @@
 							<c:if test="${member != null}">
 								<td>    
 									<input type="checkbox" class="custom-control-input" id="defaultUnchecked">
-		    						<label class="custom-control-label" for="defaultUnchecked">Default unchecked</label>	
+		    						<label class="custom-control-label" for="defaultUnchecked">Check out tool</label>	
 		    					</td>
 	    					</c:if>
 						</tr>
