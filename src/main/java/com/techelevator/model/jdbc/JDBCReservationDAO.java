@@ -20,7 +20,7 @@ import com.techelevator.model.domain.Reservation;
 
 
 @Component
-public class JDBCReservationDAO implements ReservationDAO, Statement{
+public class JDBCReservationDAO implements ReservationDAO{
 
 	private JdbcTemplate jdbcTemplate;
 
@@ -140,7 +140,7 @@ public class JDBCReservationDAO implements ReservationDAO, Statement{
 
 	
 	@Override
-	public boolean saveNewReservation(Reservation reservation) {
+	public int saveNewReservation(Reservation reservation) {
 		
 		List<Tool> items = reservation.getItems();
 		
@@ -162,7 +162,7 @@ public class JDBCReservationDAO implements ReservationDAO, Statement{
 			jdbcTemplate.update(sqlInsertTool, tool.getToolId(), reservation.getReservation_id());	
 		}
 
-		return true;
+		return reservation.getReservation_id();
 	}
 	
 	
