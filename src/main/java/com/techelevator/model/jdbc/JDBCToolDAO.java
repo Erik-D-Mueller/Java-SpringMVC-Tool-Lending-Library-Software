@@ -77,9 +77,11 @@ public class JDBCToolDAO implements ToolDAO {
 	public Tool mapRowToTool(SqlRowSet results) {
 
 		Tool newTool = new Tool();
-
+		
+		String toolName = results.getString("tool_name").substring(0, 1) + results.getString("tool_name").toLowerCase().substring(1).toLowerCase();
+		
 		newTool.setToolId(results.getInt("tool_id"));
-		newTool.setName(results.getString("tool_name"));
+		newTool.setName(toolName);
 		newTool.setDescription(results.getString("tool_description"));
 
 		return newTool;

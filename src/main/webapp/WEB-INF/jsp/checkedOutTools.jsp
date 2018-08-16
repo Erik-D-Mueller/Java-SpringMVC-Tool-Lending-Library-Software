@@ -13,6 +13,7 @@
 				<tr>
 					<th scope="col">Tool id</th>
 					<th scope="col">Tool Name</th>
+					<th scope="col">Checked Out To</th>
 					<th scope="col">Expected Return Date</th>
 				</tr>
 			</thead>
@@ -21,6 +22,7 @@
 					<tr>
 						<td>${tool.toolId}</td>
 						<td>${tool.toolName}</td>
+						<td>${tool.name}</td>
 						<td>${tool.to_date}</td>
 					</tr>
 				</c:forEach>

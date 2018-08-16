@@ -65,9 +65,11 @@ public class JDBCMemberDAO implements MemberDAO {
 	public Member mapRowToMember(SqlRowSet results) {
 		
 		Member theMember = new Member();
+		
+		String memberName = results.getString("user_name").substring(0, 1) + results.getString("user_name").toLowerCase().substring(1).toLowerCase();
 	
 		theMember.setMemberId(results.getInt("app_user_id"));
-		theMember.setUserName(results.getString("user_name"));
+		theMember.setUserName(memberName);
 		
 		return theMember;
 	}

@@ -154,11 +154,16 @@ public class JDBCReservationDAO implements ReservationDAO {
 
 		Reservation newReservation = new Reservation();
 
+		String memberName = results.getString("user_name").substring(0, 1) + results.getString("user_name").toLowerCase().substring(1).toLowerCase();
+		String toolName = results.getString("tool_name").substring(0, 1) + results.getString("tool_name").toLowerCase().substring(1).toLowerCase();
+		String checkoutDate = results.getString("from_date").substring(5) + "-" + results.getString("from_date").substring(0,4);
+		String returnDate = results.getString("to_date").substring(5) + "-" + results.getString("to_date").substring(0,4);
+		
 		newReservation.setToolId(results.getInt("tool_id"));
-		newReservation.setName(results.getString("user_name"));
-		newReservation.setToolName(results.getString("tool_name"));
-		newReservation.setFrom_date(results.getString("from_date"));
-		newReservation.setTo_date(results.getString("to_date"));
+		newReservation.setName(memberName);
+		newReservation.setToolName(toolName);
+		newReservation.setFrom_date(checkoutDate);
+		newReservation.setTo_date(returnDate);
 
 		return newReservation;
 	}
