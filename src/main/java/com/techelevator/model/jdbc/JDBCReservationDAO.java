@@ -1,19 +1,11 @@
 package com.techelevator.model.jdbc;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.SQLWarning;
-import java.sql.Statement;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import javax.sql.DataSource;
-import javax.sql.RowSet;
 
-//import javax.tools.Tool;
 import com.techelevator.model.domain.Tool;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -129,22 +121,8 @@ public class JDBCReservationDAO implements ReservationDAO {
 		return searchForCheckedOutTools;
 	}
 
-	public Reservation mapRowToReservation(SqlRowSet results) {
-
-		Reservation newReservation = new Reservation();
-
-		newReservation.setToolId(results.getInt("tool_id"));
-		newReservation.setName(results.getString("user_name"));
-		newReservation.setToolName(results.getString("tool_name"));
-		newReservation.setFrom_date(results.getString("to_date"));
-		newReservation.setTo_date(results.getString("from_date"));
-
-		return newReservation;
-	}
-
-	
 	@Override
-	public boolean saveNewReservation(Reservation reservation) {
+	public int saveNewReservation(Reservation reservation) {
 		
 		List<Tool> items = reservation.getItems();
 		
@@ -166,7 +144,20 @@ public class JDBCReservationDAO implements ReservationDAO {
 			jdbcTemplate.update(sqlInsertTool, tool.getToolId(), reservation.getReservation_id());	
 		}
 
-		return true;
+		return reservation.getReservation_id();
+	}
+
+	public Reservation mapRowToReservation(SqlRowSet results) {
+
+		Reservation newReservation = new Reservation();
+
+		newReservation.setToolId(results.getInt("tool_id"));
+		newReservation.setName(results.getString("user_name"));
+		newReservation.setToolName(results.getString("tool_name"));
+		newReservation.setFrom_date(results.getString("to_date"));
+		newReservation.setTo_date(results.getString("from_date"));
+
+		return newReservation;
 	}
 
 }
