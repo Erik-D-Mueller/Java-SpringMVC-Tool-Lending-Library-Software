@@ -146,9 +146,10 @@ public class ReservationController {
 
 		int confirmationNum = reservationDAO.saveNewReservation(reservation);
 		
-		//redirect to confirmation page set confirmation ID and list of tools
+		model.addAttribute("confNum", confirmationNum);
+		model.addAttribute("reservation", reservation);
 		
-		return null;
+		return "redirect:confirmationPage";
 	}
 	
 	private ShoppingCart getActiveShoppingCart(ModelMap model) {
