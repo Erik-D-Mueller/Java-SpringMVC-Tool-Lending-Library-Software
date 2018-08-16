@@ -4,7 +4,7 @@
 
 	
 <h1>${memberName}, you have successfully checked out the following items: </h1>
-<h3> Your confirmation number is TEMPORARY<%-- ${reservation_id} --%></h3>
+<h3> Your confirmation number is ${confNum}</h3>
 
 <div id="toolTable">
 			<table class="table table-striped table-hover table-bordered">

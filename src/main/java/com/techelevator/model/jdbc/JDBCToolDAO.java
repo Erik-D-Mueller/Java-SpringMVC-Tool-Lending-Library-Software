@@ -60,6 +60,19 @@ public class JDBCToolDAO implements ToolDAO {
 		return listOfAvailableTools;
 
 	}
+	public Tool getToolById(int id) {
+		
+		Tool newTool = new Tool();
+		
+		String sqlGetToolById = "SELECT * FROM tool t JOIN tool_type tt ON t.tool_type_id = tt.tool_type_id WHERE t.tool_id = ?";
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetToolById);
+		
+		while(results.next()) {
+			newTool = mapRowToTool(results);
+		}
+		return newTool;
+	}
 
 	public Tool mapRowToTool(SqlRowSet results) {
 

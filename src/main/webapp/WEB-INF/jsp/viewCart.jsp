@@ -3,17 +3,37 @@
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
 
-	<h1>
-		${memberName}'s cart
-	</h1>
+<h1>${memberName}'s cart</h1>
 
-	 
+<div>
+	<table>
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">Individual Tool id</th>
+				<th scope="col">Tool Name</th>
+				<th scope="col">Tool Description</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach items="${cart}" var="cartItems">
+				<tr>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+</div>
 	<c:url value="/checkoutConfirmation" var="formAction" />
 	<form action="${formAction}" method="POST">
 		<div id="submitButtonDiv">
 			<input id="formSubmitButton" type="submit" value="Check out cart" />
 		</div>
 	</form>
-
+<div>
+	<c:url var="availableToolHref" value="/availableToolList" />
+	<a href="${availableToolHref}">Add More Tools to Cart</a>
+</div>
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />
