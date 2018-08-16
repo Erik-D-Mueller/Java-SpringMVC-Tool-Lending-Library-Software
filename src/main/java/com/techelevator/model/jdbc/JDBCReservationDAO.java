@@ -137,12 +137,14 @@ public class JDBCReservationDAO implements ReservationDAO {
 		String sqlGetReservationId = "SELECT reservation_id FROM reservation where reservation_id=(SELECT MAX(reservation_id) FROM reservation)";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetReservationId);
 		
-		System.out.println("This is right before the set reservation");	
+		//something below here is broken
 		reservation.setReservation_id(  Integer.parseInt( results.getString("reservation_id") ) );
 			
-				
+			
 		String sqlInsertTool = "insert into tool_reservation (tool_id, reservation_id) VALUES (?,?)";
 
+		System.out.println("This is right before the set reservation");		
+		
 		for (Tool tool : items) {
 			jdbcTemplate.update(sqlInsertTool, tool.getToolId(), reservation.getReservation_id());	
 		}
