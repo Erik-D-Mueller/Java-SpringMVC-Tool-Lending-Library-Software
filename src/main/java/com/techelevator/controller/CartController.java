@@ -13,16 +13,13 @@ import org.springframework.ui.ModelMap;
 
 import com.techelevator.model.dao.MemberDAO;
 import com.techelevator.model.dao.ToolDAO;
-import com.techelevator.model.domain.Member;
 import com.techelevator.model.domain.ShoppingCart;
 import com.techelevator.model.domain.Tool;
 
 @Controller
 @SessionAttributes({"member", "shoppingCart"})
 public class CartController {
-	
-	Member member;
-	
+		
 	@Autowired
 	private MemberDAO memberDAO;
 	
@@ -46,11 +43,7 @@ public class CartController {
 		
 		cart.addToCart(toolToAdd);
 		
-		List<Tool> tools = cart.getItems();
-		tools.add(toolToAdd);
-		cart.setItems(tools);
-		request.setAttribute("tools", tools);
-		
+		request.setAttribute("tools", cart.getItems());
 		model.put("shoppingCart", cart);		
 		
 		return "viewCart";
@@ -58,6 +51,7 @@ public class CartController {
 	
 	@RequestMapping(path="/viewCart", method=RequestMethod.GET)
 	public String viewCartWithNoMember(HttpServletRequest request, ModelMap model) {
+		
 		if (model.get("shoppingCart") != null) {
 			ShoppingCart cart = getActiveShoppingCart(model);
 			List<Tool> tools = cart.getItems();
