@@ -85,7 +85,7 @@
 					<li><a href="${toolSearchHref}">Tool Search</a></li>
 					<li><a href="${viewCartHref}">View Cart</a></li>
 					<li><a href="${memberListHref}">Member List</a></li>
-
+					<li><a href="${returnToolHref}">Return Tool</a></li>
 				</c:if>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
