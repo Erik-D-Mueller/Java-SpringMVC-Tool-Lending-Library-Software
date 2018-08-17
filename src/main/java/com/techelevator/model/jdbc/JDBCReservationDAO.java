@@ -175,6 +175,16 @@ public class JDBCReservationDAO implements ReservationDAO {
 		
 		return reservationId;
 	}
+	
+	@Override
+	public void deleteReservation(int toolId) {
+		
+		String sqlDeleteReservation = "DELETE FROM tool_reservation WHERE tool_id = ? ";
+		
+		jdbcTemplate.update(sqlDeleteReservation, toolId);
+		
+
+	}
 
 	public Reservation mapRowToReservation(SqlRowSet results) {
 
@@ -193,5 +203,7 @@ public class JDBCReservationDAO implements ReservationDAO {
 
 		return newReservation;
 	}
+
+
 
 }

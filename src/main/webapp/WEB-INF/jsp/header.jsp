@@ -62,12 +62,13 @@
 	<c:url var="checkedOutToolsHref" value="/checkedOutTools" />
 	<c:url var="viewCartHref" value="/viewCart" />
 	<c:url var="memberListHref" value="/memberList" />
-	
+	<c:url var="returnToolHref" value="/returnTool" />
 	
 	<nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="nav navbar-nav">
+
 				<li class="nav-item"><a class="nav-link" href="${homePageHref}">Home</a></li>	
 					<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tool Lists </a>
@@ -84,6 +85,7 @@
 					<li><a href="${toolSearchHref}">Tool Search</a></li>
 					<li><a href="${viewCartHref}">View Cart</a></li>
 					<li><a href="${memberListHref}">Member List</a></li>
+
 				</c:if>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
