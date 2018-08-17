@@ -22,7 +22,7 @@
 						<th scope="col">Tool Name</th>
 						<th scope="col">Tool Description</th>
 						<c:if test="${member != null}">
-							<th>Check box to select item</th>
+							<th>Click to add to cart</th>
 						</c:if>
 					</tr>
 				</thead>

@@ -23,7 +23,7 @@ public class CheckoutController {
 	
 	@RequestMapping(path="/checkOut", method=RequestMethod.POST)
 	public String checkOut(HttpSession session, ModelMap model) {
-				
+		
 		ShoppingCart cart = (ShoppingCart)model.get("shoppingCart");
 
 		int memberId = ((Member)model.get("member")).getMemberId();
