@@ -7,6 +7,7 @@
 	<h1>${member.memberName}'s cart</h1>
 
 	<div>
+		<c:if test="${shoppingCart != null}"> 
 		<table>
 			<thead class="thead-dark">
 				<tr>
@@ -26,15 +27,17 @@
 				</c:forEach>
 			</tbody>
 		</table>
+		</c:if>
 	</div>
 	
+	<c:if test="${shoppingCart != null}"> 
 	<c:url value="/checkOut" var="formAction" />
 	<form action="${formAction}" method="POST">
 		<div id="submitButtonDiv">
 			<input id="formSubmitButton" type="submit" value="Check Out Cart" />
 		</div>
 	</form>
-	
+	</c:if>
 	<div>
 		<c:url var="availableToolHref" value="/availableToolList" />
 		<a href="${availableToolHref}">Add More Tools to Cart</a>
@@ -43,7 +46,7 @@
 </c:if>
 
 <c:if test="${member == null}">
-	<h1>No Patron Selected</h1>
+	<h1>No Member Selected</h1>
 </c:if>
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />
