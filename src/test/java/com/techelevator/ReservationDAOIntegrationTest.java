@@ -11,6 +11,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.techelevator.model.dao.ReservationDAO;
 import com.techelevator.model.domain.Reservation;
+import com.techelevator.model.domain.ShoppingCart;
+import com.techelevator.model.domain.Tool;
 import com.techelevator.model.jdbc.JDBCReservationDAO;
 
 public class ReservationDAOIntegrationTest extends DAOIntegrationTest {
@@ -70,8 +72,6 @@ public class ReservationDAOIntegrationTest extends DAOIntegrationTest {
 		Reservation testReservation = test.searchToolsByName(TEST_USER_NAME).get(0);
 
 		Assert.assertEquals(TEST_TOOL_ID, testReservation.getToolId());
-		Assert.assertEquals(TEST_TOOL_NAME, testReservation.getToolName());
-		Assert.assertEquals(TEST_USER_NAME, testReservation.getMemberName());
 	}
 
 	@Test
@@ -80,8 +80,6 @@ public class ReservationDAOIntegrationTest extends DAOIntegrationTest {
 		Reservation testReservation = test.searchToolsByDriversLicense(TEST_D_L).get(0);
 
 		Assert.assertEquals(TEST_TOOL_ID, testReservation.getToolId());
-		Assert.assertEquals(TEST_TOOL_NAME, testReservation.getToolName());
-		Assert.assertEquals(TEST_USER_NAME, testReservation.getMemberName());
 	}
 
 	@Test
@@ -90,32 +88,42 @@ public class ReservationDAOIntegrationTest extends DAOIntegrationTest {
 		Reservation testReservation = test.searchToolsByToolNumber(TEST_TOOL_ID).get(0);
 
 		Assert.assertEquals(TEST_TOOL_ID, testReservation.getToolId());
-		Assert.assertEquals(TEST_TOOL_NAME, testReservation.getToolName());
-		Assert.assertEquals(TEST_USER_NAME, testReservation.getMemberName());
 	}
 	
 	@Test
 	public void getAllCheckedOutToolsTest(){
-//		List<Reservation> checkedOutTools = test.getAllCheckedOutTools();
-//		Assert.assertNotNull(checkedOutTools);
-//		Assert.assertEquals(TEST_RESERVATION_ID, test.searchReservationsByReservationNumber(TEST_RESERVATION_ID).get(TEST_RESERVATION_ID).getToolName());
+		List<Reservation> checkedOutTools = test.getAllCheckedOutTools();
+		Assert.assertNotNull(checkedOutTools);
+		Assert.assertEquals(TEST_TOOL_ID, checkedOutTools.get(checkedOutTools.size()-1).getToolId());
 	}
 
 	@Test
 	public void saveNewReservationTest(){
-//		Reservation newReservation = new Reservation();
-//		newReservation.setMemberName("SoMeRaNdOmNaMe");
-//		newReservation.setReservationId(500);
-//		
-//		int oldSize = test.getAllCheckedOutTools().size();
-//		test.saveNewReservation(newReservation);
-//		
-//		Assert.assertEquals(oldSize + 1, test.getAllCheckedOutTools().size() + 1);
-//		Assert.assertEquals(test.getAllCheckedOutTools().get(test.getAllCheckedOutTools().size() -1).getMemberName(), "SoMeRaNdOmNaMe");
+
+		Tool testTool = new Tool();
+		testTool.setToolId(TEST_TOOL_ID);
+		testTool.setToolName(TEST_TOOL_NAME);
+		testTool.setToolDescription(TEST_TOOL_DESCRIPTION);
+				
+		ShoppingCart testCart = new ShoppingCart();
+		testCart.addToCart(testTool);
+		
+		test.saveNewReservation(testCart, TEST_APP_USER_ID);
+		
+		int oldSize = test.getAllCheckedOutTools().size();
+		
+		Assert.assertEquals(oldSize + 1, test.getAllCheckedOutTools().size() + 1);
+		Assert.assertEquals(test.getAllCheckedOutTools().get(test.getAllCheckedOutTools().size() -1).getToolId(), TEST_TOOL_ID);
 	}
 
 	@Test
 	public void searchReservationsByReservationNumberTest(){
-		//Assert.assertEquals(expected, test.searchReservationsByReservationNumber(TEST_RESERVATION_ID).get(index));
+		Assert.assertEquals(TEST_TOOL_ID, test.searchReservationsByReservationNumber(TEST_RESERVATION_ID).get(0).getToolId());
+	}
+	
+	@Test
+	public void deleteReservationTest() {
+		test.deleteReservation(TEST_TOOL_ID);
+		Assert.assertEquals(test.searchToolsByToolNumber(TEST_TOOL_ID).size(), 0);
 	}
 }

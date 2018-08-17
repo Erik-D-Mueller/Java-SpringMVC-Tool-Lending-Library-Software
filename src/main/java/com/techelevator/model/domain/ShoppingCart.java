@@ -20,5 +20,9 @@ public class ShoppingCart {
 		if(items != null) {
 			items.add(tool);
 		}
+		if(items == null) {
+			List<Tool> newList = new ArrayList<>();
+			setItems(newList);
+		}
 	}
 }
