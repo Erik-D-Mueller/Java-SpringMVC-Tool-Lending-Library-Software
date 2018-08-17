@@ -69,7 +69,7 @@ public class ReservationDAOIntegrationTest extends DAOIntegrationTest {
 
 		Assert.assertEquals(TEST_TOOL_ID, testReservation.getToolId());
 		Assert.assertEquals(TEST_TOOL_NAME, testReservation.getToolName());
-		Assert.assertEquals(TEST_USER_NAME, testReservation.getName());
+		Assert.assertEquals(TEST_USER_NAME, testReservation.getMemberName());
 	}
 
 	@Test
@@ -79,7 +79,7 @@ public class ReservationDAOIntegrationTest extends DAOIntegrationTest {
 
 		Assert.assertEquals(TEST_TOOL_ID, testReservation.getToolId());
 		Assert.assertEquals(TEST_TOOL_NAME, testReservation.getToolName());
-		Assert.assertEquals(TEST_USER_NAME, testReservation.getName());
+		Assert.assertEquals(TEST_USER_NAME, testReservation.getMemberName());
 	}
 
 	@Test
@@ -89,7 +89,7 @@ public class ReservationDAOIntegrationTest extends DAOIntegrationTest {
 
 		Assert.assertEquals(TEST_TOOL_ID, testReservation.getToolId());
 		Assert.assertEquals(TEST_TOOL_NAME, testReservation.getToolName());
-		Assert.assertEquals(TEST_USER_NAME, testReservation.getName());
+		Assert.assertEquals(TEST_USER_NAME, testReservation.getMemberName());
 	}
 
 }

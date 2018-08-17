@@ -4,89 +4,61 @@ import java.util.List;
 
 public class Reservation {
 
-	private int tool_id;
-	private int reservation_id;
-	private int app_user_id;
+	private int memberId;
+	private String memberName;
+	private int toolId;
 	private String toolName;
-	private String from_date;
-	private String to_date;
-	private String name;
+	private int reservationId;
+	private String checkoutDate;
+	private String returnDate;
+	public List<Tool> tools;
 	
-	
-	//The shopping cart gets inserted here the moment before final checkout
-	public List<Tool> items;
-
-	public List<Tool> getItems() {
-		return items;
+	public int getMemberId() {
+		return memberId;
 	}
-	
-	public void setItems(List<Tool> items) {
-	this.items = items;	
+	public void setMemberId(int memberId) {
+		this.memberId = memberId;
 	}
-	
-	public void empty() {
-		items.clear();
+	public String getMemberName() {
+		return memberName;
 	}
-	
-	
-	public Reservation() {
-		
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
-
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		
-		this.name = name;
-	}
-	
 	public int getToolId() {
-		return tool_id;
+		return toolId;
 	}
-
 	public void setToolId(int toolId) {
-		this.tool_id = toolId;
+		this.toolId = toolId;
 	}
-
 	public String getToolName() {
 		return toolName;
 	}
-
 	public void setToolName(String toolName) {
 		this.toolName = toolName;
 	}
-
-	public String getFrom_date() {
-		return from_date;
+	public int getReservationId() {
+		return reservationId;
 	}
-
-	public void setFrom_date(String from_date) {
-		this.from_date = from_date;
+	public void setReservationId(int reservationId) {
+		this.reservationId = reservationId;
 	}
-
-	public String getTo_date() {
-		return to_date;
+	public String getCheckoutDate() {
+		return checkoutDate;
 	}
-
-	public void setTo_date(String to_date) {
-		this.to_date = to_date;
+	public void setCheckoutDate(String checkoutDate) {
+		this.checkoutDate = checkoutDate;
 	}
-
-	public int getReservation_id() {
-		return reservation_id;
+	public String getReturnDate() {
+		return returnDate;
 	}
-	
-	public void setReservation_id(int reservation_id) {
-		this.reservation_id=reservation_id;
+	public void setReturnDate(String returnDate) {
+		this.returnDate = returnDate;
 	}
-	
-	public int getApp_user_id() {
-		return app_user_id;
+	public List<Tool> getTools() {
+		return tools;
 	}
-	
-	public void setApp_user_id(int app_user_id) {
-		this.app_user_id=app_user_id;
+	public void setTools(List<Tool> tools) {
+		this.tools = tools;
 	}
-	
 }

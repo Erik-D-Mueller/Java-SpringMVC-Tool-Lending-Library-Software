@@ -15,7 +15,7 @@
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">Member ID</th>
-					<th scope="col">Member User Name</th>
+					<th scope="col">Member Name</th>
 					<th></th>
 				</tr>
 			</thead>
@@ -24,7 +24,7 @@
 				<c:forEach items="${memberList}" var="member">
 					<tr>
 						<td>${member.memberId}</td>
-						<td>${member.userName}</td>
+						<td>${member.memberName}</td>
 						<td><a href="${editCart}?memberId=${member.memberId}">edit cart</a></td>
 					</tr>
 				</c:forEach>

@@ -3,29 +3,25 @@ package com.techelevator.model.domain;
 public class Tool {
 
 	private int toolId;
-	private String name;
-	private String description;
+	private String toolName;
+	private String toolDescription;
 	
-
-	public Tool() {
-		
-	}
 	public int getToolId() {
 		return toolId;
 	}
 	public void setToolId(int toolId) {
 		this.toolId = toolId;
 	}
-	public String getName() {
-		return name;
+	public String getToolName() {
+		return toolName;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setToolName(String toolName) {
+		this.toolName = toolName;
 	}
-	public String getDescription() {
-		return description;
+	public String getToolDescription() {
+		return toolDescription;
 	}
-	public void setDescription(String description) {
-		this.description = description;
+	public void setToolDescription(String toolDescription) {
+		this.toolDescription = toolDescription;
 	}
 }

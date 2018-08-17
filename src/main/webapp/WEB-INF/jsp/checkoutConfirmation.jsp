@@ -2,7 +2,6 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-	
 <h1>${memberName}, you have successfully checked out the following items: </h1>
 <h3> Your confirmation number is ${confNum}</h3>
 
@@ -10,7 +9,7 @@
 			<table class="table table-striped table-hover table-bordered table-responsive">
 				<thead class="thead-dark">
 					<tr>
-						<th scope="col">Tool #</th>
+						<th scope="col">Tool Id</th>
 						<th scope="col">Tool Name</th>
 						<th scope="col">Due Date</th>
 					</tr>
@@ -20,7 +19,7 @@
 						<tr>
 							<td>${reservation.toolId}</td>
 							<td>${reservation.toolName}</td>
-							<td>${reservation.to_date}</td>
+							<td>${reservation.returnDate}</td>
 						</tr>
 					</c:forEach>
 				</tbody>

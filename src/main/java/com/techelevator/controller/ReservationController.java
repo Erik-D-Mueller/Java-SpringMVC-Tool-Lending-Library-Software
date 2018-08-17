@@ -83,7 +83,7 @@ public class ReservationController {
 				request.setAttribute("charError", true);
 				return "toolHistory";
 			}
-			if(request.getParameter("searchType").equals("userName") && !onlyHasLetters ){
+			if(request.getParameter("searchType").equals("memberName") && !onlyHasLetters ){
 				request.setAttribute("charErrorMsg", "Please only enter letters for a name search");
 				request.setAttribute("charError", true);
 				return "toolHistory";
@@ -100,7 +100,7 @@ public class ReservationController {
 				request.setAttribute("reservations",
 						reservationDAO.searchToolsByToolNumber(Integer.parseInt(request.getParameter("searchString"))));
 			}
-			if (request.getParameter("searchType").equals("userName")) {
+			if (request.getParameter("searchType").equals("memberName")) {
 				request.setAttribute("reservations",
 						reservationDAO.searchToolsByName(request.getParameter("searchString")));
 			}
