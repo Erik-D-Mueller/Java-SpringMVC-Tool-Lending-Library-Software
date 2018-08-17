@@ -147,12 +147,12 @@ public class JDBCReservationDAO implements ReservationDAO {
 	public int saveNewReservation(Reservation reservation) {
 		LocalDate date = LocalDate.now();
 		
-		List<Tool> items = reservation.getItems();
+		List<Tool> items = reservation.getTools();
 		if(items.size() == 0) {
 		}
 		String sqlSaveNewReservation = "INSERT INTO reservation (app_user_id, from_date, to_date) VALUES (?,?,?)";
 		
-		jdbcTemplate.update(sqlSaveNewReservation, reservation.getApp_user_id(), date, date.plusDays(7));
+		jdbcTemplate.update(sqlSaveNewReservation, reservation.getMemberId(), date, date.plusDays(7));
 		
 		String sqlGetReservationId = "SELECT reservation_id FROM reservation where reservation_id=(SELECT MAX(reservation_id) FROM reservation)";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetReservationId);
@@ -163,16 +163,16 @@ public class JDBCReservationDAO implements ReservationDAO {
 			id = Integer.parseInt(results.getString("reservation_id"));
 		}
 		
-		reservation.setReservation_id(id);
+		reservation.setReservationId(id);
 		
 		String sqlInsertTool = "INSERT INTO tool_reservation (tool_id, reservation_id) VALUES (?,?)";
 		
 		for (Tool e : items) {
 			
-			jdbcTemplate.update(sqlInsertTool, e.getToolId(), reservation.getReservation_id());	
+			jdbcTemplate.update(sqlInsertTool, e.getToolId(), reservation.getReservationId());	
 		}
 		
-		return reservation.getReservation_id();
+		return reservation.getReservationId();
 	}
 
 	public Reservation mapRowToReservation(SqlRowSet results) {
@@ -185,10 +185,10 @@ public class JDBCReservationDAO implements ReservationDAO {
 		String returnDate = results.getString("to_date").substring(5) + "-" + results.getString("to_date").substring(0,4);
 		
 		newReservation.setToolId(results.getInt("tool_id"));
-		newReservation.setName(memberName);
+		newReservation.setMemberName(memberName);
 		newReservation.setToolName(toolName);
-		newReservation.setFrom_date(checkoutDate);
-		newReservation.setTo_date(returnDate);
+		newReservation.setCheckoutDate(checkoutDate);
+		newReservation.setReturnDate(returnDate);
 
 		return newReservation;
 	}

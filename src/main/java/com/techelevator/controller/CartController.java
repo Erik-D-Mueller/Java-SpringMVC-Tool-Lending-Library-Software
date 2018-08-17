@@ -33,7 +33,7 @@ public class CartController {
 	public String choseMemberAndRedirect(HttpServletRequest request, ModelMap map) {
 				
 		map.addAttribute("member", request.getParameter("memberId"));
-		map.addAttribute("memberName", memberDAO.getMemberById(Integer.parseInt(request.getParameter("memberId"))).getUserName());
+		map.addAttribute("memberName", memberDAO.getMemberById(Integer.parseInt(request.getParameter("memberId"))).getMemberName());
 		
 		return "redirect:/availableToolList";
 	}

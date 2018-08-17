@@ -54,7 +54,7 @@ public class MemberDAOIntegrationTest extends DAOIntegrationTest{
 
 		Assert.assertNotNull(listOfAllMembers);
 		
-		Assert.assertEquals( TEST_USER_NAME, listOfAllMembers.get(listOfAllMembers.size()-1).getUserName());
+		Assert.assertEquals( TEST_USER_NAME, listOfAllMembers.get(listOfAllMembers.size()-1).getMemberName());
 	}
 	
 	@Test

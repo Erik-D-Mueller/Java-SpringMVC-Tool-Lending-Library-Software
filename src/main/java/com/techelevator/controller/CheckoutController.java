@@ -33,11 +33,11 @@ public class CheckoutController {
 		
 		Reservation reservation = new Reservation();
 		
-		reservation.setItems(tools);
+		reservation.setTools(tools);
 		
 		Integer memberId =  Integer.parseInt((String) model.get("member"));
 				
-		reservation.setApp_user_id(memberId);
+		reservation.setMemberId(memberId);
 
 		int confirmationNum = reservationDAO.saveNewReservation(reservation);
 		

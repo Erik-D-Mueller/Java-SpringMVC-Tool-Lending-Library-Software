@@ -3,6 +3,7 @@
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
 <div class="noHeader" id="masterToolList">
+	
 	<h2>
 		<span class="toolListHeader">Currently Available Tools</span>
 	</h2>
@@ -13,10 +14,11 @@
 	<form action="${formAction}" method="POST">
 
 		<div id="toolTable">
-			<table class="table table-striped table-hover table-bordered table-responsive">
+			<table
+				class="table table-striped table-hover table-bordered table-responsive">
 				<thead class="thead-dark">
 					<tr>
-						<th scope="col">Individual Tool id</th>
+						<th scope="col">Tool Id</th>
 						<th scope="col">Tool Name</th>
 						<th scope="col">Tool Description</th>
 						<c:if test="${member != null}">
@@ -24,17 +26,17 @@
 						</c:if>
 					</tr>
 				</thead>
+				
 				<tbody>
 					<c:forEach items="${availableTools}" var="tool">
 						<tr id="divIDNo${tool.toolId}">
 							<td>${tool.toolId}</td>
-							<td>${tool.name}</td>
-							<td>${tool.description}</td>
-							<td>
-								<c:if test="${member != null}">
-    								<button name="tool_id" value="${tool.toolId}">Add To Cart</button>
-								</c:if>
-							</td>
+							<td>${tool.toolName}</td>
+							<td>${tool.toolDescription}</td>
+							<td><c:if test="${member != null}">
+									<button name="tool_id" value="${tool.toolId}">Add To
+										Cart</button>
+								</c:if></td>
 						</tr>
 					</c:forEach>
 				</tbody>
@@ -42,14 +44,9 @@
 		</div>
 
 		<c:url value="/viewCart" var="formAction" />
-		
+
 	</form>
 
 </div>
-
-
-
-
-
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />

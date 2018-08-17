@@ -20,9 +20,9 @@
 
 		<div id="searchTypeDropBox">
 			<label for="searchType">Search By: </label> <select name="searchType">
-				<option value="driversLicense">driver's license</option>
-				<option value="toolId">tool ID#</option>
-				<option value="userName">user name</option>
+				<option value="driversLicense">Driver's License</option>
+				<option value="toolId">Tool ID#</option>
+				<option value="memberName">Member Name</option>
 			</select>
 		</div>
 
@@ -39,7 +39,7 @@
 			<tr>
 				<th scope="col">Individual Tool Id</th>
 				<th scope="col">Tool Name</th>
-				<th scope="col">User Name</th>
+				<th scope="col">Member Name</th>
 				<th scope="col">Date Checked Out</th>
 				<th scope="col">Date Expected Back</th>
 			</tr>
@@ -50,9 +50,9 @@
 				<tr>
 					<td>${reservation.toolId}</td>
 					<td>${reservation.toolName}</td>
-					<td>${reservation.name}</td>
-					<td>${reservation.from_date}</td>
-					<td>${reservation.to_date}</td>
+					<td>${reservation.memberName}</td>
+					<td>${reservation.checkoutDate}</td>
+					<td>${reservation.returnDate}</td>
 				</tr>
 			</c:forEach>
 		</tbody>

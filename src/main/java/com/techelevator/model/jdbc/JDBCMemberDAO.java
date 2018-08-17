@@ -69,7 +69,7 @@ public class JDBCMemberDAO implements MemberDAO {
 		String memberName = results.getString("user_name").substring(0, 1) + results.getString("user_name").toLowerCase().substring(1).toLowerCase();
 	
 		theMember.setMemberId(results.getInt("app_user_id"));
-		theMember.setUserName(memberName);
+		theMember.setMemberName(memberName);
 		
 		return theMember;
 	}
