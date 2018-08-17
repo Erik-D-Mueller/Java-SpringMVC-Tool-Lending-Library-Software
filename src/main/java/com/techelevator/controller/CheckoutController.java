@@ -1,7 +1,5 @@
 package com.techelevator.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -13,12 +11,11 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.ui.ModelMap;
 
 import com.techelevator.model.dao.ReservationDAO;
-import com.techelevator.model.domain.Reservation;
+import com.techelevator.model.domain.Member;
 import com.techelevator.model.domain.ShoppingCart;
-import com.techelevator.model.domain.Tool;
 
 @Controller
-@SessionAttributes({"confNum", "reservation", "member", "memberName", "shoppingCart"})
+@SessionAttributes({"confNum", "shoppingCart", "member"})
 public class CheckoutController {
 	
 	@Autowired
@@ -26,31 +23,22 @@ public class CheckoutController {
 	
 	@RequestMapping(path="/checkOut", method=RequestMethod.POST)
 	public String checkOut(HttpSession session, ModelMap model) {
-		
-		ShoppingCart cart = getActiveShoppingCart(model);
-		
-		List<Tool> tools = cart.getItems();
-		
-		Reservation reservation = new Reservation();
-		
-		reservation.setTools(tools);
-		
-		Integer memberId =  Integer.parseInt((String) model.get("member"));
 				
-		reservation.setMemberId(memberId);
+		ShoppingCart cart = (ShoppingCart)model.get("shoppingCart");
 
-		int confirmationNum = reservationDAO.saveNewReservation(reservation);
+		int memberId = ((Member)model.get("member")).getMemberId();
+				
+		int confirmationNum = reservationDAO.saveNewReservation(cart, memberId);
 		
 		model.addAttribute("confNum", confirmationNum);
-		model.addAttribute("reservation", reservation);
-		
+				
 		return "redirect:/checkoutConfirmation";
 	}
 
 	@RequestMapping(path="/checkoutConfirmation", method=RequestMethod.GET)
 	public String confirmCheckout(HttpSession session, HttpServletRequest request, ModelMap model) {		
 		
-		request.setAttribute("memberName", model.get("memberName"));
+		request.setAttribute("memberName", ((Member)model.get("member")).getMemberName());
 		request.setAttribute("confNum", model.get("confNum"));
 		request.setAttribute("reservations", reservationDAO.searchReservationsByReservationNumber((int)model.get("confNum")));
 		
@@ -59,12 +47,5 @@ public class CheckoutController {
 		
 		return "checkoutConfirmation";
 	}
-	
-	private ShoppingCart getActiveShoppingCart(ModelMap model) {
-		if(model.get("shoppingCart") == null) {
-			model.addAttribute("shoppingCart", new ShoppingCart());
-		}
-		return (ShoppingCart)model.get("shoppingCart");
-	}
-	
+
 }

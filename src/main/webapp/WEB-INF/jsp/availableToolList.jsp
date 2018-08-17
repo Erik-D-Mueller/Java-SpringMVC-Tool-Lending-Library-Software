@@ -8,7 +8,7 @@
 		<span class="toolListHeader">Currently Available Tools</span>
 	</h2>
 
-	<h2>${memberName}</h2>
+	<h2>${member.memberName}</h2>
 
 	<c:url value="/viewCart" var="formAction" />
 	<form action="${formAction}" method="POST">

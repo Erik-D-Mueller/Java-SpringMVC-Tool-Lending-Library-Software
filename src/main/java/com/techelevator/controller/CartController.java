@@ -18,7 +18,7 @@ import com.techelevator.model.domain.ShoppingCart;
 import com.techelevator.model.domain.Tool;
 
 @Controller
-@SessionAttributes({"member", "memberName", "shoppingCart"})
+@SessionAttributes({"member", "shoppingCart"})
 public class CartController {
 	
 	Member member;
@@ -30,10 +30,9 @@ public class CartController {
 	private ToolDAO toolDAO;
 	
 	@RequestMapping(path="/chooseMember", method=RequestMethod.GET)
-	public String choseMemberAndRedirect(HttpServletRequest request, ModelMap map) {
-				
-		map.addAttribute("member", request.getParameter("memberId"));
-		map.addAttribute("memberName", memberDAO.getMemberById(Integer.parseInt(request.getParameter("memberId"))).getMemberName());
+	public String chooseMemberAndRedirect(HttpServletRequest request, ModelMap map) {
+								
+		map.addAttribute("member", memberDAO.getMemberById(Integer.parseInt(request.getParameter("memberId"))));
 		
 		return "redirect:/availableToolList";
 	}
@@ -44,6 +43,9 @@ public class CartController {
 		Tool toolToAdd = toolDAO.getToolById(Integer.parseInt(request.getParameter("tool_id")));
 
 		ShoppingCart cart = getActiveShoppingCart(model);
+		
+		cart.addToCart(toolToAdd);
+		
 		List<Tool> tools = cart.getItems();
 		tools.add(toolToAdd);
 		cart.setItems(tools);

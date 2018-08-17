@@ -13,6 +13,7 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 import com.techelevator.model.dao.ReservationDAO;
 import com.techelevator.model.domain.Reservation;
+import com.techelevator.model.domain.ShoppingCart;
 
 
 @Component
@@ -144,35 +145,35 @@ public class JDBCReservationDAO implements ReservationDAO {
 	}
 	
 	@Override
-	public int saveNewReservation(Reservation reservation) {
+	public int saveNewReservation(ShoppingCart cart, int memberId) {
 		LocalDate date = LocalDate.now();
 		
-		List<Tool> items = reservation.getTools();
+		List<Tool> items = cart.getItems();
 		if(items.size() == 0) {
 		}
 		String sqlSaveNewReservation = "INSERT INTO reservation (app_user_id, from_date, to_date) VALUES (?,?,?)";
 		
-		jdbcTemplate.update(sqlSaveNewReservation, reservation.getMemberId(), date, date.plusDays(7));
+		jdbcTemplate.update(sqlSaveNewReservation, memberId, date, date.plusDays(7));
 		
 		String sqlGetReservationId = "SELECT reservation_id FROM reservation where reservation_id=(SELECT MAX(reservation_id) FROM reservation)";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetReservationId);
 
-		int id = 0;
+		int reservationId = 0;
 	
 		while(results.next()) {
-			id = Integer.parseInt(results.getString("reservation_id"));
+			
+			reservationId = Integer.parseInt(results.getString("reservation_id"));
+		
 		}
-		
-		reservation.setReservationId(id);
-		
+				
 		String sqlInsertTool = "INSERT INTO tool_reservation (tool_id, reservation_id) VALUES (?,?)";
 		
 		for (Tool e : items) {
 			
-			jdbcTemplate.update(sqlInsertTool, e.getToolId(), reservation.getReservationId());	
+			jdbcTemplate.update(sqlInsertTool, e.getToolId(), reservationId);	
 		}
 		
-		return reservation.getReservationId();
+		return reservationId;
 	}
 
 	public Reservation mapRowToReservation(SqlRowSet results) {

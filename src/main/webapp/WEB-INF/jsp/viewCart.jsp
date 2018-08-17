@@ -4,7 +4,7 @@
 
 <c:if test="${member != null}">
 	
-	<h1>${memberName}'s cart</h1>
+	<h1>${member.memberName}'s cart</h1>
 
 	<div>
 		<table>

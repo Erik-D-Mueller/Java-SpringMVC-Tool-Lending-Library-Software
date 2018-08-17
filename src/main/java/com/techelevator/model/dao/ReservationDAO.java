@@ -3,6 +3,7 @@ package com.techelevator.model.dao;
 import java.util.List;
 
 import com.techelevator.model.domain.Reservation;
+import com.techelevator.model.domain.ShoppingCart;
 
 public interface ReservationDAO {
 
@@ -14,7 +15,7 @@ public interface ReservationDAO {
 	
 	public List<Reservation> getAllCheckedOutTools();
 
-	public int saveNewReservation(Reservation reservation);
+	public int saveNewReservation(ShoppingCart cart, int memberId);
 
 	public List<Reservation> searchReservationsByReservationNumber(int reservationId);
 }
