@@ -53,13 +53,12 @@ public class MemberDAOIntegrationTest extends DAOIntegrationTest{
 		listOfAllMembers = test.getAllMembers();
 
 		Assert.assertNotNull(listOfAllMembers);
-		
-		Assert.assertEquals( TEST_USER_NAME, listOfAllMembers.get(listOfAllMembers.size()-1).getMemberName());
+		Assert.assertEquals("Mason", listOfAllMembers.get(0).getMemberName());
 	}
 	
 	@Test
 	public void getMemberByIdTest() {
-		Assert.assertEquals( TEST_USER_NAME, test.getMemberById(TEST_APP_USER_ID).getUserName());
+		Assert.assertEquals("Mason", test.getMemberById(2).getMemberName());
 	}
 
 }
