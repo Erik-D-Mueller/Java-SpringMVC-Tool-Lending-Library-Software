@@ -1,15 +1,23 @@
 package com.techelevator.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.techelevator.model.dao.ReservationDAO;
 import com.techelevator.model.dao.ToolDAO;
+import com.techelevator.model.domain.ShoppingCart;
+import com.techelevator.model.domain.Tool;
 
 @Controller
+@SessionAttributes("shoppingCart")
 public class ToolController {
 
 	@Autowired
@@ -27,10 +35,42 @@ public class ToolController {
 	}
 
 	@RequestMapping("/availableToolList")
-	public String displayAvailableToolList(HttpServletRequest request) {
+	public String displayAvailableToolList(HttpServletRequest request, ModelMap model) {
 		
-		request.setAttribute("availableTools", toolDAO.getAllAvailableTools());
+		if(model.get("shoppingCart") != null) {
+						
+			ShoppingCart cart = (ShoppingCart)model.get("shoppingCart");
+			List<Tool> toolsInCart = cart.getItems();			
+			
+			List<Tool> allAvailableTools = toolDAO.getAllAvailableTools();
 
+			List<Tool> toolsThatCanAddToCart = new ArrayList<>();
+			
+			for(Tool e: allAvailableTools) {
+				
+				boolean isInCart = false;
+				
+				for(Tool f: toolsInCart) {
+					
+					if(e.getToolId() == f.getToolId()) {
+						
+						isInCart = true;
+						
+					}
+					
+				}
+				
+				if(!isInCart) {
+					toolsThatCanAddToCart.add(e);
+				}
+					
+			}
+			
+			request.setAttribute("availableTools", toolsThatCanAddToCart);
+
+		}else {
+		request.setAttribute("availableTools", toolDAO.getAllAvailableTools());
+		}
 		return "availableToolList";
 	}
 	
