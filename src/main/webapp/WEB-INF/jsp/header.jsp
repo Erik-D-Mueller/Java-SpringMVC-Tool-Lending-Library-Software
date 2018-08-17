@@ -68,32 +68,22 @@
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="nav navbar-nav">
-				<li class="nav-item"><a class="nav-link" href="${homePageHref}">Home</a></li>
-				<li><a href="${toolSearchHref}">Tool Search</a></li>
-
-				<li class="nav-item dropdown">
-				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tool Lists </a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li><a href="${toolMasterHref}">Tool Master List</a> </li>
-						<li><a href="${availableToolHref}">Available Tools</a> </li>
-						<li class="dropdown-item nav-item" ><a href="${checkedOutToolsHref}">Currently Checked Out</a></li>
-					</ul>
-				</li>
-				<li><a href="${viewCartHref}">View Cart</a></li>
-				<li><a href="${memberListHref}">Member List</a></li>
-
-				<c:if test="${not empty currentUser}">
-					<c:url var="dashboardHref" value="/users/${currentUser}" />
-					<li><a href="${dashboardHref}">Private Messages</a></li>
-					<c:url var="newMessageHref"
-						value="/users/${currentUser}/messages/new" />
-					<li><a href="${newMessageHref}">New Message</a></li>
-					<c:url var="sentMessagesHref"
-						value="/users/${currentUser}/messages" />
-					<li><a href="${sentMessagesHref}">Sent Messages</a></li>
-					<c:url var="changePasswordHref"
-						value="/users/${currentUser}/changePassword" />
-					<li><a href="${changePasswordHref}">Change Password</a></li>
+				<li class="nav-item"><a class="nav-link" href="${homePageHref}">Home</a></li>	
+					<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tool Lists </a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a href="${availableToolHref}">Available Tools</a> </li>
+							<c:if test="${currentUser.role == 'LIBRARIAN'}">
+								<li class="dropdown-item nav-item" ><a href="${checkedOutToolsHref}">Currently Checked Out</a></li>
+								<li><a href="${toolMasterHref}">Tool Master List</a> </li>
+							</c:if>
+						</ul>
+					</li>
+				
+				<c:if test="${currentUser.role == 'LIBRARIAN'}">
+					<li><a href="${toolSearchHref}">Tool Search</a></li>
+					<li><a href="${viewCartHref}">View Cart</a></li>
+					<li><a href="${memberListHref}">Member List</a></li>
 				</c:if>
 			</ul>
 			<ul class="nav navbar-nav navbar-right">

@@ -62,6 +62,15 @@
 					type="password" id="confirmPassword" name="confirmPassword"
 					placeHolder="Re-Type Password" class="form-control" />
 			</div>
+			<div class="form-group">
+				<div id="roleDropBox">
+					<label for="role">Role: </label> <select
+						name="role">
+						<option value="MEMBER">Member</option>
+						<option value="LIBRARIAN">Librarian</option>
+					</select>
+				</div>
+			</div>
 			<button type="submit" class="btn btn-default">Create User</button>
 		</div>
 		<div class="col-sm-4"></div>

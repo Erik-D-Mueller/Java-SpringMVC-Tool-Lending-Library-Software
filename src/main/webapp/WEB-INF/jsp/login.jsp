@@ -2,6 +2,7 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
+<h1>${user.name}</h1>
 <div class="row">
 	<div class="col-sm-4"></div>
 	<div class="col-sm-4">
@@ -22,4 +23,7 @@
 	</div>
 	<div class="col-sm-4"></div>
 </div>
+<c:if test="${loginFail==true}">
+	<h1>You failed to log in</h1>
+</c:if>
 <c:import url="/WEB-INF/jsp/footer.jsp" />
