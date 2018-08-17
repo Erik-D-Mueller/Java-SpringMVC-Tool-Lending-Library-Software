@@ -42,17 +42,18 @@
 		<c:url var="imgSrc" value="/img/PowerDrills.jpg" />
 	</header>
 	<div class="jumbotron jumbotron-billboard">
-  <div class="img"></div>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-              <h2>Tool Library</h2>
-                <p>
-                    Welcome to the library!
-                </p>
-            </div>
-        </div>
-    </div>
+	  <div class="img"></div>
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-lg-12">
+	              <h2>Tool Library</h2>
+	                <p>
+	                    Please take a look at our collection of tools!
+	                </p>
+	            </div>
+	        </div>
+	    </div>
+	</div>
 </div>
 	<c:url var="homePageHref" value="/" />
 	<c:url var="toolSearchHref" value="/toolHistory" />
@@ -66,9 +67,7 @@
 	<nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-
 			<ul class="nav navbar-nav">
-
 				<li class="nav-item"><a class="nav-link" href="${homePageHref}">Home</a></li>
 				<li><a href="${toolSearchHref}">Tool Search</a></li>
 

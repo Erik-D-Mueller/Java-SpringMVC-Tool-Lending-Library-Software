@@ -13,7 +13,7 @@
 	<form action="${formAction}" method="POST">
 
 		<div id="toolTable">
-			<table class="table table-striped table-hover table-bordered">
+			<table class="table table-striped table-hover table-bordered table-responsive">
 				<thead class="thead-dark">
 					<tr>
 						<th scope="col">Individual Tool id</th>

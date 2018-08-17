@@ -2,7 +2,7 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-
+<c:if test="${member != null}">
 <h1>${memberName}'s cart</h1>
 
 <div>
@@ -35,5 +35,8 @@
 	<c:url var="availableToolHref" value="/availableToolList" />
 	<a href="${availableToolHref}">Add More Tools to Cart</a>
 </div>
-
+</c:if>
+<c:if test="${member == null}">
+	<h1>No Patron Selected</h1>
+</c:if>
 <c:import url="/WEB-INF/jsp/footer.jsp" />

@@ -54,6 +54,11 @@ public class CartController {
 		return "viewCart";
 	}
 	
+	@RequestMapping(path="/viewCart", method=RequestMethod.GET)
+	public String viewCart(HttpServletRequest request) {
+		return "viewCart";
+	}
+	
 	private ShoppingCart getActiveShoppingCart(ModelMap model) {
 		if(model.get("shoppingCart") == null) {
 			model.addAttribute("shoppingCart", new ShoppingCart());

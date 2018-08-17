@@ -2,24 +2,17 @@ body{
 	background-color: LightSteelBlue  ;
 }
 
-tr nth-child(even){
-  background-color: yellow !important;
-}
-tr nth-child(odd){
-  background-color: red !important;
-}
-
 thead {
 	background-color : DarkGray; 
 	color: black;
 }
 
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-  background-color: Lavender ;
+  background-color: Moccasin;
 }
 
 table {
-	background-color: white;
+	background-color: LightGray;
 	margin-top: 10px;
 }
 
@@ -36,7 +29,7 @@ footer {
 }
 
 #formSubmitButton {
-	border-radius: 8px !important; 
+	border-radius: 4px !important; 
 }
 
  #logo {
@@ -46,18 +39,24 @@ footer {
     max-height: 70px;
     position: relative;
     margin-top: -10px;
-    
 } 
+
+
+.slidePic {
+	height: 355px !important;
+	width: 640px !important;
+}
 
 .carousel {
   width:640px !important;
   height:360px !important;
-} */
+} 
+
 
 .jumbotron-billboard .img {
     margin-bottom: 0px;
     opacity: 0.2;
-    color: #000000;
+    color: #fff;
     background: #000 url("../img/logo.jpg") top center no-repeat;
     width: 100%;
     height: 100%;
@@ -68,24 +67,24 @@ footer {
     left:0;
     z-index:1;
 }
-
 .jumbotron h2 {
 	margin-top:0;
-	font-weight: 500;
 	font-size: 60px;
+	font-weight: bold;
+	font-family: URW Chancery L, cursive
 }
 
 .jumbotron p {
-	font-weight: 200;
-	font-size: 50px;
+	margin-top:0;
+	font-size: 30px;
+	font-family: Gill Sans, sans-serif
 }
 
 .jumbotron {
-  	position:relative;
-  	padding-top:30px;
-  	padding-bottom:30px;
+  position:relative;
+  padding-top: 5px;
+  padding-bottom:15px;
 }
-
 .jumbotron .container {
   position:relative;
   z-index:2;
@@ -96,4 +95,16 @@ footer {
     padding-top:20px;
     padding-bottom:20px;
   }
+}
+
+#navbarSupportedContent {
+	background-color: LightGray;
+	border: 0px;
+}
+#navbarSupportedContent a {
+	margin: 5px;
+	background-color: SteelBlue;
+	border-radius: 4px;
+	padding: 8px;
+	color: white;
 }
