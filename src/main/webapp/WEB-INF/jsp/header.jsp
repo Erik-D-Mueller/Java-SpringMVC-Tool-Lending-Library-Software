@@ -39,14 +39,21 @@
 <body>
 	<header>
 		<c:url var="homePageHref" value="/" />
-		<c:url var="imgSrc" value="/img/logo.jpg" />
+		<c:url var="imgSrc" value="/img/PowerDrills.jpg" />
 	</header>
-	<div class="jumbotron jumbotron-fluid">
-		<div class="container">
-			<h1 class="display-4">Tool Library</h1>
-			<p class="lead">Welcome to our free tool library!</p>
-		</div>
-	</div>
+	<div class="jumbotron jumbotron-billboard">
+  <div class="img"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+              <h2>Tool Library</h2>
+                <p>
+                    Welcome to the library!
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
 	<c:url var="homePageHref" value="/" />
 	<c:url var="toolSearchHref" value="/toolHistory" />
 	<c:url var="toolMasterHref" value="/completeToolList" />
