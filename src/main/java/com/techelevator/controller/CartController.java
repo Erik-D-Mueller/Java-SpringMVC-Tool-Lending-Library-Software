@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,8 +31,9 @@ public class CartController {
 	private ToolDAO toolDAO;
 	
 	@RequestMapping(path="/chooseMember", method=RequestMethod.GET)
-	public String chooseMemberAndRedirect(HttpServletRequest request, ModelMap map) {
-								
+	public String chooseMemberAndRedirect(HttpSession session, HttpServletRequest request, ModelMap map) {
+		map.clear();
+		session.invalidate();
 		map.addAttribute("member", memberDAO.getMemberById(Integer.parseInt(request.getParameter("memberId"))));
 		
 		return "redirect:/availableToolList";
