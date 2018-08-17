@@ -75,5 +75,10 @@ public class ToolDAOIntegrationTest extends DAOIntegrationTest {
 
 		Assert.assertNotEquals(TEST_TOOL_ID, listOfAvailableTools.get(listOfAvailableTools.size() - 1).getToolId());
 	}
+	
+	@Test
+	public void getToolByIdTest() {
+		Assert.assertEquals(TEST_TOOL_NAME, test.getToolById(TEST_TOOL_TYPE_ID).getToolName().toUpperCase());
+	}
 
 }

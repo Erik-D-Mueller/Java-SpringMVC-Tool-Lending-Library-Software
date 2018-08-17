@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.util.List;
+
 import javax.sql.DataSource;
 
 import org.junit.Assert;
@@ -91,5 +93,29 @@ public class ReservationDAOIntegrationTest extends DAOIntegrationTest {
 		Assert.assertEquals(TEST_TOOL_NAME, testReservation.getToolName());
 		Assert.assertEquals(TEST_USER_NAME, testReservation.getMemberName());
 	}
+	
+	@Test
+	public void getAllCheckedOutToolsTest(){
+//		List<Reservation> checkedOutTools = test.getAllCheckedOutTools();
+//		Assert.assertNotNull(checkedOutTools);
+//		Assert.assertEquals(TEST_RESERVATION_ID, test.searchReservationsByReservationNumber(TEST_RESERVATION_ID).get(TEST_RESERVATION_ID).getToolName());
+	}
 
+	@Test
+	public void saveNewReservationTest(){
+//		Reservation newReservation = new Reservation();
+//		newReservation.setMemberName("SoMeRaNdOmNaMe");
+//		newReservation.setReservationId(500);
+//		
+//		int oldSize = test.getAllCheckedOutTools().size();
+//		test.saveNewReservation(newReservation);
+//		
+//		Assert.assertEquals(oldSize + 1, test.getAllCheckedOutTools().size() + 1);
+//		Assert.assertEquals(test.getAllCheckedOutTools().get(test.getAllCheckedOutTools().size() -1).getMemberName(), "SoMeRaNdOmNaMe");
+	}
+
+	@Test
+	public void searchReservationsByReservationNumberTest(){
+		//Assert.assertEquals(expected, test.searchReservationsByReservationNumber(TEST_RESERVATION_ID).get(index));
+	}
 }
