@@ -62,7 +62,7 @@
 	<c:url var="checkedOutToolsHref" value="/checkedOutTools" />
 	<c:url var="viewCartHref" value="/viewCart" />
 	<c:url var="memberListHref" value="/memberList" />
-	
+	<c:url var="returnToolHref" value="/returnTool" />
 	
 	<nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
 
@@ -80,6 +80,7 @@
 					</ul>
 				</li>
 				<li><a href="${viewCartHref}">View Cart</a></li>
+				<li><a href="${returnToolHref}">Tool Return</a></li>
 				<li><a href="${memberListHref}">Member List</a></li>
 
 				<c:if test="${not empty currentUser}">

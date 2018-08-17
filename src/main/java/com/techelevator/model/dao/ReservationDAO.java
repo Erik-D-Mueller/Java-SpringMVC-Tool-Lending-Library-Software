@@ -16,6 +16,8 @@ public interface ReservationDAO {
 	public List<Reservation> getAllCheckedOutTools();
 
 	public int saveNewReservation(ShoppingCart cart, int memberId);
+	
+	public void deleteReservation(int toolId);
 
 	public List<Reservation> searchReservationsByReservationNumber(int reservationId);
 }
