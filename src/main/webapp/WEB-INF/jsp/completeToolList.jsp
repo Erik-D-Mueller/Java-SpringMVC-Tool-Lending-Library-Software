@@ -16,6 +16,7 @@
 					<th scope="col">Tool Id</th>
 					<th scope="col">Tool Name</th>
 					<th scope="col">Tool Description</th>
+					<th scope="col">Is Tool Available</th>
 				</tr>
 			</thead>
 
@@ -25,6 +26,17 @@
 						<td>${tool.toolId}</td>
 						<td>${tool.toolName}</td>
 						<td>${tool.toolDescription}</td>
+						<c:choose>
+						
+							<c:when test="${tool.available}">
+								<td>Available</td>
+							</c:when>
+							
+							<c:otherwise>
+								<td>Checked Out</td>
+							</c:otherwise>
+							
+						</c:choose>
 					</tr>
 				</c:forEach>
 			</tbody>

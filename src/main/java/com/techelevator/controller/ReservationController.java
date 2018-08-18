@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.techelevator.model.dao.ReservationDAO;
+import com.techelevator.model.dao.ToolDAO;
 
 @Controller
 @SessionAttributes({"shoppingCart", "member"})
 public class ReservationController {
 
 	@Autowired
-	private ReservationDAO reservationDAO;
+	private ToolDAO toolDAO;
 	
 	@RequestMapping(path = "/toolHistory", method = RequestMethod.POST)
 	public String displayToolHistory(HttpServletRequest request) {
@@ -94,15 +94,15 @@ public class ReservationController {
 			// This junk actually calls the SQL statements if it's a valid search string
 			if (request.getParameter("searchType").equals("driversLicense")) {
 				request.setAttribute("reservations",
-						reservationDAO.searchToolsByDriversLicense(request.getParameter("searchString")));
+						toolDAO.getToolsCheckedOutToMemberByDL(request.getParameter("searchString")));
 			}
 			if (request.getParameter("searchType").equals("toolId")) {
 				request.setAttribute("reservations",
-						reservationDAO.searchToolsByToolNumber(Integer.parseInt(request.getParameter("searchString"))));
+						toolDAO.getCheckedOutToolByToolId(Integer.parseInt(request.getParameter("searchString"))));
 			}
 			if (request.getParameter("searchType").equals("memberName")) {
 				request.setAttribute("reservations",
-						reservationDAO.searchToolsByName(request.getParameter("searchString")));
+						toolDAO.getToolsCheckedOutToMemberByName(request.getParameter("searchString")));
 			}
 		}
 		return "toolHistory";

@@ -11,7 +11,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.techelevator.model.dao.ReservationDAO;
 import com.techelevator.model.dao.ToolDAO;
 import com.techelevator.model.domain.ShoppingCart;
 import com.techelevator.model.domain.Tool;
@@ -22,9 +21,6 @@ public class ToolController {
 
 	@Autowired
 	private ToolDAO toolDAO;
-	
-	@Autowired
-	private ReservationDAO reservationDAO;
 
 	@RequestMapping("/completeToolList")
 	public String displayCompleteToolList(HttpServletRequest request) {
@@ -77,8 +73,8 @@ public class ToolController {
 	@RequestMapping("/checkedOutTools")
 	public String displayCheckedOutTools(HttpServletRequest request) {
 
-		request.setAttribute("allCheckedOutTools", reservationDAO.getAllCheckedOutTools());
-
+		request.setAttribute("allCheckedOutTools", toolDAO.getAllCheckedOutTools());
+				
 		return "checkedOutTools";
 	}
 }

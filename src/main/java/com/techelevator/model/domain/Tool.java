@@ -1,10 +1,11 @@
 package com.techelevator.model.domain;
 
-public class Tool {
+public abstract class Tool {
 
 	private int toolId;
 	private String toolName;
 	private String toolDescription;
+	private boolean isAvailable;
 	
 	public int getToolId() {
 		return toolId;
@@ -24,4 +25,11 @@ public class Tool {
 	public void setToolDescription(String toolDescription) {
 		this.toolDescription = toolDescription;
 	}
+	public boolean isAvailable() {
+		return isAvailable;
+	}
+	public void setAvailable(boolean isAvailable) {
+		this.isAvailable = isAvailable;
+	}
+	
 }

@@ -46,7 +46,7 @@
 		</thead>
 
 		<tbody>
-			<c:forEach items="${reservations}" var="reservation">
+ 			<c:forEach items="${reservations}" var="reservation">
 				<tr>
 					<td>${reservation.toolId}</td>
 					<td>${reservation.toolName}</td>
@@ -54,7 +54,7 @@
 					<td>${reservation.checkoutDate}</td>
 					<td>${reservation.returnDate}</td>
 				</tr>
-			</c:forEach>
+ 			</c:forEach>
 		</tbody>
 	</table>
 

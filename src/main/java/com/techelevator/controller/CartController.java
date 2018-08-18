@@ -40,7 +40,7 @@ public class CartController {
 	public String viewCart(HttpServletRequest request, ModelMap model) {
 		
 		Tool toolToAdd = toolDAO.getToolById(Integer.parseInt(request.getParameter("tool_id")));
-
+		
 		ShoppingCart cart = getActiveShoppingCart(model);
 		
 		cart.addToCart(toolToAdd);
