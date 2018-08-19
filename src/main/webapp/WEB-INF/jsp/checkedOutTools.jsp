@@ -7,11 +7,10 @@
 	<h2>
 		<span class="toolListHeader">Currently Checked Out Tools</span>
 	</h2>
-
-	<div id="toolTable">
-		
+	
+	<div class="table-responsive">		
 		<table
-			class="table table-striped table-hover table-bordered table-responsive">
+			class="table table-striped table-hover table-bordered">
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">Tool Id</th>
@@ -32,7 +31,6 @@
 				</c:forEach>
 			</tbody>
 		</table>
-
 	</div>
 </div>
 

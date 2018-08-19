@@ -17,29 +17,51 @@
 			<table
 				class="table table-striped table-hover table-bordered table-responsive">
 				<thead class="thead-dark">
-					<tr>
+				<c:choose>
+					<c:when test="${member != null}">
+						<tr>
 						<th scope="col">Tool Id</th>
 						<th scope="col">Tool Name</th>
 						<th scope="col">Tool Description</th>
-						<c:if test="${member != null}">
-							<th>Click to add to cart</th>
-						</c:if>
-					</tr>
+						<th>Click to add to cart</th>
+						</tr>
+					</c:when>
+					<c:otherwise>
+						<tr>
+						<th scope="col">Tool Id</th>
+						<th scope="col">Tool Name</th>
+						<th scope="col">Tool Description</th>
+						</tr>
+					</c:otherwise>
+				</c:choose>
+					
 				</thead>
 				
 				<tbody>
-					<c:forEach items="${availableTools}" var="tool">
-						<tr id="divIDNo${tool.toolId}">
-							<td>${tool.toolId}</td>
-							<td>${tool.toolName}</td>
-							<td>${tool.toolDescription}</td>
-							<td><c:if test="${member != null}">
-									<button name="tool_id" value="${tool.toolId}">Add To
-										Cart</button>
-								</c:if></td>
-						</tr>
-					</c:forEach>
+					<c:choose>
+						<c:when test="${member != null}">
+							<c:forEach items="${availableTools}" var="tool">
+								<tr id="divIDNo${tool.toolId}">
+									<td>${tool.toolId}</td>
+									<td>${tool.toolName}</td>
+									<td>${tool.toolDescription}</td>
+									<td><button name="tool_id" value="${tool.toolId}">Add ToCart</button></td>
+								</tr>
+							</c:forEach>
+						</c:when>
+						<c:otherwise>
+							<c:forEach items="${availableTools}" var="tool">
+								<tr id="divIDNo${tool.toolId}">
+									<td>${tool.toolId}</td>
+									<td>${tool.toolName}</td>
+									<td>${tool.toolDescription}</td>
+								</tr>
+							</c:forEach>						
+						</c:otherwise>
+					</c:choose>
 				</tbody>
+				
+				
 			</table>
 		</div>
 

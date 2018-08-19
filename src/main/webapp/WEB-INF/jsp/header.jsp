@@ -1,22 +1,21 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Tool Library</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-<link rel="stylesheet"
-	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-<script
-	src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
-<script
-	src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/additional-methods.js "></script>
-<script
-	src="https://cdn.jsdelivr.net/jquery.timeago/1.4.1/jquery.timeago.min.js"></script>
-<script
-	src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<title>Tool Library</title>
 
 <c:url var="cssHref" value="/css/styles.css" />
 <link rel="stylesheet" type="text/css" href="${cssHref}">
@@ -40,21 +39,20 @@
 	<header>
 		<c:url var="homePageHref" value="/" />
 		<c:url var="imgSrc" value="/img/PowerDrills.jpg" />
+		<c:url var="TLLlogo" value="/img/TLLlogo.png" />
 	</header>
 	<div class="jumbotron jumbotron-billboard">
-	  <div class="img"></div>
-	    <div class="container">
-	        <div class="row">
-	            <div class="col-lg-12">
-	              <h2>Tool Library</h2>
-	                <p>
-	                    Please take a look at our collection of tools!
-	                </p>
-	            </div>
-	        </div>
-	    </div>
+		<div class="img"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+					<h2 id="library-title">Tool Library</h2>
+					<p>Please take a look at our collection of tools!</p>
+				</div>
+			</div>
+		</div>
 	</div>
-</div>
+	</div>
 	<c:url var="homePageHref" value="/" />
 	<c:url var="toolSearchHref" value="/toolHistory" />
 	<c:url var="toolMasterHref" value="/completeToolList" />
@@ -63,50 +61,77 @@
 	<c:url var="viewCartHref" value="/viewCart" />
 	<c:url var="memberListHref" value="/memberList" />
 	<c:url var="returnToolHref" value="/returnTool" />
-	
-	<nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
+	<c:url var="newUserHref" value="/users/new" />
+	<c:url var="logoutAction" value="/logout" />
 
-	<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="nav navbar-nav">
 
-				<li class="nav-item"><a class="nav-link" href="${homePageHref}">Home</a></li>	
-					<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tool Lists </a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<li><a href="${availableToolHref}">Available Tools</a> </li>
-							<c:if test="${currentUser.role == 'LIBRARIAN'}">
-								<li class="dropdown-item nav-item" ><a href="${checkedOutToolsHref}">Currently Checked Out</a></li>
-								<li><a href="${toolMasterHref}">Tool Master List</a> </li>
-							</c:if>
-						</ul>
-					</li>
-				
+	<nav class="navbar navbar-expand-md navbar-light bg-light">
+		<nav class="navbar navbar-light bg-light">
+			<a class="navbar-brand" href="${homePageHref}"> <img
+				src="${TLLlogo}" width="30" height="30"
+				class="d-inline-block align-top" alt="logo"> Tool Lending
+				Library
+			</a>
+		</nav>
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item active"><a class="nav-link"
+					href="${homePageHref}">Home <span class="sr-only">(current)</span></a>
+				</li>
+
+				<li class="nav-item dropdown"><a
+					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+					role="button" data-toggle="dropdown" aria-haspopup="true"
+					aria-expanded="false"> Tool Lists </a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="${availableToolHref}">Available
+							Tools</a> <a class="dropdown-item" href="${checkedOutToolsHref}">Checked
+							Out Tools</a> <a class="dropdown-item" href="${toolMasterHref}">Tool
+							Master List</a>
+					</div></li>
+
 				<c:if test="${currentUser.role == 'LIBRARIAN'}">
-					<li><a href="${toolSearchHref}">Tool Search</a></li>
-					<li><a href="${viewCartHref}">View Cart</a></li>
-					<li><a href="${memberListHref}">Member List</a></li>
 
+					<li class="nav-item"><a class="nav-link"
+						href="${toolSearchHref}">Tool Search</a></li>
+
+					<li class="nav-item"><a class="nav-link"
+						href="${viewCartHref}">View Cart</a></li>
+
+					<li class="nav-item"><a class="nav-link"
+						href="${memberListHref}">Member List</a></li>
 				</c:if>
-			</ul>
-			<ul class="nav navbar-nav navbar-right">
+				</ul>
+				<ul class="navbar-nav">
 				<c:choose>
 					<c:when test="${empty currentUser}">
-						<c:url var="newUserHref" value="/users/new" />
-						<li><a href="${newUserHref}">Sign Up</a></li>
+						<li class="nav-item active" id=""><a class="nav-link"
+							href="${newUserHref}">Sign Up</a></li>
 						<c:url var="loginHref" value="/login" />
-						<li><a href="${loginHref}">Log In</a></li>
+						<li class="nav-item active" id="loginButton"><a class="nav-link"
+							href="${loginHref}">Log In</a></li>
 					</c:when>
 					<c:otherwise>
-						<c:url var="logoutAction" value="/logout" />
 						<form id="logoutForm" action="${logoutAction}" method="POST">
 							<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
 						</form>
-						<li><a id="logoutLink" href="#">Log Out</a></li>
+						<li class="nav-item active"><a class="nav-link"
+							id="logoutLink" href="#">Log Out</a></li>
 					</c:otherwise>
 				</c:choose>
+
 			</ul>
+
 		</div>
 	</nav>
+
 	<c:if test="${not empty currentUser}">
 		<p id="currentUser">Current User: ${currentUser}</p>
 	</c:if>
