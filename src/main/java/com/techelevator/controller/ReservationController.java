@@ -12,7 +12,7 @@ import com.techelevator.model.dao.ToolDAO;
 
 @Controller
 
-@SessionAttributes({"userName", "currentUser, shoppingCart", "member", "confNum"})
+@SessionAttributes({"userName", "currentUser", "shoppingCart", "member", "confNum"})
 
 
 public class ReservationController {

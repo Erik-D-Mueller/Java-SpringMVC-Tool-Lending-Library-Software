@@ -141,6 +141,7 @@
 					<c:otherwise>
 						<form id="logoutForm" action="${logoutAction}" method="POST">
 							<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
+						
 						</form>
 						<li class="nav-item active"><a class="nav-link"
 							id="logoutLink" href="${logoutAction}">Log Out</a></li>

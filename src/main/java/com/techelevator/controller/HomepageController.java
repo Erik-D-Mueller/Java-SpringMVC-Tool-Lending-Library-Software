@@ -6,7 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-@SessionAttributes({"userName", "currentUser, shoppingCart", "member", "confNum"})
+@SessionAttributes({"userName", "currentUser", "shoppingCart", "member", "confNum"})
 
 
 @Controller

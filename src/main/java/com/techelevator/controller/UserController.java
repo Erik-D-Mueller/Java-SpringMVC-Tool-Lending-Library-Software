@@ -19,7 +19,7 @@ import com.techelevator.model.dao.UserDAO;
 import com.techelevator.model.domain.User;
 
 
-@SessionAttributes({"userName", "currentUser, shoppingCart", "member", "confNum"})
+@SessionAttributes({"userName", "currentUser", "shoppingCart", "member", "confNum"})
 
 @Controller
 public class UserController {
