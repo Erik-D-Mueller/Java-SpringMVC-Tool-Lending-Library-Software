@@ -1,7 +1,9 @@
-body{
+/* body{
 	background-color: LightSteelBlue  ;
+} */
+.jumbotron-billboard{
+	margin: 0px;
 }
-
 thead {
 	background-color : DarkGray; 
 	color: black;
@@ -67,7 +69,7 @@ footer {
     left:0;
     z-index:1;
 }
-.jumbotron h2 {
+.jumbotron #library-title {
 	margin-top:0;
 	font-size: 60px;
 	font-weight: bold;
@@ -95,16 +97,5 @@ footer {
     padding-top:20px;
     padding-bottom:20px;
   }
-}
 
-#navbarSupportedContent {
-	background-color: LightGray;
-	border: 0px;
-}
-#navbarSupportedContent a {
-	margin: 5px;
-	background-color: SteelBlue;
-	border-radius: 4px;
-	padding: 8px;
-	color: white;
 }

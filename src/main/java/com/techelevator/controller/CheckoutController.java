@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.ui.ModelMap;
 
 import com.techelevator.model.dao.ReservationDAO;
+import com.techelevator.model.dao.ToolDAO;
 import com.techelevator.model.domain.Member;
 import com.techelevator.model.domain.ShoppingCart;
 
@@ -20,6 +21,9 @@ public class CheckoutController {
 	
 	@Autowired
 	private ReservationDAO reservationDAO;
+	
+	@Autowired
+	private ToolDAO toolDAO;
 	
 	@RequestMapping(path="/checkOut", method=RequestMethod.POST)
 	public String checkOut(HttpSession session, ModelMap model) {
@@ -40,7 +44,7 @@ public class CheckoutController {
 		
 		request.setAttribute("memberName", ((Member)model.get("member")).getMemberName());
 		request.setAttribute("confNum", model.get("confNum"));
-		request.setAttribute("reservations", reservationDAO.searchReservationsByReservationNumber((int)model.get("confNum")));
+		request.setAttribute("reservations", toolDAO.getToolsByReservationId((int)model.get("confNum")));
 		
 		session.invalidate();
 		model.clear();

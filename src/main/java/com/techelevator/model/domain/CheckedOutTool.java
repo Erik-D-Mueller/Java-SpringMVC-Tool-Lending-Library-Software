@@ -1,19 +1,26 @@
 package com.techelevator.model.domain;
 
-import java.util.List;
-
-public class Reservation {
+public class CheckedOutTool extends Tool{
 
 	private int reservationId;
+	private String memberName;
 	private String checkoutDate;
 	private String returnDate;
-	public List<CheckedOutTool> tools;
-
+	
+	public CheckedOutTool() {
+		
+	}
 	public int getReservationId() {
 		return reservationId;
 	}
 	public void setReservationId(int reservationId) {
 		this.reservationId = reservationId;
+	}
+	public String getMemberName() {
+		return memberName;
+	}
+	public void setMemberName(String memberName) {
+		this.memberName = memberName;
 	}
 	public String getCheckoutDate() {
 		return checkoutDate;
@@ -27,10 +34,5 @@ public class Reservation {
 	public void setReturnDate(String returnDate) {
 		this.returnDate = returnDate;
 	}
-	public List<CheckedOutTool> getTools() {
-		return tools;
-	}
-	public void setTools(List<CheckedOutTool> list) {
-		this.tools = list;
-	}
+	
 }
