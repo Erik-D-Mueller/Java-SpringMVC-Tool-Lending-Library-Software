@@ -74,17 +74,17 @@ public class ReservationController {
 	
 			// This chunk sets an error message and error boolean and returns to the jsp, if the string contains the wrong characters
 			if(request.getParameter("searchType").equals("driversLicense") && !onlyHasNumsAndLetters)
-			{ request.setAttribute("charErrorMsg", "Please only enter numbers and letters for a driver's license search");
+			{ request.setAttribute("charErrorMsg", "Please enter only numbers and letters for a driver's license search");
 			request.setAttribute("charError", true);
 			return "toolHistory";
 			}
 			if( request.getParameter("searchType").equals("toolId") && !onlyHasNums) {
-				request.setAttribute("charErrorMsg", "Please only enter numbers for a tool ID search");
+				request.setAttribute("charErrorMsg", "Please enter only numbers for a tool ID search");
 				request.setAttribute("charError", true);
 				return "toolHistory";
 			}
 			if(request.getParameter("searchType").equals("memberName") && !onlyHasLetters ){
-				request.setAttribute("charErrorMsg", "Please only enter letters for a name search");
+				request.setAttribute("charErrorMsg", "Please enter only letters for a name search");
 				request.setAttribute("charError", true);
 				return "toolHistory";
 			}
