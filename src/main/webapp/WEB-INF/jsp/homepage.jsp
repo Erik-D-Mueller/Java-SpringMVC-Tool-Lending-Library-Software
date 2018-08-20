@@ -2,7 +2,7 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-	
+
 <h1>Welcome to the Tool Borrowing Library!</h1>
 
 
@@ -20,19 +20,19 @@
       <div class="carousel-item active">
         <img class="slidePic"  src="img/buzzsaw.png" alt="pic1">
         <div class="carousel-caption">
-          <h3>HelloWorld</h3>
+          <h3></h3>
         </div>
       </div>
       <div class="carousel-item">
         <img class="slidePic" src="img/hammer.jpg" alt="pic2">
         <div class="carousel-caption">
-          <h3>HelloWorld</h3>
+          <h3></h3>
         </div>
       </div>
       <div class="carousel-item">
         <img class="slidePic" src="img/PowerDrills.jpg" alt="pic3">
         <div class="carousel-caption">
-          <h3>HelloWorld</h3>
+          <h3></h3>
         </div>
       </div>
     </div>
@@ -46,9 +46,9 @@
     </a>
   </div>
 </div>
-
+<div class="container">
 <h1>About the company</h1>
-<p> Stuff about the company </p>
-
+<p>Founded in the Summer of 2018 with the mission to provide tools to the needy and also to pass our class we have been providing exceptional customer service for 2 weeks!</p>
+</div>
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />

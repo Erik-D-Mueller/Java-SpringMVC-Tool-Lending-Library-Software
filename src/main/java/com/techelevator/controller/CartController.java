@@ -18,7 +18,8 @@ import com.techelevator.model.domain.ShoppingCart;
 import com.techelevator.model.domain.Tool;
 
 @Controller
-@SessionAttributes({"member", "shoppingCart"})
+@SessionAttributes({"userName", "currentUser, shoppingCart", "member", "confNum"})
+
 public class CartController {
 		
 	@Autowired
@@ -69,6 +70,16 @@ public class CartController {
 			model.addAttribute("shoppingCart", new ShoppingCart());
 		}
 		return (ShoppingCart)model.get("shoppingCart");
+	}
+	
+	@RequestMapping(path="/removeItem", method=RequestMethod.POST)
+	public String removeItemFromCart(HttpServletRequest request, ModelMap model) {
+		
+		ShoppingCart cart = getActiveShoppingCart(model);
+		cart.removeFromCart(Integer.parseInt(request.getParameter("tool_id")));
+		model.put("shoppingCart", cart);
+		
+		return "redirect:/viewCart";
 	}
 	
 }

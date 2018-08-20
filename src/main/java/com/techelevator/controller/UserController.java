@@ -18,7 +18,7 @@ import com.techelevator.model.dao.ToolDAO;
 import com.techelevator.model.dao.UserDAO;
 import com.techelevator.model.domain.User;
 
-@SessionAttributes({"userName"})
+@SessionAttributes({"userName", "currentUser, shoppingCart", "member", "confNum"})
 
 @Controller
 public class UserController {
@@ -47,6 +47,14 @@ public class UserController {
 
 		userDAO.saveUser(user.getUserName(), user.getPassword(), user.getRole());
 		return "redirect:/login";
+	}
+	
+	@RequestMapping(path = "/userProfile", method = RequestMethod.GET)
+	public String viewUserProfile(HttpSession session, HttpServletRequest request) {
+		User userInSession = (User) session.getAttribute("currentUser");
+		request.setAttribute("listOfTools", 
+				toolDAO.getToolsCheckedOutToMemberByName(userInSession.getUserName()));
+		return "userProfile";
 	}
 
 }

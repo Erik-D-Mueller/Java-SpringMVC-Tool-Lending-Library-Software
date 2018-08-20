@@ -20,9 +20,10 @@
 
 		<div id="searchTypeDropBox">
 			<label for="searchType">Search By: </label> <select name="searchType">
-				<option value="driversLicense">Driver's License</option>
-				<option value="toolId">Tool ID#</option>
+				<option value="toolId">Tool Id #</option>
 				<option value="memberName">Member Name</option>
+				<option value="driversLicense">Driver's License</option>
+
 			</select>
 		</div>
 
