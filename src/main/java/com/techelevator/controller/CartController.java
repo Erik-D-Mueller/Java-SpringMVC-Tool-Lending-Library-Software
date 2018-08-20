@@ -78,7 +78,7 @@ public class CartController {
 		cart.removeFromCart(Integer.parseInt(request.getParameter("tool_id")));
 		model.put("shoppingCart", cart);
 		
-		return "redirect:/availableToolList";
+		return "redirect:/viewCart";
 	}
 	
 }

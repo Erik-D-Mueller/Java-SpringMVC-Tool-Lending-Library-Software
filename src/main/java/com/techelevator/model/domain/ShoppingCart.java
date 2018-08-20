@@ -28,19 +28,19 @@ public class ShoppingCart {
 	}
 	
 	public void removeFromCart (int toolId) {
+	
+		List<Tool> newList = new ArrayList<>();		
 		
 		for(Tool e: items) {
-			
-			List<Tool> newList = new ArrayList<>();
-			
+						
 			if(e.getToolId() != toolId) {
 				
 				newList.add(e);
 			}
-			
-			items = newList;
-			
+						
 		}
+		
+		items = newList;
 		
 	}
 	
