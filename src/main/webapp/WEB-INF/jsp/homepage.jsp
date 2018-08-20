@@ -2,7 +2,7 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-	
+
 <h1>Welcome to the Tool Borrowing Library!</h1>
 
 
