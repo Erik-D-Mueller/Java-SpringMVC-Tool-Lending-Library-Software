@@ -61,9 +61,9 @@
 	<c:url var="viewCartHref" value="/viewCart" />
 	<c:url var="memberListHref" value="/memberList" />
 	<c:url var="returnToolHref" value="/returnTool" />
-<<<<<<< HEAD
 	<c:url var="newUserHref" value="/users/new" />
 	<c:url var="logoutAction" value="/logout" />
+	<c:url var="userProfile" value="/userProfile" />
 
 
 	<nav class="navbar navbar-expand-md navbar-light bg-light">
@@ -97,6 +97,10 @@
 							Out Tools</a> <a class="dropdown-item" href="${toolMasterHref}">Tool
 							Master List</a>
 					</div></li>
+				<c:if test="${!empty currentUser}">
+					<li class="nav-item"><a class="nav-link" 
+							href="${userProfile}">User Profile</a></li>
+				</c:if>
 
 				<c:if test="${currentUser.role == 'LIBRARIAN'}">
 
@@ -110,8 +114,7 @@
 						href="${memberListHref}">Member List</a></li>
 						
 					<li class="nav-item"><a class="nav-link" 
-						href="${returnToolHref}">Return Tool</a></li>
-					
+						href="${returnToolHref}">Return Tool</a></li>					
 				</c:if>
 				</ul>
 				<ul class="navbar-nav">
@@ -128,7 +131,7 @@
 							<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
 						</form>
 						<li class="nav-item active"><a class="nav-link"
-							id="logoutLink" href="#">Log Out</a></li>
+							id="logoutLink" href="${logoutAction}">Log Out</a></li>
 					</c:otherwise>
 				</c:choose>
 

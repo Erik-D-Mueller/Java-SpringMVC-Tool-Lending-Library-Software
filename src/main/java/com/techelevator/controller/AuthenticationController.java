@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.techelevator.model.dao.ToolDAO;
 import com.techelevator.model.dao.UserDAO;
+import com.techelevator.model.domain.User;
 
 @SessionAttributes({"userName"})
 
@@ -20,6 +23,9 @@ public class AuthenticationController {
 
 	@Autowired
 	private UserDAO userDAO;
+	
+	@Autowired
+	private ToolDAO toolDAO;
 
 	@RequestMapping(path="/login", method=RequestMethod.GET)
 	public String displayLoginForm() {
@@ -54,5 +60,13 @@ public class AuthenticationController {
 		model.remove("currentUser");
 		session.invalidate();
 		return "redirect:/";
+	}
+	
+	@RequestMapping(path = "/userProfile", method = RequestMethod.GET)
+	public String viewUserProfile(HttpSession session, HttpServletRequest request) {
+		User userInSession = (User) session.getAttribute("currentUser");
+		request.setAttribute("listOfTools", 
+				toolDAO.getToolsCheckedOutToMemberByName(userInSession.getUserName()));
+		return "userProfile";
 	}
 }

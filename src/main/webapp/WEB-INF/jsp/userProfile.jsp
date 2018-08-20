@@ -13,6 +13,8 @@
 	<c:if test="${currentUser.role == 'MEMBER'}">
 		<p> ${currentUser.userName}'s role is a member.</p>
 	</c:if>
+	<br>
+	
 	<c:forEach items="${listOfTools}" var="tool">
 		<p>${tool.toolId}</p>
 		<p>${tool.toolName}<p>
