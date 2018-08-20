@@ -8,9 +8,9 @@
 		<span class="toolListHeader">Master Tool List</span>
 	</h2>
 
-	<div id="toolTable">
+	<div class="table-responsive" id="toolTable">
 		<table
-			class="table table-striped table-hover table-bordered table-responsive">
+			class="table table-striped table-hover table-bordered">
 			<thead class="thead-dark">
 				<tr>
 					<th scope="col">Tool Id</th>

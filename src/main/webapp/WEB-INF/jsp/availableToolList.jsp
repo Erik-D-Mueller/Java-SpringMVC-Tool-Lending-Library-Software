@@ -13,9 +13,9 @@
 	<c:url value="/viewCart" var="formAction" />
 	<form action="${formAction}" method="POST">
 
-		<div id="toolTable">
+		<div class="table-responsive" id="toolTable">
 			<table
-				class="table table-striped table-hover table-bordered table-responsive">
+				class="table table-striped table-hover table-bordered">
 				<thead class="thead-dark">
 				<c:choose>
 					<c:when test="${member != null}">
@@ -45,7 +45,7 @@
 									<td>${tool.toolId}</td>
 									<td>${tool.toolName}</td>
 									<td>${tool.toolDescription}</td>
-									<td><button name="tool_id" value="${tool.toolId}">Add ToCart</button></td>
+									<td><button name="tool_id" value="${tool.toolId}">Add To Cart</button></td>
 								</tr>
 							</c:forEach>
 						</c:when>

@@ -5,8 +5,8 @@
 <h1>${memberName}, you have successfully checked out the following items: </h1>
 <h3> Your confirmation number is ${confNum}</h3>
 
-<div id="toolTable">
-			<table class="table table-striped table-hover table-bordered table-responsive">
+<div class="table-responsive" id="toolTable">
+			<table class="table table-striped table-hover table-bordered">
 				<thead class="thead-dark">
 					<tr>
 						<th scope="col">Tool Id</th>
