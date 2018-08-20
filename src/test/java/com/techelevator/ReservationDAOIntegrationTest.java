@@ -1,7 +1,5 @@
 package com.techelevator;
 
-import java.util.List;
-
 import javax.sql.DataSource;
 
 import org.junit.Assert;
@@ -10,15 +8,18 @@ import org.junit.Test;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.techelevator.model.dao.ReservationDAO;
-import com.techelevator.model.domain.Reservation;
+import com.techelevator.model.dao.ToolDAO;
+import com.techelevator.model.domain.AvailableTool;
 import com.techelevator.model.domain.ShoppingCart;
 import com.techelevator.model.domain.Tool;
 import com.techelevator.model.jdbc.JDBCReservationDAO;
+import com.techelevator.model.jdbc.JDBCToolDAO;
 
 public class ReservationDAOIntegrationTest extends DAOIntegrationTest {
 
 	private DataSource dataSource;
 	private ReservationDAO test;
+	private ToolDAO toolDAO;
 	private JdbcTemplate jdbcTemplate;
 
 	private final int TEST_TOOL_TYPE_ID = 99999;
@@ -38,6 +39,7 @@ public class ReservationDAOIntegrationTest extends DAOIntegrationTest {
 
 		dataSource = super.getDataSource();
 		test = new JDBCReservationDAO(dataSource);
+		toolDAO = new JDBCToolDAO(dataSource);
 		jdbcTemplate = new JdbcTemplate(dataSource);
 
 		String newToolType = "INSERT INTO tool_type (tool_type_id, tool_name, tool_description) " + "VALUES (?, ?, ?)";
@@ -67,40 +69,9 @@ public class ReservationDAOIntegrationTest extends DAOIntegrationTest {
 	}
 
 	@Test
-	public void searchToolsByNameTest() {
-
-		Reservation testReservation = test.searchToolsByName(TEST_USER_NAME).get(0);
-
-		Assert.assertEquals(TEST_TOOL_ID, testReservation.getToolId());
-	}
-
-	@Test
-	public void searchToolsByDLTest() {
-
-		Reservation testReservation = test.searchToolsByDriversLicense(TEST_D_L).get(0);
-
-		Assert.assertEquals(TEST_TOOL_ID, testReservation.getToolId());
-	}
-
-	@Test
-	public void searchToolByToolNumberTest() {
-
-		Reservation testReservation = test.searchToolsByToolNumber(TEST_TOOL_ID).get(0);
-
-		Assert.assertEquals(TEST_TOOL_ID, testReservation.getToolId());
-	}
-	
-	@Test
-	public void getAllCheckedOutToolsTest(){
-		List<Reservation> checkedOutTools = test.getAllCheckedOutTools();
-		Assert.assertNotNull(checkedOutTools);
-		Assert.assertEquals(TEST_TOOL_ID, checkedOutTools.get(checkedOutTools.size()-1).getToolId());
-	}
-
-	@Test
 	public void saveNewReservationTest(){
 
-		Tool testTool = new Tool();
+		Tool testTool = new AvailableTool();
 		testTool.setToolId(TEST_TOOL_ID);
 		testTool.setToolName(TEST_TOOL_NAME);
 		testTool.setToolDescription(TEST_TOOL_DESCRIPTION);
@@ -108,22 +79,24 @@ public class ReservationDAOIntegrationTest extends DAOIntegrationTest {
 		ShoppingCart testCart = new ShoppingCart();
 		testCart.addToCart(testTool);
 		
-		test.saveNewReservation(testCart, TEST_APP_USER_ID);
+		int oldSize = toolDAO.getAllCheckedOutTools().size();
+
+		test.saveNewReservation(testCart, TEST_APP_USER_ID);		
 		
-		int oldSize = test.getAllCheckedOutTools().size();
-		
-		Assert.assertEquals(oldSize + 1, test.getAllCheckedOutTools().size() + 1);
-		Assert.assertEquals(test.getAllCheckedOutTools().get(test.getAllCheckedOutTools().size() -1).getToolId(), TEST_TOOL_ID);
+		Assert.assertEquals(oldSize + 1, toolDAO.getAllCheckedOutTools().size());
+		Assert.assertEquals(toolDAO.getAllCheckedOutTools().get(toolDAO.getAllCheckedOutTools().size() -1).getToolId(), TEST_TOOL_ID);
 	}
 
 	@Test
-	public void searchReservationsByReservationNumberTest(){
-		Assert.assertEquals(TEST_TOOL_ID, test.searchReservationsByReservationNumber(TEST_RESERVATION_ID).get(0).getToolId());
+	public void deleteReservationTest() {
+		test.deleteReservation(TEST_TOOL_ID);
+		Assert.assertEquals(toolDAO.getCheckedOutToolByToolId(TEST_TOOL_ID).size(), 0);
 	}
 	
 	@Test
-	public void deleteReservationTest() {
-		test.deleteReservation(TEST_TOOL_ID);
-		Assert.assertEquals(test.searchToolsByToolNumber(TEST_TOOL_ID).size(), 0);
+	public void searchReservationsByReservationNumberTest(){
+		Assert.assertEquals(TEST_RESERVATION_ID, test.getReservationByReservationNumber(TEST_RESERVATION_ID).getReservationId());
+		Assert.assertEquals(TEST_TOOL_ID, test.getReservationByReservationNumber(TEST_RESERVATION_ID).getTools().get(0).getToolId());
 	}
+
 }
