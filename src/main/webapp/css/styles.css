@@ -113,6 +113,7 @@ footer {
 	font-weight : bold;
 }
 
+<<<<<<< HEAD
 
 .container{
 	margin-bottom: 61px;
@@ -144,6 +145,8 @@ color: #ccc !important;
 }
 
 
+=======
+>>>>>>> 85a9b9651cbb82233c34210ad002d8a69a4c7438
 <!-- the below does not appear to actually work -->
 @media screen and (max-width: 768px) {
   .jumbotron {
