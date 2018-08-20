@@ -61,6 +61,7 @@
 	<c:url var="viewCartHref" value="/viewCart" />
 	<c:url var="memberListHref" value="/memberList" />
 	<c:url var="returnToolHref" value="/returnTool" />
+<<<<<<< HEAD
 	<c:url var="newUserHref" value="/users/new" />
 	<c:url var="logoutAction" value="/logout" />
 
@@ -107,6 +108,10 @@
 
 					<li class="nav-item"><a class="nav-link"
 						href="${memberListHref}">Member List</a></li>
+						
+					<li class="nav-item"><a class="nav-link" 
+						href="${returnToolHref}">Return Tool</a></li>
+					
 				</c:if>
 				</ul>
 				<ul class="navbar-nav">

@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.techelevator.model.dao.MemberDAO;
 import com.techelevator.model.dao.UserDAO;
 import com.techelevator.model.domain.User;
 
@@ -19,6 +21,9 @@ public class UserController {
 
 	@Autowired
 	private UserDAO userDAO;
+	
+	@Autowired
+	private MemberDAO memberDAO;
 
 	@RequestMapping(path = "/users/new", method = RequestMethod.GET)
 	public String displayNewUserForm(ModelMap modelHolder) {
@@ -38,6 +43,12 @@ public class UserController {
 
 		userDAO.saveUser(user.getUserName(), user.getPassword(), user.getRole());
 		return "redirect:/login";
+	}
+	
+	@RequestMapping(path = "/userProfile", method = RequestMethod.GET)
+	public String viewUserProfile(HttpServletRequest request) {
+		request.setAttribute("listOfTools", memberDAO.getMemberById(0).getListOfReservations());
+		return "userProfile";
 	}
 
 }
