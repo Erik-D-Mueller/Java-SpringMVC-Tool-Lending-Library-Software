@@ -63,12 +63,12 @@
 	<c:url var="viewCartHref" value="/viewCart" />
 	<c:url var="memberListHref" value="/memberList" />
 	<c:url var="returnToolHref" value="/returnTool" />
+	<c:url var="userProfile" value="/userProfile" />
 	
 	<nav class="navbar navbar-default navbar-expand-lg navbar-light bg-light">
 
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="nav navbar-nav">
-
 				<li class="nav-item"><a class="nav-link" href="${homePageHref}">Home</a></li>	
 					<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Tool Lists </a>
@@ -80,7 +80,9 @@
 							</c:if>
 						</ul>
 					</li>
-				
+				<c:if test="${!empty currentUser}">
+					<li><a href="${userProfile}">User Profile</a> </li>
+				</c:if>
 				<c:if test="${currentUser.role == 'LIBRARIAN'}">
 					<li><a href="${toolSearchHref}">Tool Search</a></li>
 					<li><a href="${viewCartHref}">View Cart</a></li>
