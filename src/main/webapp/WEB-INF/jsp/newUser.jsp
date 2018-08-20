@@ -44,21 +44,27 @@
 <c:url var="formAction" value="/users" />
 <form method="POST" action="${formAction}">
 	<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
-	<div class="row">
+	<div class="row" id="newUserForm">
 		<div class="col-sm-4"></div>
 		<div class="col-sm-4">
 			<div class="form-group">
-				<label for="userName">User Name: </label> <input type="text"
+				<label for="userName">User Name</label> 
+				<input type="text"
 					id="userName" name="userName" placeHolder="User Name"
 					class="form-control" />
 			</div>
 			<div class="form-group">
-				<label for="password">Password: </label> <input type="password"
+				<label for="driversLicense">Drivers License</label> <input
+					type="text" id="driversLicense" name="driversLicense"
+					placeHolder="Drivers License" class="form-control" />
+			</div>
+			<div class="form-group">
+				<label for="password">Password</label> <input type="password"
 					id="password" name="password" placeHolder="Password"
 					class="form-control" />
 			</div>
 			<div class="form-group">
-				<label for="confirmPassword">Confirm Password: </label> <input
+				<label for="confirmPassword">Confirm Password</label> <input
 					type="password" id="confirmPassword" name="confirmPassword"
 					placeHolder="Re-Type Password" class="form-control" />
 			</div>
@@ -71,7 +77,7 @@
 					</select>
 				</div>
 			</div>
-			<button type="submit" class="btn btn-default">Create User</button>
+			<button type="submit" class="btn btn-primary">Create User</button>
 		</div>
 		<div class="col-sm-4"></div>
 	</div>
