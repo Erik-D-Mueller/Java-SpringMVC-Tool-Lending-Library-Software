@@ -75,6 +75,7 @@
 	<c:url var="returnToolHref" value="/returnTool" />
 	<c:url var="newUserHref" value="/users/new" />
 	<c:url var="logoutAction" value="/logout" />
+	<c:url var="userProfile" value="/userProfile" />
 
 
 	<nav class="navbar navbar-expand-md navbar-light bg-light">
@@ -108,6 +109,10 @@
 							Out Tools</a> <a class="dropdown-item" href="${toolMasterHref}">Tool
 							Master List</a>
 					</div></li>
+				<c:if test="${!empty currentUser}">
+					<li class="nav-item"><a class="nav-link" 
+							href="${userProfile}">User Profile</a></li>
+				</c:if>
 
 				<c:if test="${currentUser.role == 'LIBRARIAN'}">
 
@@ -119,10 +124,9 @@
 
 					<li class="nav-item"><a class="nav-link"
 						href="${memberListHref}">Member List</a></li>
-
-					<li class="nav-item"><a class="nav-link"
-						href="${returnToolHref}">Return Tool</a></li>
-
+						
+					<li class="nav-item"><a class="nav-link" 
+						href="${returnToolHref}">Return Tool</a></li>					
 				</c:if>
 			</ul>
 			<ul class="navbar-nav">
