@@ -24,5 +24,11 @@ public class ShoppingCart {
 			List<Tool> newList = new ArrayList<>();
 			setItems(newList);
 		}
+	
 	}
+	
+	public void removeFromCart (int toolId) {
+		
+	}
+	
 }
