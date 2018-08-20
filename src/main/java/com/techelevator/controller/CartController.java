@@ -74,9 +74,9 @@ public class CartController {
 	@RequestMapping(path="/removeItem", method=RequestMethod.POST)
 	public String removeItemFromCart(HttpServletRequest request, ModelMap model) {
 		
-		Integer.parseInt(request.getParameter("tool_id"));
 		ShoppingCart cart = getActiveShoppingCart(model);
-		
+		cart.removeFromCart(Integer.parseInt(request.getParameter("tool_id")));
+		model.put("shoppingCart", cart);
 		
 		return "redirect:/availableToolList";
 	}

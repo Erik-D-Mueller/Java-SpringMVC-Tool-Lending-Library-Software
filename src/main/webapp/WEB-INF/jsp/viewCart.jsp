@@ -6,7 +6,7 @@
 
 	<h1>${member.memberName}'s cart</h1>
 
-	<c:url value="/#" var="formAction" />
+	<c:url value="/removeItem" var="formAction" />
 	<form action="${formAction}" method="POST">
 
 		<div class="table-responsive">
