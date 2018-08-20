@@ -148,7 +148,8 @@
 		</div>
 	</nav>
 
+<!--  Added the .userName to fix the below, also add to the css file -->
 	<c:if test="${not empty currentUser}">
-		<p id="currentUser">Current User: ${currentUser}</p>
+		<p id="currentUser">Current User: ${currentUser.userName}</p>
 	</c:if>
 	<div class="container">

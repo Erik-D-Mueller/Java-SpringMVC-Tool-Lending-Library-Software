@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.techelevator.model.dao.ToolDAO;
 
 @Controller
-@SessionAttributes({"shoppingCart", "member"})
+@SessionAttributes({"shoppingCart", "member", "currentUser"})
 public class ReservationController {
 
 	@Autowired

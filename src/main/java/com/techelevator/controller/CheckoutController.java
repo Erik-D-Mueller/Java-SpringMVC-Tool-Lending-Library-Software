@@ -16,7 +16,7 @@ import com.techelevator.model.domain.Member;
 import com.techelevator.model.domain.ShoppingCart;
 
 @Controller
-@SessionAttributes({"confNum", "shoppingCart", "member"})
+@SessionAttributes({"confNum", "shoppingCart", "member", "currentUser"})
 public class CheckoutController {
 	
 	@Autowired

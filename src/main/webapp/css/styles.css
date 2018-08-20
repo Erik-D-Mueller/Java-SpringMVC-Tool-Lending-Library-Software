@@ -1,3 +1,7 @@
+
+
+
+
 .jumbotron-billboard{
 	margin: 0px;
 	min-height: 225px;
@@ -54,6 +58,8 @@ footer {
 } 
 
 
+
+
 .jumbotron-billboard .img {
     margin-bottom: 0px;
     opacity: 0.2;
@@ -81,6 +87,8 @@ footer {
 	font-family: Gill Sans, sans-serif
 }
 
+
+
 .jumbotron {
   position:relative;
   padding-top: 5px;
@@ -91,17 +99,33 @@ footer {
   z-index:2;
 }
 
-@media screen and (max-width: 768px) {
-  .jumbotron {
-    padding-top:20px;
-    padding-bottom:20px;
-  }
-  
+
+
+  #currentUser {
+	text-align : right;
+	font-weight : bold;
+}
+
+
 .container{
 	margin-bottom: 61px;
 }
 body {
     margin-bottom: 60px;
 }
+
+
+<!-- the below does not appear to actually work -->
+@media screen and (max-width: 768px) {
+  .jumbotron {
+    padding-top:20px;
+    padding-bottom:20px;
+  }
+  
+  
+
+  
+
+
 
 }

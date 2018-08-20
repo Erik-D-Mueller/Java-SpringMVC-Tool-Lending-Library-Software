@@ -13,7 +13,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.techelevator.model.dao.UserDAO;
 
-@SessionAttributes({"userName"})
+//Changed the below
+@SessionAttributes({"currentUser"})
+//@SessionAttributes({"userName"})
 
 @Controller
 public class AuthenticationController {
@@ -34,6 +36,8 @@ public class AuthenticationController {
 						HttpSession session,
 						RedirectAttributes redirectAttribute) {
 		redirectAttribute.addFlashAttribute("loginFail", false);
+		
+		
 		
 		if(userDAO.searchForUsernameAndPassword(userName, password)) {
 			session.setAttribute("currentUser", userDAO.getUserByUserName(userName));
