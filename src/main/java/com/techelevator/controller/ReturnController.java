@@ -11,7 +11,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.techelevator.model.dao.ReservationDAO;
 
-@SessionAttributes({"currentUser"})
+
+@SessionAttributes({"userName", "currentUser, shoppingCart", "member", "confNum"})
+
+
 @Controller
 
 public class ReturnController {

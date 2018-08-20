@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.techelevator.model.dao.MemberDAO;
 import com.techelevator.model.domain.Member;
-@SessionAttributes({"currentUser"})
+
+@SessionAttributes({"userName", "currentUser, shoppingCart", "member", "confNum"})
+
+
 @Controller
 public class MemberController {
 	
