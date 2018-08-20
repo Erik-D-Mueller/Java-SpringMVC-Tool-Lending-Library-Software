@@ -7,6 +7,9 @@ public class CheckedOutTool extends Tool{
 	private String checkoutDate;
 	private String returnDate;
 	
+	public CheckedOutTool() {
+		
+	}
 	public int getReservationId() {
 		return reservationId;
 	}
