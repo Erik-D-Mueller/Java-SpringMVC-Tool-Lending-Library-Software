@@ -2,7 +2,7 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-<h1>Please enter the tool being returned:</h1>
+<h3>Please enter the tool being returned:</h3>
 
 
 <div>
@@ -15,7 +15,7 @@
 		</div>
 
 		<div>
-			<input id="formSubmitButton" type="submit" value="Submit" />
+			<input id="formSubmitButton" type="submit" value="Submit" class = "btn btn-success"/>
 		</div>
 	</form>
 

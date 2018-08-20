@@ -44,7 +44,7 @@
 		<c:url value="/checkOut" var="formAction" />
 		<form action="${formAction}" method="POST">
 			<div id="submitButtonDiv">
-				<input id="formSubmitButton" type="submit" value="Check Out Cart" />
+				<input class = "btn btn-success" id="formSubmitButton" type="submit" value="Finish with Checkout !" />
 			</div>
 		</form>
 	</c:if>

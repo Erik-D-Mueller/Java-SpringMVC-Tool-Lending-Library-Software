@@ -28,7 +28,7 @@
 		</div>
 
 		<div id="submitButtonDiv">
-			<input id="formSubmitButton" type="submit" value="Search" />
+			<input id="formSubmitButton" type="submit" value="Search" class = "btn btn-success" />
 		</div>
 	</form>
 

@@ -4,14 +4,14 @@
 
 
 <h2>
-	<span class="toolListHeader">${currentUser.userName}'s Profile</span>
+	<span class="toolListHeader">Your Profile</span>
 </h2>
 
 <c:if test="${currentUser.role == 'LIBRARIAN'}">
-	<p>${currentUser.userName}'s role is a librarian.</p>
+	<p>You're logged in as a librarian.</p>
 </c:if>
 <c:if test="${currentUser.role == 'MEMBER'}">
-	<p>${currentUser.userName}'s role is a member.</p>
+	<p>You're logged in as a member.</p>
 </c:if>
 <br>
 <p> Below is a list of tools you have checked out </p>

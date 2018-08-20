@@ -31,8 +31,7 @@ public class CartController {
 	
 	@RequestMapping(path="/chooseMember", method=RequestMethod.GET)
 	public String chooseMemberAndRedirect(HttpSession session, HttpServletRequest request, ModelMap map) {
-		map.clear();
-		session.invalidate();
+	
 		map.addAttribute("member", memberDAO.getMemberById(Integer.parseInt(request.getParameter("memberId"))));
 		
 		return "redirect:/availableToolList";
