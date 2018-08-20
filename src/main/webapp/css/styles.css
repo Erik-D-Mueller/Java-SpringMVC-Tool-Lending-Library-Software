@@ -113,15 +113,6 @@ footer {
 	font-weight : bold;
 }
 
-
-.container{
-	margin-bottom: 61px;
-}
-body {
-    margin-bottom: 60px;
-}
-
-
 <!-- the below does not appear to actually work -->
 @media screen and (max-width: 768px) {
   .jumbotron {
