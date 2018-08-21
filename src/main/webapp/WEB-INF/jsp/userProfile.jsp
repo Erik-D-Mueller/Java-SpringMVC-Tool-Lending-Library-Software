@@ -59,7 +59,7 @@
 <c:url value="/changePassword" var="formAction" />
 <form action="${formAction}" method="POST">
 	
-	
+
 	<div id="newPasswordFromJSP">
 		<label for="password">Enter Your New Password: </label> <input
 			type="password" id="password" name="password" >
@@ -67,19 +67,15 @@
 	
 	
 	
-<!-- 	<div id="newPasswordFromJSP">
-		<label for="searchString">Enter Your New Password: </label> <input
-			type="password" id="newPasswordFromJSP" name="newPasswordFromJSP" >
-	</div> -->
-	
+<br>
 	
 	
 	<div class="form-group">
-				<label for="confirmPassword">Confirm Password</label> <input
+				<label for="confirmPassword">Confirm Password     </label> <input
 					type="password" id="confirmPassword" name="confirmPassword"
 					placeHolder="Re-Type Password"  />
 			</div>
-	
+
 
 	
 	
