@@ -65,6 +65,8 @@ public class ReturnController {
 		
 		CheckedOutTool toolToReturn = (CheckedOutTool) model.get("returnTool");
 		
+		reservationDAO.deleteReservation(toolToReturn.getToolId());
+		
 		request.setAttribute("toolId", toolToReturn.getToolId() );
 		return "returnConfirmation";
 	}
