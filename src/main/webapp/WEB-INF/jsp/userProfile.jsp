@@ -4,17 +4,45 @@
 
 
 <h2>
-	<span class="toolListHeader">${currentUser.userName}'s Profile</span>
+	<span class="toolListHeader">Your Profile</span>
 </h2>
 
 <c:if test="${currentUser.role == 'LIBRARIAN'}">
-	<p>${currentUser.userName}'s role is a librarian.</p>
+	<p>You're logged in as a librarian.</p>
 </c:if>
 <c:if test="${currentUser.role == 'MEMBER'}">
-	<p>${currentUser.userName}'s role is a member.</p>
+	<p>You're logged in as a member.</p>
 </c:if>
 <br>
-<p> Below is a list of tools you have checked out </p>
+
+<p>Your password is ${currentUser.password}.</p>
+<c:url value="/changePassword" var="formAction" />
+<form action="${formAction}" method="POST">
+	<div id="newPasswordFromJSP">
+		<label for="searchString">Enter Your New Password: </label> <input
+			type="text" name="newPasswordFromJSP" id="newPasswordFromJSP">
+	</div>
+	<input class="btn btn-success" id="formSubmitButton" type="submit"
+		value="Change Password" />
+</form>
+
+<p>Your Driver's License is DRIVER'S LICENSE</p>
+<c:url value="/changeDL" var="formAction" />
+<form action="${formAction}" method="POST">
+	<div id="changeDL">
+		<div id="newDL">
+			<label for="newDL">Enter Your New Driver's License: </label> <input
+				type="text" name="newDL" id="newDL">
+		</div>
+		<input class="btn btn-success" id="formSubmitButton" type="submit"
+			value="Change Driver's License Number" />
+	</div>
+</form>
+
+
+<p>Below is a list of tools you have checked out</p>
+
+
 <div class="table-responsive" id="toolTable">
 	<table class="table table-striped table-hover table-bordered">
 		<thead class="thead-dark">

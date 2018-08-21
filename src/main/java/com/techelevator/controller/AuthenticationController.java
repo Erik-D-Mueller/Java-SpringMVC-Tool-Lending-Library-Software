@@ -16,7 +16,9 @@ import com.techelevator.model.dao.ToolDAO;
 import com.techelevator.model.dao.UserDAO;
 import com.techelevator.model.domain.User;
 
-@SessionAttributes({"userName", "currentUser, shoppingCart", "member", "confNum"})
+
+@SessionAttributes({"userName", "currentUser", "shoppingCart", "member", "confNum"})
+
 
 @Controller
 public class AuthenticationController {
@@ -41,6 +43,8 @@ public class AuthenticationController {
 						RedirectAttributes redirectAttribute) {
 		redirectAttribute.addFlashAttribute("loginFail", false);
 		
+		
+		
 		if(userDAO.searchForUsernameAndPassword(userName, password)) {
 			session.setAttribute("currentUser", userDAO.getUserByUserName(userName));
 			
@@ -55,9 +59,10 @@ public class AuthenticationController {
 		}
 	}
 
-	@RequestMapping(path="/logout", method=RequestMethod.POST)
+	@RequestMapping(path="/logout", method=RequestMethod.GET)
 	public String logout(ModelMap model, HttpSession session) {
 		model.remove("currentUser");
+		model.clear();
 		session.invalidate();
 		return "redirect:/";
 	}

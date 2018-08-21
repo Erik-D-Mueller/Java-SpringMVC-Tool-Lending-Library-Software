@@ -18,7 +18,8 @@ import com.techelevator.model.dao.ToolDAO;
 import com.techelevator.model.dao.UserDAO;
 import com.techelevator.model.domain.User;
 
-@SessionAttributes({"userName", "currentUser, shoppingCart", "member", "confNum"})
+
+@SessionAttributes({"userName", "currentUser", "shoppingCart", "member", "confNum"})
 
 @Controller
 public class UserController {
@@ -54,7 +55,40 @@ public class UserController {
 		User userInSession = (User) session.getAttribute("currentUser");
 		request.setAttribute("listOfTools", 
 				toolDAO.getToolsCheckedOutToMemberByName(userInSession.getUserName()));
+		
 		return "userProfile";
+	}
+	
+	@RequestMapping(path = "/changeDL", method = RequestMethod.POST)
+	public String changeDriversLicense(HttpServletRequest request, HttpSession session) {
+		User userInSession = (User) session.getAttribute("currentUser");
+		String newDriverLicense = (String) request.getParameter("newDL");
+		
+		System.out.println("Your user in session is " + userInSession.getUserName());
+		System.out.println("Your new driver's license is " + newDriverLicense);
+		
+		userDAO.updateDL(userInSession.getUserName(), newDriverLicense);
+		
+		return "redirect:/confirmProfileChange";
+	}
+	
+	@RequestMapping(path = "/changePassword", method = RequestMethod.POST)
+	public String changePassword(HttpServletRequest request, HttpSession session) {
+		User userInSession = (User) session.getAttribute("currentUser");
+		String newPassword = (String) request.getParameter("newPasswordFromJSP");
+		
+		System.out.println("Your user in session is " + userInSession.getUserName());
+		System.out.println("Your password is " + newPassword);
+		
+		userDAO.updatePassword(userInSession.getUserName(), newPassword);
+		
+		return "redirect:/confirmProfileChange";
+	}
+	
+	@RequestMapping(path = "/confirmProfileChange", method = RequestMethod.GET)
+	public String confirmProfileChange(HttpServletRequest request, HttpSession session) {
+		
+		return "profileChangeConfirmation";
 	}
 
 }

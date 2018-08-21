@@ -6,7 +6,7 @@ thead {
 	background-color : DarkGray; 
 	color: black;
 }
-
+html{height: 100%;}
 .table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
   background-color: Moccasin;
 }
@@ -19,10 +19,17 @@ table {
 .toolListHeader {
 	text-align: center;
 }
-
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
 footer {
  	background-color: #f5f5f5  ;
  	position: absolute;
+	bottom: 0px;
 	width: 100%;
 	height: 60px;
 	line-height: 60px;
@@ -53,7 +60,6 @@ footer {
   height:360px !important;
 } 
 
-
 .jumbotron-billboard .img {
     margin-bottom: 0px;
     opacity: 0.2;
@@ -80,7 +86,6 @@ footer {
 	font-size: 30px;
 	font-family: Gill Sans, sans-serif
 }
-
 .jumbotron {
   position:relative;
   padding-top: 5px;
@@ -91,12 +96,10 @@ footer {
   z-index:2;
 }
 
-@media screen and (max-width: 768px) {
-  .jumbotron {
-    padding-top:20px;
-    padding-bottom:20px;
-  }
-  
+#currentUser {
+	text-align : right;
+	font-weight : bold;
+}
 .container{
 	margin-bottom: 61px;
 }
@@ -106,4 +109,32 @@ body {
 nav {
 	background-color: red;
 }
+
+.current{
+	color: blue;
+	
+}
+
+navbar-light .navbar-brand {
+color: #orange;
+}
+
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+color: #yellow;
+}
+
+.navbar-light .navbar-nav .nav-link {
+color: green;
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+color: #ccc !important;
+}
+
+<!-- the below does not appear to actually work -->
+@media screen and (max-width: 768px) {
+  .jumbotron {
+    padding-top:20px;
+    padding-bottom:20px;
+  }
 }

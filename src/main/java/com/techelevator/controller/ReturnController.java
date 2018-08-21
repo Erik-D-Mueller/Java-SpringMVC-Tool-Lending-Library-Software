@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.techelevator.model.dao.ReservationDAO;
 
-@SessionAttributes({"userName", "currentUser, shoppingCart", "member", "confNum"})
+
+@SessionAttributes({"userName", "currentUser", "shoppingCart", "member", "confNum"})
+
 
 @Controller
 

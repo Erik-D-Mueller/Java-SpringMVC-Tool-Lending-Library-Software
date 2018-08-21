@@ -76,6 +76,7 @@
 	<c:url var="newUserHref" value="/users/new" />
 	<c:url var="logoutAction" value="/logout" />
 	<c:url var="userProfile" value="/userProfile" />
+	<c:url var="loginHref" value="/login" />
 
 
 	<nav class="navbar navbar-expand-md navbar-light bg-light">
@@ -105,9 +106,14 @@
 					aria-expanded="false"> Tool Lists </a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="${availableToolHref}">Available
-							Tools</a> <a class="dropdown-item" href="${checkedOutToolsHref}">Checked
-							Out Tools</a> <a class="dropdown-item" href="${toolMasterHref}">Tool
+							Tools</a> <a class="dropdown-item" href="${toolMasterHref}">Tool
 							Master List</a>
+							
+							<c:if test="${currentUser.role == 'LIBRARIAN'}">
+							<a class="dropdown-item" href="${checkedOutToolsHref}">Checked
+							Out Tools</a> 
+							</c:if>
+							
 					</div></li>
 				<c:if test="${!empty currentUser}">
 					<li class="nav-item"><a class="nav-link" 
@@ -134,16 +140,17 @@
 					<c:when test="${empty currentUser}">
 						<li class="nav-item active" id=""><a class="nav-link"
 							href="${newUserHref}">Sign Up</a></li>
-						<c:url var="loginHref" value="/login" />
+						
 						<li class="nav-item active" id="loginButton"><a
 							class="nav-link" href="${loginHref}">Log In</a></li>
 					</c:when>
 					<c:otherwise>
-						<form id="logoutForm" action="${logoutAction}" method="POST">
+						
 							<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
-						</form>
+												
 						<li class="nav-item active"><a class="nav-link"
 							id="logoutLink" href="${logoutAction}">Log Out</a></li>
+							
 					</c:otherwise>
 				</c:choose>
 
@@ -152,7 +159,11 @@
 		</div>
 	</nav>
 
+<!--  Added the .userName to fix the below, also add to the css file -->
 	<c:if test="${not empty currentUser}">
-		<p id="currentUser">Current User: ${currentUser}</p>
+		<p id="currentUser">Current User: <span class="current">  ${currentUser.userName}</span></p> 
+		<p id="currentUser">Currently Serving:<span class="current">  ${member.memberName}</span></p>
+	
+	
 	</c:if>
 	<div class="container">

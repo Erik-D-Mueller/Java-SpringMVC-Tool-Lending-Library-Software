@@ -31,8 +31,10 @@ public class JDBCReservationDAO implements ReservationDAO {
 	public int saveNewReservation(ShoppingCart cart, int memberId) {
 
 		LocalDate date = LocalDate.now();
-
+		System.out.println(memberId);
+		
 		List<Tool> items = cart.getItems();
+		
 		if (items.size() == 0) {
 		}
 		String sqlSaveNewReservation = "INSERT INTO reservation (app_user_id, from_date, to_date) VALUES (?,?,?)";

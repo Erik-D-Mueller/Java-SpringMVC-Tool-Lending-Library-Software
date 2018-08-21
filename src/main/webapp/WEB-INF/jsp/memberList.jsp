@@ -25,7 +25,7 @@
 					<tr>
 						<td>${member.memberId}</td>
 						<td>${member.memberName}</td>
-						<td><a href="${editCart}?memberId=${member.memberId}">edit cart</a></td>
+						<td><a href="${editCart}?memberId=${member.memberId}">Select this member</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
