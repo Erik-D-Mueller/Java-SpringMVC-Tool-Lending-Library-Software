@@ -9,7 +9,7 @@
 						$.validator.addMethod('capitals', function(thing) {
 							return thing.match(/[A-Z]/);
 						});
-						$("form")
+						$("#changePassWordForm")
 								.validate(
 										{
 
@@ -39,8 +39,7 @@
 											errorClass : "error"
 										});
 					});
-
-	</script>
+</script>
 
 
 <h2>
@@ -55,49 +54,64 @@
 </c:if>
 <br>
 
-<p>Would you like to change your password?</p>
-<c:url value="/changePassword" var="formAction" />
-<form action="${formAction}" method="POST">
-	
 
-	<div id="newPasswordFromJSP">
-		<label for="password">Enter Your New Password: </label> <input
-			type="password" id="password" name="password" >
-	</div>
+<div class="userProfilePage">
+	<p>Would you like to change your password?</p>
+	<c:url value="/changePassword" var="formAction" />
 	
-	
-	
-<br>
-	
-	
-	<div class="form-group">
-				<label for="confirmPassword">Confirm Password     </label> <input
-					type="password" id="confirmPassword" name="confirmPassword"
-					placeHolder="Re-Type Password"  />
-			</div>
+	<form id="changePassWordForm" action="${formAction}" method="POST">
 
-
-	
-	
-	<input class="btn btn-success" id="formSubmitButton" type="submit"
-		value="Change Password" />
-
-</form>
-
-<p>Your Driver's License is listed as "${currentUser.driversLicense}".  Would you like to change it?</p>
-<c:url value="/changeDL" var="formAction" />
-<form action="${formAction}" method="POST">
-	<div id="changeDL">
-		<div id="newDL">
-			<label for="newDL">Enter Your New Driver's License: </label> <input
-				type="text" name="newDL" id="newDL">
+		<div id="newPasswordFromJSP">
+			<label for="password">Enter your new password: </label> <input
+				type="password" id="password" name="password">
 		</div>
+
+
+		<br>
+
+
+		<div class="form-group">
+			<label for="confirmPassword">Confirm your new password:</label> <input
+				type="password" id="confirmPassword" name="confirmPassword"
+				placeHolder="Re-Type Password" />
+		</div>
+
+
+
+
 		<input class="btn btn-success" id="formSubmitButton" type="submit"
-			value="Change Driver's License Number" />
-	</div>
-</form>
+			value="Change Password" />
+
+	</form>
+
+</div>
 
 
+
+<br>
+<br>
+
+<div class="userProfilePage">
+	<p>Your Driver's License is listed as
+		"${currentUser.driversLicense}". Would you like to change it?</p>
+	<c:url value="/changeDL" var="formAction" />
+
+
+	<form action="${formAction}" method="POST">
+		<div id="changeDL">
+			<div id="newDL">
+				<label for="newDL">Enter Your New Driver's License: </label> <input
+					type="text" name="newDL" id="newDL">
+			</div>
+			<input class="btn btn-success" id="formSubmitButton" type="submit"
+				value="Change Driver's License Number" />
+		</div>
+	</form>
+
+
+</div>
+<br>
+<br>
 <p>Below is a list of tools you have checked out</p>
 
 

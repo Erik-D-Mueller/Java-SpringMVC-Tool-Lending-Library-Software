@@ -53,7 +53,6 @@ public class UserController {
 	@RequestMapping(path = "/userProfile", method = RequestMethod.GET)
 	public String viewUserProfile(HttpSession session, HttpServletRequest request) {
 		User userInSession = (User) session.getAttribute("currentUser");
-		System.out.println(userInSession.getDriversLicense());
 		request.setAttribute("listOfTools", 
 				toolDAO.getToolsCheckedOutToMemberByName(userInSession.getUserName()));
 		

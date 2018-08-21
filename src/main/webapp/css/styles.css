@@ -11,6 +11,17 @@ html{height: 100%;}
   background-color: Moccasin;
 }
 
+.userProfilePage{
+	
+	border: 10px;
+	border: black;
+	border: solid;
+	display: inline-block;
+	
+	padding: 20px;
+}
+
+
 table {
 	background-color: LightGray;
 	margin-top: 10px;

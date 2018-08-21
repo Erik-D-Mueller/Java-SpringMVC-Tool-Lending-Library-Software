@@ -2,6 +2,6 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-<h1>${currentUser.userName}, you have successfully updated your profile!</h1>
+<h4>${currentUser.userName}, you have successfully updated your profile!</h4>
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />
