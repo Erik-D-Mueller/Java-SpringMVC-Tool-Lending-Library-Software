@@ -1,5 +1,8 @@
 package com.techelevator.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.techelevator.model.dao.ToolDAO;
+import com.techelevator.model.domain.Tool;
 
 @Controller
 
@@ -100,8 +104,9 @@ public class ReservationController {
 						toolDAO.getToolsCheckedOutToMemberByDL(request.getParameter("searchString")));
 			}
 			if (request.getParameter("searchType").equals("toolId")) {
-				request.setAttribute("reservations",
-						toolDAO.getCheckedOutToolByToolId(Integer.parseInt(request.getParameter("searchString"))));
+				List<Tool> newList = new ArrayList<>();
+				newList.add(toolDAO.getCheckedOutToolByToolId(Integer.parseInt(request.getParameter("searchString"))));
+				request.setAttribute("reservations", newList);
 			}
 			if (request.getParameter("searchType").equals("memberName")) {
 				request.setAttribute("reservations",
