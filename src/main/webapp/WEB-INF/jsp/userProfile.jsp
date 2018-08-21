@@ -41,6 +41,43 @@
 					});
 </script>
 
+<script type="text/javascript">
+	$(document)
+			.ready(
+					function() {
+						$.validator.addMethod('capitals', function(thing) {
+							return thing.match(/[A-Z]/);
+						});
+						$("#changeDL")
+								.validate(
+										{
+
+											rules : 
+												password : {
+													required : true,
+													minlength : 8,
+													capitals : true,
+												},
+												confirmPassword : {
+													required : true,
+													equalTo : "#password"
+												}
+											},
+											messages : {
+												password : {
+													minlength : "Password too short, make it at least 8 characters",
+													capitals : "Field must contain a capital letter",
+												},
+												confirmPassword : {
+													equalTo : "Passwords do not match"
+												}
+											},
+											errorClass : "error"
+										});
+					});
+</script>
+
+
 
 <h2>
 	<span class="toolListHeader">Your Profile</span>
@@ -54,8 +91,8 @@
 </c:if>
 <br>
 
-
-<div class="userProfilePage">
+<div id="bothInputs">
+<div class="userProfileChunks">
 	<p>Would you like to change your password?</p>
 	<c:url value="/changePassword" var="formAction" />
 	
@@ -91,24 +128,45 @@
 <br>
 <br>
 
-<div class="userProfilePage">
+<div class="userProfileChunks">
 	<p>Your Driver's License is listed as
 		"${currentUser.driversLicense}". Would you like to change it?</p>
 	<c:url value="/changeDL" var="formAction" />
 
 
-	<form action="${formAction}" method="POST">
-		<div id="changeDL">
+	<form id ="changeDL" action="${formAction}" method="POST">
+		
+
+			
 			<div id="newDL">
+				<label for="password">Enter Your New Driver's License: </label> <input
+					type="text" name="password" id="password">
+			</div>
+			<div id="confirmNewDL">
+				<label for="confirmPassword">Confirm Your New Driver's License: </label> <input
+					type="text" name="confirmPassword" id="confirmPassword">
+			</div>
+			
+			
+		<!-- 		<div id="newDL">
 				<label for="newDL">Enter Your New Driver's License: </label> <input
 					type="text" name="newDL" id="newDL">
 			</div>
+			<div id="confirmNewDL">
+				<label for="confirmNewDL">Confirm Your New Driver's License: </label> <input
+					type="text" name="confirmNewDL" id="confirmNewDL">
+			</div> -->
+			
+			
+			<br>
 			<input class="btn btn-success" id="formSubmitButton" type="submit"
+			
 				value="Change Driver's License Number" />
-		</div>
+		
 	</form>
 
 
+</div>
 </div>
 <br>
 <br>
