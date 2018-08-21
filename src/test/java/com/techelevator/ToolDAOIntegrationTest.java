@@ -99,7 +99,7 @@ public class ToolDAOIntegrationTest extends DAOIntegrationTest {
 	
 	@Test
 	public void getCheckedOutToolByIdTest() {
-		Assert.assertEquals(TEST_TOOL_DESCRIPTION, test.getCheckedOutToolByToolId(TEST_TOOL_ID).get(0).getToolDescription());
+		Assert.assertEquals(TEST_TOOL_DESCRIPTION, test.getCheckedOutToolByToolId(TEST_TOOL_ID).getToolDescription());
 	}
 	
 	@Test
