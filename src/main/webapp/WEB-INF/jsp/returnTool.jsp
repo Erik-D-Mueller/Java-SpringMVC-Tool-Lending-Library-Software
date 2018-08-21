@@ -3,6 +3,7 @@
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
 <h4>Please enter the tool id number to return:</h4>
+<br>
 
 <div>
 	<c:url value="/returnVerify" var="formAction" />
@@ -15,11 +16,15 @@
 
 		<div>
 		
-		
+		<br>
 			<input id="formSubmitButton" type="submit" value="Submit"
 				class="btn btn-success" />
 					
 		</div>
+	
+
+	
+	
 	</form>
 	<div>${toolReturnError}
 	</div>

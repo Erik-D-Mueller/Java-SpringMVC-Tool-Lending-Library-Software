@@ -11,13 +11,23 @@ html{height: 100%;}
   background-color: Moccasin;
 }
 
-.userProfilePage{
+
+#bothInputs{
 	
-	border: 10px;
-	border: black;
+	
+	
+	
+}
+
+.userProfileChunks{
+	
+	
+background-color: #acc6ef;
 	border: solid;
 	display: inline-block;
-	
+	border-color: #acc6ef;
+	border-radius: 10px;
+	border-width: 12px;
 	padding: 20px;
 }
 
