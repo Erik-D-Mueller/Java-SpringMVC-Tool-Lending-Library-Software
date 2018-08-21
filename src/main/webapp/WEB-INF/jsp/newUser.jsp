@@ -10,6 +10,7 @@
 						$.validator.addMethod('capitals', function(thing) {
 							return thing.match(/[A-Z]/);
 						});
+						console.log("test,", $("form"))
 						$("form")
 								.validate(
 										{
@@ -20,7 +21,7 @@
 												},
 												password : {
 													required : true,
-													minlength : 15,
+													minlength : 8,
 													capitals : true,
 												},
 												confirmPassword : {
@@ -30,7 +31,7 @@
 											},
 											messages : {
 												password : {
-													minlength : "Password too short, make it at least 15 characters",
+													minlength : "Password too short, make it at least 8 characters",
 													capitals : "Field must contain a capital letter",
 												},
 												confirmPassword : {
@@ -43,46 +44,47 @@
 </script>
 
 <c:url var="formAction" value="/users" />
-<form:form method="POST" action="${formAction}" modelAttribute="registration">
+<form:form method="POST" action="${formAction}"
+	modelAttribute="registration">
 	<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
 	<div class="row" id="newUserForm">
 		<div class="col-sm-4"></div>
 		<div class="col-sm-4">
 			<div class="form-group">
-				<label for="userName">User Name</label> 
-				<form:input type="text" path="userName" id="userName" name="userName" placeHolder="User Name" class="form-control" />
-				<form:errors path="userName" cssClass="error"/>
-				
+				<label for="userName">User Name</label>
+				<form:input type="text" path="userName" id="userName"
+					name="userName" placeHolder="User Name" class="form-control" />
+				<form:errors path="userName" cssClass="error" />
 			</div>
 			<div class="form-group">
-				<label for="driversLicense">Drivers License</label> 
-				<form:input
-					type="text" path="driversLicense" id="driversLicense" name="driversLicense"
-					placeHolder="Drivers License" class="form-control" />
-				<form:errors path="driversLicense" cssClass="error"/>
-			</div>
-			<div class="form-group">
-				<label for="password">Password</label> 
-				<form:input type="password" path="password"
-					id="password" name="password" placeHolder="Password"
+				<label for="driversLicense">Drivers License</label>
+				<form:input type="text" path="driversLicense" id="driversLicense"
+					name="driversLicense" placeHolder="Drivers License"
 					class="form-control" />
-				<form:errors path="password" cssClass="error"/>
+				<form:errors path="driversLicense" cssClass="error" />
 			</div>
 			<div class="form-group">
-				<label for="confirmPassword">Confirm Password</label> 
-				<form:input
-					type="password" path="confirmPassword" id="confirmPassword" name="confirmPassword"
-					placeHolder="Re-Type Password" class="form-control" />
-				<form:errors path="confirmPassword" cssClass="error"/>
+				<label for="password">Password</label>
+				<form:input type="password" path="password" id="password"
+					name="password" placeHolder="Password" class="form-control" />
+				<form:errors path="password" cssClass="error" />
 			</div>
+			<div class="form-group">
+				<label for="confirmPassword">Confirm Password</label>
+				<form:input type="password" path="confirmPassword"
+					id="confirmPassword" name="confirmPassword"
+					placeHolder="Re-Type Password" class="form-control" />
+				<form:errors path="confirmPassword" cssClass="error" />
+			</div>
+
 			<div class="form-group">
 				<div id="roleDropBox">
-					<label for="role">Role: </label> 
+					<label for="role">Role: </label>
 					<form:select name="role" path="role">
 						<form:option value="MEMBER">Member</form:option>
 						<form:option value="LIBRARIAN">Librarian</form:option>
 					</form:select>
-					<form:errors path="role" cssClass="error"/>
+					<form:errors path="role" cssClass="error" />
 				</div>
 			</div>
 			<button type="submit" class="btn btn-primary">Create User</button>
