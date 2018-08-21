@@ -2,7 +2,14 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-<h3>Please enter the tool being returned:</h3>
+
+
+<c:if test="${InvalidID!=NULL}">
+<c:if test="${InvalidID}">
+<h3>Invalid Tool Number, please try again</h3>
+</c:if>
+</c:if>
+<h4>Please enter the tool id number to return:</h4>
 
 
 <div>

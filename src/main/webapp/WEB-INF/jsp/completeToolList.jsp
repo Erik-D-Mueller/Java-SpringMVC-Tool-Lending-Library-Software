@@ -28,6 +28,7 @@
 						<td>${tool.toolDescription}</td>
 						<c:choose>
 						
+						<!--  How is tool.available working when it should be tool.isAvailable?  -->
 							<c:when test="${tool.available}">
 								<td>Available</td>
 							</c:when>

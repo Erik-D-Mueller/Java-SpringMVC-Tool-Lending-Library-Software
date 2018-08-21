@@ -7,6 +7,7 @@ public class ShoppingCart {
 
 	
 	public List<Tool> items = new ArrayList<>();
+	public int numberOfItemsInCart;
 
 	
 	public List<Tool> getItems() {
@@ -42,6 +43,11 @@ public class ShoppingCart {
 		
 		items = newList;
 		
+	}
+	
+	public int getNumberOfItemsInCart() {
+		
+		return items.size();
 	}
 	
 }

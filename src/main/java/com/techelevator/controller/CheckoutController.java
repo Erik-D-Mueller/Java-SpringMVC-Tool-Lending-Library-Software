@@ -46,11 +46,11 @@ public class CheckoutController {
 	public String confirmCheckout(HttpSession session, HttpServletRequest request, ModelMap model) {		
 		
 		request.setAttribute("memberName", ((Member)model.get("member")).getMemberName());
+		// This should remove the member being served after checkout, but for some reason does not work.
+		model.remove("member");
 		request.setAttribute("confNum", model.get("confNum"));
 		request.setAttribute("reservations", toolDAO.getToolsByReservationId((int)model.get("confNum")));
 		
-		session.invalidate();
-		model.clear();
 		
 		return "checkoutConfirmation";
 	}

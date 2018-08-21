@@ -2,10 +2,7 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-<h1>${currentUser.userName}, you have successfully returned the following item: </h1>
-
-<h2>${toolId}</h2>
-
+<h3>Tool <span class="current" >#${toolId} </span>has been successfully returned.</h3>
 
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />

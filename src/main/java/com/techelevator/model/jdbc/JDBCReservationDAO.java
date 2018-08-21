@@ -67,7 +67,12 @@ public class JDBCReservationDAO implements ReservationDAO {
 
 		String sqlDeleteReservation = "DELETE FROM tool_reservation WHERE tool_id = ? ";
 
+		
+		
+		
 		jdbcTemplate.update(sqlDeleteReservation, toolId);
+		
+		
 
 	}
 
