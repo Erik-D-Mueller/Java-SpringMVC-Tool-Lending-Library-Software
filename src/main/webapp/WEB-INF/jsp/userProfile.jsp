@@ -2,6 +2,46 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
+<script type="text/javascript">
+	$(document)
+			.ready(
+					function() {
+						$.validator.addMethod('capitals', function(thing) {
+							return thing.match(/[A-Z]/);
+						});
+						$("form")
+								.validate(
+										{
+
+											rules : {
+												userName : {
+													required : true
+												},
+												password : {
+													required : true,
+													minlength : 8,
+													capitals : true,
+												},
+												confirmPassword : {
+													required : true,
+													equalTo : "#password"
+												}
+											},
+											messages : {
+												password : {
+													minlength : "Password too short, make it at least 8 characters",
+													capitals : "Field must contain a capital letter",
+												},
+												confirmPassword : {
+													equalTo : "Passwords do not match"
+												}
+											},
+											errorClass : "error"
+										});
+					});
+
+	</script>
+
 
 <h2>
 	<span class="toolListHeader">Your Profile</span>
@@ -18,12 +58,34 @@
 <p>Would you like to change your password?</p>
 <c:url value="/changePassword" var="formAction" />
 <form action="${formAction}" method="POST">
+	
+	
 	<div id="newPasswordFromJSP">
-		<label for="searchString">Enter Your New Password: </label> <input
-			type="text" name="newPasswordFromJSP" id="newPasswordFromJSP">
+		<label for="password">Enter Your New Password: </label> <input
+			type="password" id="password" name="password" >
 	</div>
+	
+	
+	
+<!-- 	<div id="newPasswordFromJSP">
+		<label for="searchString">Enter Your New Password: </label> <input
+			type="password" id="newPasswordFromJSP" name="newPasswordFromJSP" >
+	</div> -->
+	
+	
+	
+	<div class="form-group">
+				<label for="confirmPassword">Confirm Password</label> <input
+					type="password" id="confirmPassword" name="confirmPassword"
+					placeHolder="Re-Type Password"  />
+			</div>
+	
+
+	
+	
 	<input class="btn btn-success" id="formSubmitButton" type="submit"
 		value="Change Password" />
+
 </form>
 
 <p>Your Driver's License is listed as "${currentUser.driversLicense}".  Would you like to change it?</p>

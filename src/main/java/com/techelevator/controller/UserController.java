@@ -76,7 +76,9 @@ public class UserController {
 	@RequestMapping(path = "/changePassword", method = RequestMethod.POST)
 	public String changePassword(HttpServletRequest request, HttpSession session) {
 		User userInSession = (User) session.getAttribute("currentUser");
-		String newPassword = (String) request.getParameter("newPasswordFromJSP");
+		
+		//changed newPasswordJSP to password
+		String newPassword = (String) request.getParameter("password");
 		
 //		System.out.println("Your user in session is " + userInSession.getUserName());
 //		System.out.println("Your password is " + newPassword);
