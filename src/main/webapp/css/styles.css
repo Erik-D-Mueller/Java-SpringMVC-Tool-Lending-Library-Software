@@ -57,6 +57,7 @@ footer {
   width:640px !important;
   height:360px !important;
 } 
+
 .jumbotron-billboard .img {
     margin-bottom: 0px;
     opacity: 0.2;
@@ -92,10 +93,16 @@ footer {
   position:relative;
   z-index:2;
 }
+
 #currentUser {
 	text-align : right;
 	font-weight : bold;
 }
+
+nav {
+	background-color: red;
+}
+
 .current{
 	color: blue;
 }

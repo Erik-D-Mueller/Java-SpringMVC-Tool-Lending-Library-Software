@@ -14,7 +14,35 @@
 	<p>You're logged in as a member.</p>
 </c:if>
 <br>
-<p> Below is a list of tools you have checked out </p>
+
+<p>Would you like to change your password? (Do we want to show the password here?)</p>
+<c:url value="/changePassword" var="formAction" />
+<form action="${formAction}" method="POST">
+	<div id="newPasswordFromJSP">
+		<label for="searchString">Enter Your New Password: </label> <input
+			type="text" name="newPasswordFromJSP" id="newPasswordFromJSP">
+	</div>
+	<input class="btn btn-success" id="formSubmitButton" type="submit"
+		value="Change Password" />
+</form>
+
+<p>Your Driver's License is DRIVER'S LICENSE (USER bean doesn't have driver's license. When it is added, please change "DRIVER'S LICENSE" to currentUserDOTdriverslicense} )</p>
+<c:url value="/changeDL" var="formAction" />
+<form action="${formAction}" method="POST">
+	<div id="changeDL">
+		<div id="newDL">
+			<label for="newDL">Enter Your New Driver's License: </label> <input
+				type="text" name="newDL" id="newDL">
+		</div>
+		<input class="btn btn-success" id="formSubmitButton" type="submit"
+			value="Change Driver's License Number" />
+	</div>
+</form>
+
+
+<p>Below is a list of tools you have checked out</p>
+
+
 <div class="table-responsive" id="toolTable">
 	<table class="table table-striped table-hover table-bordered">
 		<thead class="thead-dark">
