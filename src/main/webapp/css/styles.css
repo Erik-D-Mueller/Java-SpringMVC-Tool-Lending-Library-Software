@@ -1,7 +1,3 @@
-
-
-
-
 .jumbotron-billboard{
 	margin: 0px;
 	min-height: 225px;
@@ -52,8 +48,6 @@ footer {
     position: relative;
     margin-top: -10px;
 } 
-
-
 .slidePic {
 	height: 355px !important;
 	width: 640px !important;
@@ -63,9 +57,6 @@ footer {
   width:640px !important;
   height:360px !important;
 } 
-
-
-
 
 .jumbotron-billboard .img {
     margin-bottom: 0px;
@@ -93,9 +84,6 @@ footer {
 	font-size: 30px;
 	font-family: Gill Sans, sans-serif
 }
-
-
-
 .jumbotron {
   position:relative;
   padding-top: 5px;
@@ -106,12 +94,11 @@ footer {
   z-index:2;
 }
 
-
-
-  #currentUser {
+#currentUser {
 	text-align : right;
 	font-weight : bold;
 }
+
 
 
 
@@ -120,15 +107,41 @@ footer {
 }
 body {
     margin-bottom: 60px;
-}
 
+nav {
+	background-color: red;
+
+}
 
 .current{
 	color: blue;
-	
 }
 
 
+
+
+
+navbar-light .navbar-brand {
+color: #orange;
+}
+
+.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
+color: #yellow;
+}
+
+.navbar-light .navbar-nav .nav-link {
+color: green;
+}
+
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+color: #ccc !important;
+}
+#login-error{
+	padding-top: 10px;
+}
+.error{
+	color: red;
+}
 
 <!-- the below does not appear to actually work -->
 @media screen and (max-width: 768px) {
@@ -136,11 +149,4 @@ body {
     padding-top:20px;
     padding-bottom:20px;
   }
-  
-  
-
-  
-
-
-
 }

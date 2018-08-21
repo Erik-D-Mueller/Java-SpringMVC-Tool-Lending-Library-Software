@@ -12,4 +12,6 @@ public interface UserDAO {
 
 	public User getUserByUserName(String userName);
 
+	void updateDL(String userName, String newDL);
+
 }
