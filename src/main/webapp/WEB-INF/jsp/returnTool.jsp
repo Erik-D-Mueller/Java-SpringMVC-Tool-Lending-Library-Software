@@ -5,7 +5,7 @@
 <h4>Please enter the tool id number to return:</h4>
 
 <div>
-	<c:url value="/returnConfirmation" var="formAction" />
+	<c:url value="/returnVerify" var="formAction" />
 	<form action="${formAction}" method="POST">
 
 		<div>
@@ -14,8 +14,11 @@
 		</div>
 
 		<div>
+		
+		
 			<input id="formSubmitButton" type="submit" value="Submit"
 				class="btn btn-success" />
+					
 		</div>
 	</form>
 	<div>${toolReturnError}

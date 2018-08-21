@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.ui.ModelMap;
 
 import com.techelevator.model.dao.ReservationDAO;
 import com.techelevator.model.dao.ToolDAO;
@@ -15,7 +16,7 @@ import com.techelevator.model.domain.CheckedOutTool;
 import com.techelevator.model.domain.Tool;
 
 
-@SessionAttributes({"userName", "currentUser", "shoppingCart", "member", "confNum"})
+@SessionAttributes({"userName", "currentUser", "shoppingCart", "member", "confNum", "returnTool"})
 
 
 @Controller
@@ -37,8 +38,8 @@ public class ReturnController {
 
 	
 	
-	@RequestMapping(path="/returnConfirmation", method=RequestMethod.POST)
-	public String updateReturn(HttpServletRequest request) {
+	@RequestMapping(path="/returnVerify", method=RequestMethod.POST)
+	public String updateReturn(HttpServletRequest request, ModelMap model) {
 		request.setAttribute("InvalidID", false);
 		
 		CheckedOutTool toolToReturn = toolDAO.getCheckedOutToolByToolId(Integer.parseInt(request.getParameter("toolId")));
@@ -50,19 +51,23 @@ public class ReturnController {
 		}
 		
 		else {
-		reservationDAO.deleteReservation(Integer.parseInt(request.getParameter("toolId")));
-		request.setAttribute("toolId", request.getParameter("toolId"));
-		return "returnConfirmation";
+		
+		model.addAttribute("returnTool", toolToReturn);
+		request.setAttribute("tool", toolToReturn);
+		return "returnVerify";
 		}
 	
 	}
 	
-//	@RequestMapping(path="/returnConfirmation", method=RequestMethod.POST)
-//	public String confirmReturn(HttpServletRequest request) {
-//		
-//		request.setAttribute("toolId", request.getParameter("toolId"));
-//
-//		return "returnConfirmation";
-//	}
 
+	@RequestMapping("/returnConfirmation")
+	public String returnFinal(HttpServletRequest request, ModelMap model) {
+		
+		CheckedOutTool toolToReturn = (CheckedOutTool) model.get("returnTool");
+		
+		request.setAttribute("toolId", toolToReturn.getToolId() );
+		return "returnConfirmation";
+	}
+		
+	
 }

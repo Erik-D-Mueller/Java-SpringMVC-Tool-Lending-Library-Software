@@ -6,10 +6,6 @@
 
 	<h3>${member.memberName}'s cart currently contains:</h3>
 	
-
-	
-	
-
 	<c:url value="/removeItem" var="formAction" />
 	<form action="${formAction}" method="POST">
 
@@ -74,7 +70,38 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                Confirm Checkout
+                Confirm Checkout for ${member.memberName}
+            </div>
+            <div class="modal-body">
+                
+               
+
+
+				<table class="table table-striped table-hover table-bordered">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col">Tool Id</th>
+							<th scope="col">Tool Name</th>
+							<th scope="col">Tool Description</th>
+						
+						</tr>
+					</thead>
+
+					<tbody>
+						<c:forEach items="${tools}" var="tool">
+							<tr>
+								<td>${tool.toolId}</td>
+								<td>${tool.toolName}</td>
+								<td>${tool.toolDescription}</td>
+					
+							</tr>
+						</c:forEach>
+					</tbody>
+				</table>
+
+                
+                
+                
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>

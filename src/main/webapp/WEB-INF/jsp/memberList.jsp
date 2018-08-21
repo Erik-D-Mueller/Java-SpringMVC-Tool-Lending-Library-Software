@@ -31,7 +31,8 @@
 								<%-- You have to have type="button" when turning an html link
 									 into a button or else it won't work
 									 --%> <a href="${editCart}?memberId=${member.memberId}"><button
-										type="button" class="btn btn-success">Select this member</button></a>
+										type="button" class="btn btn-success">Select this
+										member</button></a>
 
 							</td>
 
