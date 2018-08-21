@@ -21,6 +21,7 @@
 			</thead>
 
 			<tbody>
+			<!--  How is tool.available working when it should be tool.isAvailable?  -->
 				<c:forEach items="${allTools}" var="tool">
 					<tr>
 						<td>${tool.toolId}</td>
@@ -28,7 +29,7 @@
 						<td>${tool.toolDescription}</td>
 						<c:choose>
 						
-						<!--  How is tool.available working when it should be tool.isAvailable?  -->
+						
 							<c:when test="${tool.available}">
 								<td>Available</td>
 							</c:when>
