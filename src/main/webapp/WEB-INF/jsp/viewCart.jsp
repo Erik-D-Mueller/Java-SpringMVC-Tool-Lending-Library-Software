@@ -5,6 +5,10 @@
 <c:if test="${member != null}">
 
 	<h3>${member.memberName}'s cart currently contains:</h3>
+	
+
+	
+	
 
 	<c:url value="/removeItem" var="formAction" />
 	<form action="${formAction}" method="POST">
@@ -61,8 +65,32 @@
 		<c:url value="/checkOut" var="formAction" />
 		<form action="${formAction}" method="POST">
 			<div id="submitButtonDiv">
-				<input class="btn btn-success" id="formSubmitButton" type="submit"
-					value="CHECK OUT!" />
+			
+<a href="#" data-href="delete.php?id=23" data-toggle="modal" data-target="#confirm-delete"><button type="button" class="btn btn-success">Check Out</button></a>
+
+
+
+<div class="modal fade" id="confirm-delete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                Confirm Checkout
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                             
+            
+            <input class="btn btn-success" id="formSubmitButton" type="submit"
+					value="Confirm Checkout" />
+            
+            
+            </div>
+        </div>
+    </div>
+</div>
+	
+	
+			
 			</div>
 		</form>
 	</c:if>
@@ -75,7 +103,7 @@
 </c:if>
 
 <c:if test="${member == null}">
-	<h1>No Member Selected</h1>
+	<h3>No Member Selected</h3>
 </c:if>
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />

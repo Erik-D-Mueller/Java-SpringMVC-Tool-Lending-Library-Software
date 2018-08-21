@@ -45,7 +45,7 @@
 									<td>${tool.toolId}</td>
 									<td>${tool.toolName}</td>
 									<td>${tool.toolDescription}</td>
-									<td><button name="tool_id" value="${tool.toolId}">Add To Cart</button></td>
+									<td><button name="tool_id" class="btn btn-success" value="${tool.toolId}">Add To Cart</button></td>
 								</tr>
 							</c:forEach>
 						</c:when>

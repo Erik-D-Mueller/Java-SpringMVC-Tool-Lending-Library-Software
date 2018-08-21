@@ -31,11 +31,12 @@
 						
 						
 							<c:when test="${tool.available}">
-								<td>Available</td>
+								<td style="background-color: #38e241;">Available</td>
+								
 							</c:when>
 							
 							<c:otherwise>
-								<td>Checked Out</td>
+								<td style="background-color: #3388dd;">Checked Out</td>
 							</c:otherwise>
 							
 						</c:choose>

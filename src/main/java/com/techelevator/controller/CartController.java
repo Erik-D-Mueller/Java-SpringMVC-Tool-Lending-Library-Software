@@ -30,9 +30,13 @@ public class CartController {
 	private ToolDAO toolDAO;
 	
 	@RequestMapping(path="/chooseMember", method=RequestMethod.GET)
-	public String chooseMemberAndRedirect(HttpSession session, HttpServletRequest request, ModelMap map) {
+	public String chooseMemberAndRedirect(HttpSession session, HttpServletRequest request, ModelMap map, ModelMap model) {
 	
 		map.addAttribute("member", memberDAO.getMemberById(Integer.parseInt(request.getParameter("memberId"))));
+		
+		// for some reason model.remove() is not working, so I'm "overwriting" instead
+		ShoppingCart cart = new ShoppingCart();
+		model.addAttribute(cart);
 		
 		return "redirect:/availableToolList";
 	}
