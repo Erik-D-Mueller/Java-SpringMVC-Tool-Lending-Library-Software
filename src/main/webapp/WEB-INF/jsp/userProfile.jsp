@@ -92,7 +92,7 @@
 <br>
 
 <div id="bothInputs">
-<div class="userProfileChunks">
+<div class="blueBox">
 	<p>Would you like to change your password?</p>
 	<c:url value="/changePassword" var="formAction" />
 	
@@ -128,7 +128,7 @@
 <br>
 <br>
 
-<div class="userProfileChunks">
+<div class="blueBox">
 	<p>Your Driver's License is listed as
 		"${currentUser.driversLicense}". Would you like to change it?</p>
 	<c:url value="/changeDL" var="formAction" />

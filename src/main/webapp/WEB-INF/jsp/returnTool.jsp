@@ -2,6 +2,8 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
+
+<div class="blueBox">
 <h4>Please enter the tool id number to return:</h4>
 <br>
 
@@ -21,11 +23,10 @@
 				class="btn btn-success" />
 					
 		</div>
-	
 
+		</form>
+		</div>
 	
-	
-	</form>
 	<div>${toolReturnError}
 	</div>
 

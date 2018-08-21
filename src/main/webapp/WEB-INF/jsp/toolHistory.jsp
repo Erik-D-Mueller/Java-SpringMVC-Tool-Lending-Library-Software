@@ -5,6 +5,7 @@
 <h1>Search currently checked out tools:</h1>
 
 
+<div class="blueBox">
 <div id="newReviewForm">
 	<c:url value="/toolHistory" var="formAction" />
 	<form action="${formAction}" method="POST">
@@ -13,6 +14,7 @@
 			<label for="searchString">Enter search terms here: </label> <input
 				type="text" name="searchString" id="searchString">
 		</div>
+		<br>
 
 		<c:if test="${charError==true}">
 			<h4 style="color: red;">${charErrorMsg}</h4>
@@ -26,11 +28,14 @@
 
 			</select>
 		</div>
-
+<br>
 		<div id="submitButtonDiv">
 			<input id="formSubmitButton" type="submit" value="Search" class = "btn btn-success" />
 		</div>
 	</form>
+
+</div>
+
 
 </div>
 
