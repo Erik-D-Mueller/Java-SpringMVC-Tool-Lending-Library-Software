@@ -11,7 +11,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 import com.techelevator.model.dao.ReservationDAO;
-import com.techelevator.model.dao.ToolDAO;
 import com.techelevator.model.domain.Reservation;
 import com.techelevator.model.domain.ShoppingCart;
 
@@ -20,12 +19,11 @@ public class JDBCReservationDAO implements ReservationDAO {
 
 	private JdbcTemplate jdbcTemplate;
 	
-	private ToolDAO toolDAO;
-
 	@Autowired
 	public JDBCReservationDAO(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}
+
 
 	@Override
 	public int saveNewReservation(ShoppingCart cart, int memberId) {
@@ -81,7 +79,7 @@ public class JDBCReservationDAO implements ReservationDAO {
 		
 		Reservation theReservation = new Reservation();
 
-		String sqlSearchReservationById = "SELECT au.user_name, t.tool_id, tt.tool_name, r.to_date, r.from_date "
+		String sqlSearchReservationById = "SELECT r.reservation_id, t.tool_id, tt.tool_name, r.to_date, r.from_date "
 				+ "FROM reservation r " + "JOIN tool_reservation tr ON r.reservation_id = tr.reservation_id "
 				+ "JOIN app_user au ON r.app_user_id = au.app_user_id " + "JOIN tool t ON t.tool_id = tr.tool_id "
 				+ " JOIN tool_type tt ON t.tool_type_id = tt.tool_type_id " + "WHERE r.reservation_id = ?";
@@ -94,7 +92,7 @@ public class JDBCReservationDAO implements ReservationDAO {
 		
 		}
 		
-		theReservation.setTools(toolDAO.getToolsByReservationId(reservationId));		
+//		theReservation.setTools(toolDAO.getToolsByReservationId(reservationId));		
 		
 		return theReservation;
 	}
@@ -108,7 +106,7 @@ public class JDBCReservationDAO implements ReservationDAO {
 		String returnDate = results.getString("to_date").substring(5) + "-"
 				+ results.getString("to_date").substring(0, 4);
 
-		newReservation.setReservationId(results.getInt("tool_id"));
+		newReservation.setReservationId(results.getInt("reservation_id"));
 		newReservation.setCheckoutDate(checkoutDate);
 		newReservation.setReturnDate(returnDate);
 

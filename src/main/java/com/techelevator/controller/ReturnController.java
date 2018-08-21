@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.techelevator.model.dao.ReservationDAO;
 import com.techelevator.model.dao.ToolDAO;
+import com.techelevator.model.domain.CheckedOutTool;
+import com.techelevator.model.domain.Tool;
 
 
 @SessionAttributes({"userName", "currentUser", "shoppingCart", "member", "confNum"})
@@ -22,6 +24,8 @@ public class ReturnController {
 
 	@Autowired
 	private ReservationDAO reservationDAO;
+	
+	@Autowired
 	private ToolDAO toolDAO;
 
 	@RequestMapping("/returnTool")
@@ -37,20 +41,19 @@ public class ReturnController {
 	public String updateReturn(HttpServletRequest request) {
 		request.setAttribute("InvalidID", false);
 		
-		System.out.println("Getting here?");
-		System.out.println("The tool id is " + Integer.parseInt(request.getParameter("toolId")));
+		CheckedOutTool toolToReturn = toolDAO.getCheckedOutToolByToolId(Integer.parseInt(request.getParameter("toolId")));
 		
-		//toolDAO.getToolById(3);
-		
-		System.out.println("Getting here as well ?");
+		if(toolToReturn.getToolName() == null) {
 			
+			request.setAttribute("toolReturnError", "The tool associated with that ID is not currently checked out. Please try again");
+			return "returnTool";
+		}
+		
+		else {
 		reservationDAO.deleteReservation(Integer.parseInt(request.getParameter("toolId")));
 		request.setAttribute("toolId", request.getParameter("toolId"));
 		return "returnConfirmation";
-		
-		
-	
-
+		}
 	
 	}
 	

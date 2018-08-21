@@ -97,10 +97,8 @@ public class JDBCToolDAO implements ToolDAO {
 	}
 
 	@Override
-	public List<CheckedOutTool> getCheckedOutToolByToolId(int toolId) {
+	public CheckedOutTool getCheckedOutToolByToolId(int toolId) {
 		
-		List<CheckedOutTool> listOfCheckedOutTools = new ArrayList<>();
-
 		CheckedOutTool theTool = new CheckedOutTool();
 		LocalDate date = LocalDate.now();
 
@@ -116,10 +114,9 @@ public class JDBCToolDAO implements ToolDAO {
 		while (results.next()) {
 			
 			theTool = mapRowToCheckedOutTool(results);
-			listOfCheckedOutTools.add(theTool);
 		}
 
-		return listOfCheckedOutTools;
+		return theTool;
 	}
 
 	@Override

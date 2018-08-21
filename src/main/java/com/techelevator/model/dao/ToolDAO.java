@@ -15,7 +15,7 @@ public interface ToolDAO {
 	
 	public List<CheckedOutTool> getAllCheckedOutTools();
 	
-	public List<CheckedOutTool> getCheckedOutToolByToolId(int toolId);
+	public CheckedOutTool getCheckedOutToolByToolId(int toolId);
 	
 	public List<CheckedOutTool> getToolsCheckedOutToMemberByName(String memberName);
 	
