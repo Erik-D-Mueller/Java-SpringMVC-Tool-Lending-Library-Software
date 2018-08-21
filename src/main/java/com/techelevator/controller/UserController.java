@@ -67,7 +67,7 @@ public class UserController {
 		
 //		System.out.println("Your user in session is " + userInSession.getUserName());
 //		System.out.println("Your new driver's license is " + newDriverLicense);
-		
+	
 		userDAO.updateDL(userInSession.getUserName(), newDriverLicense);
 		
 		return "redirect:/confirmProfileChange";
