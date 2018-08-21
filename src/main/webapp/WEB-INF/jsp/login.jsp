@@ -1,32 +1,31 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
-
-<h1>${user.name}</h1>
 
 <div class="row">
 	<div class="col-sm-4"></div>
 	<div class="col-sm-4">
-		<c:url var="formAction" value="/login" />
+		<c:url var="formAction" value="/doLogin" />
 
-		<form method="POST" action="${formAction}">
+		<form:form method="POST" action="${formAction}" modelAttribute="login">
 			<input type="hidden" name="destination" value="${param.destination}" />
 			<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
 
 			<div class="form-group">
-				<label for="userName">User Name</label> <input type="text"
-					class="form-control" id="username" aria-describedby="emailHelp"
-					name="userName" placeHolder="User Name" />
+				<label for="userName">User Name</label> 
+				<form:input type="text"  path="userName" class="form-control" id="userName" name="userName" placeHolder="User Name" />
+				<form:errors path="userName" cssClass="error"/>				
 			</div>
 
 			<div class="form-group">
-				<label for="password">Password</label> <input type="password"
-					class="form-control" id="password" name="password"
-					placeHolder="Password" />
+				<label for="password">Password</label> 
+				<form:input type="password" path="password" class="form-control" id="password" name="password" placeHolder="Password"/>
+				<form:errors path="password" cssClass="error"/>
 			</div>
 
 			<button type="submit" class="btn btn-primary" id="login-btn">Login</button>
-		</form>
+		</form:form>
 
 	</div>
 	<div class="col-sm-4"></div>

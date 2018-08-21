@@ -16,6 +16,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.techelevator.model.dao.ToolDAO;
 import com.techelevator.model.dao.UserDAO;
+import com.techelevator.model.domain.Registration;
 import com.techelevator.model.domain.User;
 
 
@@ -32,21 +33,21 @@ public class UserController {
 
 	@RequestMapping(path = "/users/new", method = RequestMethod.GET)
 	public String displayNewUserForm(ModelMap modelHolder) {
-		if (!modelHolder.containsAttribute("user")) {
-			modelHolder.addAttribute("user", new User());
+		if (!modelHolder.containsAttribute("registration")) {
+			modelHolder.addAttribute("registration", new Registration());
 		}
 		return "newUser";
 	}
 
 	@RequestMapping(path = "/users", method = RequestMethod.POST)
-	public String createUser(@Valid @ModelAttribute User user, BindingResult result, RedirectAttributes flash) {
+	public String createUser(@Valid @ModelAttribute Registration registration, BindingResult result, RedirectAttributes flash) {
 		if (result.hasErrors()) {
-			flash.addFlashAttribute("user", user);
-			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
+			flash.addFlashAttribute("registration", registration);
+			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "registration", result);
 			return "redirect:/users/new";
 		}
 
-		userDAO.saveUser(user.getUserName(), user.getPassword(), user.getDriversLicense(), user.getRole());
+		userDAO.saveUser(registration.getUserName(), registration.getPassword(), registration.getDriversLicense(), registration.getRole());
 		return "redirect:/login";
 	}
 	

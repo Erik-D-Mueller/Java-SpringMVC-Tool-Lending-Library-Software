@@ -6,7 +6,7 @@ import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotBlank;
 
-public class User {
+public class Registration {
 	
 	@NotBlank(message="User name is required")
 	private String userName;
