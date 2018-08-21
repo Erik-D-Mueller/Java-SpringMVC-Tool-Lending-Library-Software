@@ -46,13 +46,14 @@ public class UserController {
 			return "redirect:/users/new";
 		}
 
-		userDAO.saveUser(user.getUserName(), user.getPassword(), user.getRole());
+		userDAO.saveUser(user.getUserName(), user.getPassword(), user.getDriversLicense(), user.getRole());
 		return "redirect:/login";
 	}
 	
 	@RequestMapping(path = "/userProfile", method = RequestMethod.GET)
 	public String viewUserProfile(HttpSession session, HttpServletRequest request) {
 		User userInSession = (User) session.getAttribute("currentUser");
+		System.out.println(userInSession.getDriversLicense());
 		request.setAttribute("listOfTools", 
 				toolDAO.getToolsCheckedOutToMemberByName(userInSession.getUserName()));
 		
@@ -64,8 +65,8 @@ public class UserController {
 		User userInSession = (User) session.getAttribute("currentUser");
 		String newDriverLicense = (String) request.getParameter("newDL");
 		
-		System.out.println("Your user in session is " + userInSession.getUserName());
-		System.out.println("Your new driver's license is " + newDriverLicense);
+//		System.out.println("Your user in session is " + userInSession.getUserName());
+//		System.out.println("Your new driver's license is " + newDriverLicense);
 		
 		userDAO.updateDL(userInSession.getUserName(), newDriverLicense);
 		
@@ -77,8 +78,8 @@ public class UserController {
 		User userInSession = (User) session.getAttribute("currentUser");
 		String newPassword = (String) request.getParameter("newPasswordFromJSP");
 		
-		System.out.println("Your user in session is " + userInSession.getUserName());
-		System.out.println("Your password is " + newPassword);
+//		System.out.println("Your user in session is " + userInSession.getUserName());
+//		System.out.println("Your password is " + newPassword);
 		
 		userDAO.updatePassword(userInSession.getUserName(), newPassword);
 		
@@ -86,7 +87,15 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "/confirmProfileChange", method = RequestMethod.GET)
-	public String confirmProfileChange(HttpServletRequest request, HttpSession session) {
+	public String confirmProfileChange(HttpServletRequest request, HttpSession session, ModelMap model) {
+		
+		User userInSession = (User) session.getAttribute("currentUser");
+//		System.out.println(userInSession.getDriversLicense());
+		User updatedUser = userDAO.getUserByUserName(userInSession.getUserName());
+//		System.out.println(updatedUser.getDriversLicense());
+		session.removeAttribute("currentUser");
+		model.addAttribute("currentUser", updatedUser);
+//		session.setAttribute("currentUser", updatedUser);
 		
 		return "profileChangeConfirmation";
 	}

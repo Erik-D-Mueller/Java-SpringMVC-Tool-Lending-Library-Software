@@ -24,13 +24,13 @@ public class JDBCUserDAO implements UserDAO {
 	}
 
 	@Override
-	public void saveUser(String userName, String password, String role) {
+	public void saveUser(String userName, String password, String driversLicense, String role) {
 		byte[] salt = hashMaster.generateRandomSalt();
 		String hashedPassword = hashMaster.computeHash(password, salt);
 		String saltString = new String(Base64.encode(salt));
 
-		jdbcTemplate.update("INSERT INTO app_user(user_name, password, salt, role) VALUES (?, ?, ?, ?)", userName,
-				hashedPassword, saltString, role);
+		jdbcTemplate.update("INSERT INTO app_user(user_name, password, drivers_license, salt, role) VALUES (?, ?, ?, ?, ?)", userName,
+				hashedPassword, driversLicense, saltString, role);
 	}
 
 	@Override
@@ -58,8 +58,8 @@ public class JDBCUserDAO implements UserDAO {
 	}
 	
 	@Override
-	public void updateDL(String userName, String newDL) {
-		jdbcTemplate.update("UPDATE app_user SET drivers_license = ? WHERE user_name = ?", newDL, userName);
+	public void updateDL(String userName, String driversLicense) {
+		jdbcTemplate.update("UPDATE app_user SET drivers_license = ? WHERE user_name = ?", driversLicense, userName.toUpperCase());
 	}
 
 	@Override
@@ -79,6 +79,7 @@ public class JDBCUserDAO implements UserDAO {
 			theName = theName.trim();
 			thisUser.setUserName(theName);
 			thisUser.setPassword(user.getString("password"));
+			thisUser.setDriversLicense(user.getString("drivers_license"));
 			thisUser.setRole(user.getString("role"));
 		}
 

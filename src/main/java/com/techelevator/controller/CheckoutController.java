@@ -43,7 +43,12 @@ public class CheckoutController {
 	}
 
 	@RequestMapping(path="/checkoutConfirmation", method=RequestMethod.GET)
-	public String confirmCheckout(HttpSession session, HttpServletRequest request, ModelMap model) {		
+	
+	
+
+	
+
+public String confirmCheckout(HttpSession session, HttpServletRequest request, ModelMap model) {		
 		
 		
 		String name = ((Member)model.get("member")).getMemberName();
@@ -57,6 +62,12 @@ public class CheckoutController {
 		ShoppingCart cart = new ShoppingCart();
 		model.addAttribute(cart);		
 		
+
+
+
+
+
+
 		request.setAttribute("confNum", model.get("confNum"));
 		request.setAttribute("reservations", toolDAO.getToolsByReservationId((int)model.get("confNum")));
 		

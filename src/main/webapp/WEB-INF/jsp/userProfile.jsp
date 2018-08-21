@@ -15,7 +15,7 @@
 </c:if>
 <br>
 
-<p>Would you like to change your password? (Do we want to show the password here?)</p>
+<p>Would you like to change your password?</p>
 <c:url value="/changePassword" var="formAction" />
 <form action="${formAction}" method="POST">
 	<div id="newPasswordFromJSP">
@@ -26,7 +26,7 @@
 		value="Change Password" />
 </form>
 
-<p>Your Driver's License is DRIVER'S LICENSE (USER bean doesn't have driver's license. When it is added, please change "DRIVER'S LICENSE" to currentUserDOTdriverslicense} )</p>
+<p>Your Driver's License is listed as "${currentUser.driversLicense}".  Would you like to change it?</p>
 <c:url value="/changeDL" var="formAction" />
 <form action="${formAction}" method="POST">
 	<div id="changeDL">
