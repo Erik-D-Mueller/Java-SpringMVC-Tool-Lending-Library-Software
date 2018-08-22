@@ -102,19 +102,12 @@
 			<label for="password">Enter your new password: </label> <input
 				type="password" id="password" name="password">
 		</div>
-
-
 		<br>
-
-
 		<div class="form-group">
 			<label for="confirmPassword">Confirm your new password:</label> <input
 				type="password" id="confirmPassword" name="confirmPassword"
 				placeHolder="Re-Type Password" />
 		</div>
-
-
-
 
 		<input class="btn btn-success" id="formSubmitButton" type="submit"
 			value="Change Password" />
@@ -139,24 +132,13 @@
 
 			
 			<div id="newDL">
-				<label for="password">Enter Your New Driver's License: </label> <input
-					type="text" name="password" id="password">
-			</div>
-			<div id="confirmNewDL">
-				<label for="confirmPassword">Confirm Your New Driver's License: </label> <input
-					type="text" name="confirmPassword" id="confirmPassword">
-			</div>
-			
-			
-		<!-- 		<div id="newDL">
 				<label for="newDL">Enter Your New Driver's License: </label> <input
 					type="text" name="newDL" id="newDL">
 			</div>
 			<div id="confirmNewDL">
 				<label for="confirmNewDL">Confirm Your New Driver's License: </label> <input
 					type="text" name="confirmNewDL" id="confirmNewDL">
-			</div> -->
-			
+			</div>			
 			
 			<br>
 			<input class="btn btn-success" id="formSubmitButton" type="submit"

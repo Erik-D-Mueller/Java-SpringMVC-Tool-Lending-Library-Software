@@ -65,8 +65,8 @@ public class UserController {
 		User userInSession = (User) session.getAttribute("currentUser");
 		String newDriverLicense = (String) request.getParameter("newDL");
 		
-//		System.out.println("Your user in session is " + userInSession.getUserName());
-//		System.out.println("Your new driver's license is " + newDriverLicense);
+		System.out.println("Your user in session is " + userInSession.getUserName());
+		System.out.println("Your new driver's license is " + newDriverLicense);
 	
 		userDAO.updateDL(userInSession.getUserName(), newDriverLicense);
 		

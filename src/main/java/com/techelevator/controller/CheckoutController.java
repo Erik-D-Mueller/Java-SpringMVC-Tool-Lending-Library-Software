@@ -48,25 +48,15 @@ public class CheckoutController {
 
 	
 
-public String confirmCheckout(HttpSession session, HttpServletRequest request, ModelMap model) {		
-		
-		
+public String confirmCheckout(HttpSession session, HttpServletRequest request, ModelMap model) {				
 		String name = ((Member)model.get("member")).getMemberName();
 		request.setAttribute("memberName", name);
 		
-		// model.remove("member") doesn't work, so instead I have to "overwrite" in order to clear the member off of "currently serving" after they're checked out
-		Member member = new Member();
-		model.addAttribute("member", member);
+		model.remove("member");
+		session.removeAttribute("member");
 
-		// I want to erase the items in the shopping cart after the car has been checked out, for some reason model.remove() is not working, so I'm "overwriting" instead
-		ShoppingCart cart = new ShoppingCart();
-		model.addAttribute(cart);		
-		
-
-
-
-
-
+		model.remove("shoppingCart");
+		session.removeAttribute("shoppingCart");
 
 		request.setAttribute("confNum", model.get("confNum"));
 		request.setAttribute("reservations", toolDAO.getToolsByReservationId((int)model.get("confNum")));
