@@ -31,12 +31,13 @@
 						
 						
 							<c:when test="${tool.available}">
-								<td style="background-color: #38e241;">Available</td>
-								
+								<!-- <td style="background-color: #38e241; text-align: center">Available</td> -->
+								<td style="background-color: #5cb85c; text-align: center">Available</td>								
 							</c:when>
 							
 							<c:otherwise>
-								<td style="background-color: #3388dd;">Checked Out</td>
+								<!-- <td style="background-color: #3388dd; text-align: center">Checked Out</td> -->
+								<td style="background-color: #acc6ef; text-align: center">Checked Out</td>
 							</c:otherwise>
 							
 						</c:choose>

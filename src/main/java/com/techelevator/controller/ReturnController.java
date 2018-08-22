@@ -46,7 +46,7 @@ public class ReturnController {
 		
 		if(toolToReturn.getToolName() == null) {
 			
-			request.setAttribute("toolReturnError", "The tool associated with that ID is not currently checked out. Please try again");
+			request.setAttribute("toolReturnError", "The tool associated with that ID is not currently checked out. Please try again.");
 			return "returnTool";
 		}
 		
