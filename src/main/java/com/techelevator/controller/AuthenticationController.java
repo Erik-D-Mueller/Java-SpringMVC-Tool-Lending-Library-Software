@@ -41,7 +41,7 @@ public class AuthenticationController {
 		}
 		return "login";
 	}
-	
+
 	@RequestMapping(path="/doLogin", method=RequestMethod.POST)
 	public String login(@Valid @ModelAttribute("login") Login login,
 						BindingResult result,
@@ -52,7 +52,7 @@ public class AuthenticationController {
 		attr.addFlashAttribute("loginFail", false);	
 		attr.addFlashAttribute("login", login);
 		if(result.hasErrors()) {
-			attr.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
+			attr.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "login", result);
 			System.out.println("result has errors");
 			return "redirect:/login";
 		}
