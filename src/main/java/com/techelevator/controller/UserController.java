@@ -17,6 +17,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.techelevator.model.dao.ToolDAO;
 import com.techelevator.model.dao.UserDAO;
 import com.techelevator.model.domain.Registration;
+import com.techelevator.model.domain.UpdateDL;
+import com.techelevator.model.domain.UpdatePassword;
 import com.techelevator.model.domain.User;
 
 
@@ -48,11 +50,19 @@ public class UserController {
 		}
 
 		userDAO.saveUser(registration.getUserName(), registration.getPassword(), registration.getDriversLicense(), registration.getRole());
-		return "redirect:/login";
+		return "redirect:/";
 	}
 	
 	@RequestMapping(path = "/userProfile", method = RequestMethod.GET)
-	public String viewUserProfile(HttpSession session, HttpServletRequest request) {
+	public String viewUserProfile(HttpSession session, HttpServletRequest request, ModelMap modelHolder) {
+		if (!modelHolder.containsAttribute("updatePW")) {
+			modelHolder.addAttribute("updatePW", new UpdatePassword());
+		}
+		
+		if (!modelHolder.containsAttribute("updateDL")) {
+			modelHolder.addAttribute("updateDL", new UpdateDL());
+		}
+		
 		User userInSession = (User) session.getAttribute("currentUser");
 		request.setAttribute("listOfTools", 
 				toolDAO.getToolsCheckedOutToMemberByName(userInSession.getUserName()));
@@ -61,7 +71,19 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "/changeDL", method = RequestMethod.POST)
-	public String changeDriversLicense(HttpServletRequest request, HttpSession session) {
+	public String changeDriversLicense(
+			HttpServletRequest request, 
+			HttpSession session,
+			@Valid @ModelAttribute("updateDL") UpdateDL updateDL, 
+			BindingResult result, 
+			RedirectAttributes flash) {
+		flash.addFlashAttribute("updateDL", updateDL);
+		if (result.hasErrors()) {
+			flash.addFlashAttribute("updateDL", updateDL);
+			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "updateDL", result);
+			return "redirect:/userProfile";
+		}
+		
 		User userInSession = (User) session.getAttribute("currentUser");
 		String newDriverLicense = (String) request.getParameter("newDL");
 		
@@ -74,7 +96,19 @@ public class UserController {
 	}
 	
 	@RequestMapping(path = "/changePassword", method = RequestMethod.POST)
-	public String changePassword(HttpServletRequest request, HttpSession session) {
+	public String changePassword(
+			HttpServletRequest request, 
+			HttpSession session,
+			@Valid @ModelAttribute("updatePW") UpdatePassword updatePW, 
+			BindingResult result, 
+			RedirectAttributes flash) {
+		flash.addFlashAttribute("updatePW", updatePW);
+		if (result.hasErrors()) {
+			flash.addFlashAttribute("updatePW", updatePW);
+			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "updatePW", result);
+			return "redirect:/userProfile";
+		}
+		
 		User userInSession = (User) session.getAttribute("currentUser");
 		
 		//changed newPasswordJSP to password

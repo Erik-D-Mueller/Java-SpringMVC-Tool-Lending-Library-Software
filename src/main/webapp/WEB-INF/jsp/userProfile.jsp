@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
@@ -92,63 +93,55 @@
 <br>
 
 <div id="bothInputs">
-<div class="blueBox">
-	<p>Would you like to change your password?</p>
-	<c:url value="/changePassword" var="formAction" />
-	
-	<form id="changePassWordForm" action="${formAction}" method="POST">
+	<div class="blueBox">
+		<p>Would you like to change your password?</p>
+		<c:url value="/changePassword" var="formAction" />
 
-		<div id="newPasswordFromJSP">
-			<label for="password">Enter your new password: </label> <input
-				type="password" id="password" name="password">
-		</div>
-		<br>
-		<div class="form-group">
-			<label for="confirmPassword">Confirm your new password:</label> <input
-				type="password" id="confirmPassword" name="confirmPassword"
-				placeHolder="Re-Type Password" />
-		</div>
+		<form:form method="POST" action="${formAction}" id="changePassWordForm" modelAttribute="updatePW">
+			<div id="newPasswordFromJSP">
+				<label for="password">Enter your new password: </label> 
+				<form:input path="password" type="password" id="password" name="password" />
+				<form:errors path="password" cssClass="error" />
+			</div>
+			<br>
+			<div class="form-group">
+				<label for="confirmPassword">Confirm your new password:</label> 
+				<form:input type="password" path="confirmPassword" id="confirmPassword" name="confirmPassword" placeHolder="Re-Type Password" />
+				<form:errors path="confirmPassword" cssClass="error" />
+			</div>
 
-		<input class="btn btn-success" id="formSubmitButton" type="submit"
-			value="Change Password" />
+			<input class="btn btn-success" id="formSubmitButton" type="submit"
+				value="Change Password" />
 
-	</form>
+		</form:form>
 
-</div>
-
-
-
-<br>
-<br>
-
-<div class="blueBox">
-	<p>Your Driver's License is listed as
-		"${currentUser.driversLicense}". Would you like to change it?</p>
-	<c:url value="/changeDL" var="formAction" />
+	</div>
 
 
-	<form id ="changeDL" action="${formAction}" method="POST">
-		
+	<br> <br>
 
-			
+	<div class="blueBox">
+		<p>Your Driver's License is listed as
+			"${currentUser.driversLicense}". Would you like to change it?</p>
+		<c:url value="/changeDL" var="formAction" />
+		<form:form method="POST" action="${formAction}" id="changeDL" modelAttribute="updateDL">
 			<div id="newDL">
-				<label for="newDL">Enter Your New Driver's License: </label> <input
-					type="text" name="newDL" id="newDL">
+				<label for="newDL">Enter Your New Driver's License: </label> 
+				<form:input type="text" path="newDL" name="newDL" id="newDL"/>
+				<form:errors path="newDL" cssClass="error" />
 			</div>
 			<div id="confirmNewDL">
-				<label for="confirmNewDL">Confirm Your New Driver's License: </label> <input
-					type="text" name="confirmNewDL" id="confirmNewDL">
-			</div>			
-			
-			<br>
-			<input class="btn btn-success" id="formSubmitButton" type="submit"
-			
-				value="Change Driver's License Number" />
-		
-	</form>
+				<label for="confirmNewDL">Confirm Your New Driver's License:</label>
+				<form:input type="text" path="confirmDL" name="confirmDL" id="confirmDL"/>
+				<form:errors path="confirmDL" cssClass="error" />
+			</div>
 
+			<br> <input class="btn btn-success" id="formSubmitButton"
+				type="submit" value="Change Driver's License Number" />
 
-</div>
+		</form:form>
+
+	</div>
 </div>
 <br>
 <br>
