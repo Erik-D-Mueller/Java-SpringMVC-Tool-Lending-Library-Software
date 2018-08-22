@@ -3,6 +3,7 @@
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
 <div class="noHeader" id="masterToolList">
+
 	<h2>
 		<span class="toolListHeader">List of All Members</span>
 	</h2>
@@ -25,18 +26,10 @@
 						<tr>
 							<td>${member.memberId}</td>
 							<td>${member.memberName}</td>
-
-
-							<td>
-								<%-- You have to have type="button" when turning an html link
-									 into a button or else it won't work
-									 --%> <a href="${editCart}?memberId=${member.memberId}"><button
-										type="button" class="btn btn-success">Select this
-										member</button></a>
-
-							</td>
-
-
+							<td><a href="${editCart}?memberId=${member.memberId}">
+									<button type="button" class="btn btn-success">Select
+										this member</button>
+							</a></td>
 						</tr>
 					</c:forEach>
 				</tbody>

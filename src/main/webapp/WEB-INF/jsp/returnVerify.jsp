@@ -8,8 +8,6 @@
 	<c:url value="/returnConfirmation" var="formAction" />
 	<form action="${formAction}" method="POST">
 
-
-
 		<table class="table table-striped table-hover table-bordered">
 			<thead class="thead-dark">
 				<tr>
@@ -18,9 +16,7 @@
 					<th scope="col">Checked Out To</th>
 					<th scope="col">Tool Description</th>
 					<th scope="col"></th>
-
 				</tr>
-
 			</thead>
 
 			<tbody>

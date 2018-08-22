@@ -2,9 +2,7 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-
 <h1>Welcome to the Tool Borrowing Library!</h1>
-
 
 <div id="myCarousel" class="container">
   <h3>View some of the tools in our collection!</h3>  

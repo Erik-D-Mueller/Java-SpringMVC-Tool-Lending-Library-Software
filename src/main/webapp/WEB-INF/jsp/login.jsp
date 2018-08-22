@@ -13,20 +13,21 @@
 			<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
 
 			<div class="form-group">
-				<label for="userName">User Name</label> 
-				<form:input type="text"  path="userName" class="form-control" id="userName" name="userName" placeHolder="User Name" />
-				<form:errors path="userName" cssClass="error"/>				
+				<label for="userName">User Name</label>
+				<form:input type="text" path="userName" class="form-control"
+					id="userName" name="userName" placeHolder="User Name" />
+				<form:errors path="userName" cssClass="error" />
 			</div>
 
 			<div class="form-group">
-				<label for="password">Password</label> 
-				<form:input type="password" path="password" class="form-control" id="password" name="password" placeHolder="Password"/>
-				<form:errors path="password" cssClass="error"/>
+				<label for="password">Password</label>
+				<form:input type="password" path="password" class="form-control"
+					id="password" name="password" placeHolder="Password" />
+				<form:errors path="password" cssClass="error" />
 			</div>
-
+			
 			<button type="submit" class="btn btn-primary" id="login-btn">Login</button>
 		</form:form>
-
 	</div>
 	<div class="col-sm-4"></div>
 </div>
@@ -36,7 +37,7 @@
 		<div class="col-sm-4"></div>
 		<div class="col-sm-4">
 			<h7 class="error">&#9888 Your username or password doesn't match
-				what we have on file. Try signing in again.</h7>
+			what we have on file. Try signing in again.</h7>
 		</div>
 		<div class="col-sm-4"></div>
 	</div>
