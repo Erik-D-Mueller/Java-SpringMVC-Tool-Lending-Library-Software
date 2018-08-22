@@ -68,27 +68,7 @@ public class AuthenticationController {
 		}	else {
 			attr.addFlashAttribute("loginFail", true);
 			return "redirect:/login";
-		}
-								
-//			@RequestParam String userName, 
-//						@RequestParam String password, 
-//						@RequestParam(required=false) String destination,
-//						HttpSession session,
-//						RedirectAttributes redirectAttribute) {
-//		redirectAttribute.addFlashAttribute("loginFail", false);
-//		
-//		if(userDAO.searchForUsernameAndPassword(userName, password)) {
-//			session.setAttribute("currentUser", userDAO.getUserByUserName(userName));
-//			
-//			if(destination != null && ! destination.isEmpty()) {
-//				return "redirect:" + destination;
-//			} else {
-//				return "redirect:/";
-//			}
-//		} else {
-//			redirectAttribute.addFlashAttribute("loginFail", true);
-//			return "redirect:/login";
-//		}
+		}		
 	}
 
 	@RequestMapping(path="/logout", method=RequestMethod.GET)

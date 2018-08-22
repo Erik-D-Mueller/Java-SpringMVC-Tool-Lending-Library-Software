@@ -140,11 +140,12 @@
 				</c:if>
 			</ul>
 			<ul class="navbar-nav">
-				<c:choose>
+			<c:if test="${currentUser.role == 'LIBRARIAN'}">
+				<li class="nav-item active" id=""><a class="nav-link"
+					href="${newUserHref}">Sign Up</a></li>
+			</c:if>
+				<c:choose>	
 					<c:when test="${empty currentUser}">
-						<li class="nav-item active" id=""><a class="nav-link"
-							href="${newUserHref}">Sign Up</a></li>
-
 						<li class="nav-item active" id="loginButton"><a
 							class="nav-link" href="${loginHref}">Log In</a></li>
 					</c:when>
@@ -169,9 +170,11 @@
 			<p id="currentUser">
 				Current User: <span class="current"> ${currentUser.userName}</span>
 			</p>
-			<p id="currentUser">
-				Currently Serving:<span class="current"> ${member.memberName}</span>
-			</p>
+			<c:if test="${member != null}">
+				<p id="member">
+					Currently Serving:<span class="current"> ${member.memberName}</span>
+				</p>
+			</c:if>
 		</div>
 
 	</c:if>
