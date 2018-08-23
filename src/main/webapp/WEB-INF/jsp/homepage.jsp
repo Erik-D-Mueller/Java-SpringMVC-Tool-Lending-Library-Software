@@ -5,9 +5,10 @@
 <div id="homePage">
 
 <h1>Welcome to the Tool Borrowing Library!</h1>
-
+<h3>View some of the tools in our collection!</h3>
+<div id="rotatingPicture">
 <div id="myCarousel" class="container">
-  <h3>View some of the tools in our collection!</h3>  
+    
   
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
     <ol class="carousel-indicators">
@@ -47,9 +48,11 @@
   </div>
 </div>
 <div class="container">
+</div>
+</div>
 <h1>About the company</h1>
 <p>Founded in the Summer of 2018 with the mission to provide tools to the needy and also to pass our class we have been providing exceptional customer service for 2 weeks!</p>
-</div>
+
 
 </div>
 
