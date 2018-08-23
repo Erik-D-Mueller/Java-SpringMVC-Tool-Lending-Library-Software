@@ -16,7 +16,7 @@
 		<br>
 
 		<c:if test="${charError==true}">
-			<h4 style="color: red;">${charErrorMsg}</h4>
+			<h4 class="error">${charErrorMsg}</h4>
 		</c:if>
 
 		<div id="searchTypeDropBox">

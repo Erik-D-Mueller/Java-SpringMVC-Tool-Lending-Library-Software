@@ -37,7 +37,7 @@
 	</form>
 
 	<c:url value="/availableToolList" var="availableToolHref" />
-	<div style="display: inline-block">
+	<div id="viewCartDiv1">
 		<form action="${availableToolHref}" method="GET">
 			<div id="submitButtonDiv">
 				<input class="btn btn-primary" id="formSubmitButton" type="submit"
