@@ -21,7 +21,6 @@
 			</thead>
 
 			<tbody>
-			<!--  How is tool.available working when it should be tool.isAvailable?  -->
 				<c:forEach items="${allTools}" var="tool">
 					<tr>
 						<td>${tool.toolId}</td>
@@ -29,7 +28,7 @@
 						<td>${tool.toolDescription}</td>
 						<c:choose>
 						
-						
+
 							<c:when test="${tool.available}">
 								<!-- <td style="background-color: #38e241; text-align: center">Available</td> -->
 								<td style="background-color: #5cb85c; text-align: center">Available</td>								

@@ -35,6 +35,8 @@
 <link rel="stylesheet" type="text/css" href="${cssHref}">
 <title>Tool Library</title>
 
+<c:url value="/js" var="jsHref" />
+<script src="${jsHref}/validation.js"></script>
 
 
 <script type="text/javascript">

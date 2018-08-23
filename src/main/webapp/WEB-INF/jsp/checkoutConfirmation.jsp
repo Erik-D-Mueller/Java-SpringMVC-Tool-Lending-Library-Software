@@ -2,16 +2,6 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-
-
-<!-- This javascript is necesary for the pop-up confirm checkout box -->
-<!-- <script>
-$('#confirm-delete').on('show.bs.modal', function(e) {
-    $(this).find('.btn-ok').attr('href', $(e.relatedTarget).data('href'));
-});
-</script> -->
-
-<!--  changed this message a bit -->
 <h4>You have successfully checked out the below items for
 	${memberName}</h4>
 <h4>The confirmation number is ${confNum}</h4>
@@ -36,9 +26,4 @@ $('#confirm-delete').on('show.bs.modal', function(e) {
 		</tbody>
 	</table>
 </div>
-
-
-
-
-
 <c:import url="/WEB-INF/jsp/footer.jsp" />

@@ -4,7 +4,6 @@
 
 <h1>Search currently checked out tools:</h1>
 
-
 <div class="blueBox">
 <div id="newReviewForm">
 	<c:url value="/toolHistory" var="formAction" />
@@ -35,7 +34,6 @@
 	</form>
 
 </div>
-
 
 </div>
 
