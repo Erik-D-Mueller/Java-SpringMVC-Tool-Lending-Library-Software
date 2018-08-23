@@ -26,14 +26,14 @@
 			id="changePasswordForm" modelAttribute="updatePW">
 			<div id="newPasswordFromJSP">
 				<label for="password">Enter your new password: </label>
-				<form:input path="password" type="text" id="password"
+				<form:input path="password" type="password" id="password"
 					name="password" />
 				<form:errors path="password" cssClass="error" />
 			</div>
 			<br>
 			<div class="form-group">
 				<label for="confirmPassword">Confirm your new password:</label>
-				<form:input type="text" path="confirmPassword"
+				<form:input type="password" path="confirmPassword"
 					id="confirmPassword" name="confirmPassword"
 					placeHolder="Re-Type Password" />
 				<form:errors path="confirmPassword" cssClass="error" />
