@@ -39,6 +39,13 @@ background-color: #acc6ef;
 }
 
 
+#homePage{
+	
+	
+	text-align:center;
+	
+}
+
 table {
 	background-color: LightGray;
 	margin-top: 10px;
@@ -91,9 +98,12 @@ footer {
 	width: 640px !important;
 }
 
+
+
 .carousel {
   width:640px !important;
   height:360px !important;
+text-align:center;
 } 
 
 .jumbotron-billboard .img {
@@ -140,6 +150,7 @@ footer {
 .current{
 	color: blue;
 }
+
 
 
 #login-error{

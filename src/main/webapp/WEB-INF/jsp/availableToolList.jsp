@@ -5,10 +5,8 @@
 <div class="noHeader" id="masterToolList">
 	
 	<h2>
-		<span class="toolListHeader">Currently Available Tools</span>
+		<span class="toolListHeader">Tools available to check out:</span>
 	</h2>
-
-	<h2>${member.memberName}</h2>
 
 	<c:url value="/viewCart" var="formAction" />
 	<form action="${formAction}" method="POST">

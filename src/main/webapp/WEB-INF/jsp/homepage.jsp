@@ -2,6 +2,8 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
+<div id="homePage">
+
 <h1>Welcome to the Tool Borrowing Library!</h1>
 
 <div id="myCarousel" class="container">
@@ -47,6 +49,8 @@
 <div class="container">
 <h1>About the company</h1>
 <p>Founded in the Summer of 2018 with the mission to provide tools to the needy and also to pass our class we have been providing exceptional customer service for 2 weeks!</p>
+</div>
+
 </div>
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />
