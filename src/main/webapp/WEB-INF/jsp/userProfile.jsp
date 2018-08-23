@@ -86,7 +86,7 @@
 					<th scope="col">Tool Id</th>
 					<th scope="col">Tool Name</th>
 					<th scope="col">Date Borrowed</th>
-					<th scope="col">Expected Return</th>
+					<th scope="col">Return By</th>
 				</tr>
 			</c:if>
 		</thead>
