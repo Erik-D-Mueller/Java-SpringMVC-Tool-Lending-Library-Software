@@ -26,14 +26,14 @@
 			id="changePasswordForm" modelAttribute="updatePW">
 			<div id="newPasswordFromJSP">
 				<label for="password">Enter your new password: </label>
-				<form:input path="password" type="password" id="password"
+				<form:input path="password" type="text" id="password"
 					name="password" />
 				<form:errors path="password" cssClass="error" />
 			</div>
 			<br>
 			<div class="form-group">
 				<label for="confirmPassword">Confirm your new password:</label>
-				<form:input type="password" path="confirmPassword"
+				<form:input type="text" path="confirmPassword"
 					id="confirmPassword" name="confirmPassword"
 					placeHolder="Re-Type Password" />
 				<form:errors path="confirmPassword" cssClass="error" />
@@ -54,13 +54,13 @@
 		<c:url value="/changeDL" var="formAction" />
 		<form:form method="POST" action="${formAction}" id="changeDL"
 			modelAttribute="updateDL">
-			<div id="newDL">
+			<div>
 				<label for="newDL">Enter Your New Driver's License: </label>
 				<form:input type="text" path="newDL" name="newDL" id="newDL" />
 				<form:errors path="newDL" cssClass="error" />
 			</div>
-			<div id="confirmNewDL">
-				<label for="confirmNewDL">Confirm Your New Driver's License:</label>
+			<div>
+				<label for="confirmDL">Confirm Your New Driver's License:</label>
 				<form:input type="text" path="confirmDL" name="confirmDL"
 					id="confirmDL" />
 				<form:errors path="confirmDL" cssClass="error" />
