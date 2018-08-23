@@ -3,19 +3,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- Bootstrap CSS -->
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
 	integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
 	crossorigin="anonymous">
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
 <c:url var="jquery" value="/js/jquery.min.js" />
 <script src="${jquery}"></script>
 <c:url var="jqueryValidate" value="/js/jquery.validate.min.js" />
@@ -30,28 +25,12 @@
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
 	integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
 	crossorigin="anonymous"></script>
-<!-- Our Custom CSS -->
 <c:url var="cssHref" value="/css/styles.css" />
 <link rel="stylesheet" type="text/css" href="${cssHref}">
 <title>Tool Library</title>
 
 <c:url value="/js" var="jsHref" />
 <script src="${jsHref}/validation.js"></script>
-
-
-<script type="text/javascript">
-	$(document).ready(function() {
-		$("time.timeago").timeago();
-
-		$("#logoutLink").click(function(event) {
-			$("#logoutForm").submit();
-		});
-
-		var pathname = window.location.pathname;
-		$("nav a[href='" + pathname + "']").parent().addClass("active");
-
-	});
-</script>
 
 </head>
 <body>
@@ -88,7 +67,7 @@
 	<nav class="navbar navbar-expand-md navbar-light bg-light">
 		<nav class="navbar navbar-light bg-light">
 			<a class="navbar-brand" href="${homePageHref}"> <img
-				src="${TLLlogo}" width="30" height="30"
+				src="${TLLlogo}" id="navbarLogo"
 				class="d-inline-block align-top" alt="logo"> Tool Lending
 				Library
 			</a>
@@ -143,7 +122,7 @@
 			</ul>
 			<ul class="navbar-nav">
 			<c:if test="${currentUser.role == 'LIBRARIAN'}">
-				<li class="nav-item active" id=""><a class="nav-link"
+				<li class="nav-item active"><a class="nav-link"
 					href="${newUserHref}">Sign Up</a></li>
 			</c:if>
 				<c:choose>	
@@ -166,10 +145,8 @@
 		</div>
 	</nav>
 
-	<!--  Added the .userName to fix the below, also add to the css file -->
-
 	<c:if test="${not empty currentUser}">
-		<div style="padding-right: 20px;">
+		<div id="currentUserHolder">
 			<p id="currentUser">
 				Current User: <span class="current"> ${currentUser.userName}</span>
 			</p>
