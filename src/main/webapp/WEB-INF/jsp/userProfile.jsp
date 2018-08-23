@@ -54,13 +54,13 @@
 		<c:url value="/changeDL" var="formAction" />
 		<form:form method="POST" action="${formAction}" id="changeDL"
 			modelAttribute="updateDL">
-			<div id="newDL">
+			<div>
 				<label for="newDL">Enter Your New Driver's License: </label>
 				<form:input type="text" path="newDL" name="newDL" id="newDL" />
 				<form:errors path="newDL" cssClass="error" />
 			</div>
-			<div id="confirmNewDL">
-				<label for="confirmNewDL">Confirm Your New Driver's License:</label>
+			<div>
+				<label for="confirmDL">Confirm Your New Driver's License:</label>
 				<form:input type="text" path="confirmDL" name="confirmDL"
 					id="confirmDL" />
 				<form:errors path="confirmDL" cssClass="error" />

@@ -167,6 +167,7 @@
 	</nav>
 
 	<!--  Added the .userName to fix the below, also add to the css file -->
+
 	<c:if test="${not empty currentUser}">
 		<div style="padding-right: 20px;">
 			<p id="currentUser">
@@ -181,3 +182,4 @@
 
 	</c:if>
 	<div class="container">
+	<div id="everything">

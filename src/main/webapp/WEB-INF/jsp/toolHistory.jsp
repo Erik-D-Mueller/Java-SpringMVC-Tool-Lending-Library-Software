@@ -2,7 +2,7 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-<h1>Search currently checked out tools:</h1>
+<h2>Search currently checked out tools:</h2>
 
 <div class="blueBox">
 <div id="newReviewForm">
