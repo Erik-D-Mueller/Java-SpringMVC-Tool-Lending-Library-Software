@@ -98,7 +98,7 @@ public class ReservationController {
 				
 
 			
-			// This junk actually calls the SQL statements if it's a valid search string
+			// This chunk actually calls the SQL statements if it's a valid search string
 			if (request.getParameter("searchType").equals("driversLicense")) {
 				request.setAttribute("reservations",
 						toolDAO.getToolsCheckedOutToMemberByDL(request.getParameter("searchString")));

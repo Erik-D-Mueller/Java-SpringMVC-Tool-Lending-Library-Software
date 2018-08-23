@@ -17,7 +17,7 @@ import com.techelevator.model.domain.Tool;
 
 @Controller
 
-@SessionAttributes({"userName", "currentUser", "shoppingCart", "member", "confNum"})
+@SessionAttributes({ "userName", "currentUser", "shoppingCart", "member", "confNum" })
 
 public class ToolController {
 
@@ -26,7 +26,7 @@ public class ToolController {
 
 	@RequestMapping("/completeToolList")
 	public String displayCompleteToolList(HttpServletRequest request) {
-		
+
 		request.setAttribute("allTools", toolDAO.getAllTools());
 
 		return "completeToolList";
@@ -34,49 +34,49 @@ public class ToolController {
 
 	@RequestMapping("/availableToolList")
 	public String displayAvailableToolList(HttpServletRequest request, ModelMap model) {
-		
-		if(model.get("shoppingCart") != null) {
-						
-			ShoppingCart cart = (ShoppingCart)model.get("shoppingCart");
-			List<Tool> toolsInCart = cart.getItems();			
-			
+
+		if (model.get("shoppingCart") != null) {
+
+			ShoppingCart cart = (ShoppingCart) model.get("shoppingCart");
+			List<Tool> toolsInCart = cart.getItems();
+
 			List<Tool> allAvailableTools = toolDAO.getAllAvailableTools();
 
 			List<Tool> toolsThatCanAddToCart = new ArrayList<>();
-			
-			for(Tool e: allAvailableTools) {
-				
+
+			for (Tool e : allAvailableTools) {
+
 				boolean isInCart = false;
-				
-				for(Tool f: toolsInCart) {
-					
-					if(e.getToolId() == f.getToolId()) {
-						
+
+				for (Tool f : toolsInCart) {
+
+					if (e.getToolId() == f.getToolId()) {
+
 						isInCart = true;
-						
+
 					}
-					
+
 				}
-				
-				if(!isInCart) {
+
+				if (!isInCart) {
 					toolsThatCanAddToCart.add(e);
 				}
-					
+
 			}
-			
+
 			request.setAttribute("availableTools", toolsThatCanAddToCart);
 
-		}else {
-		request.setAttribute("availableTools", toolDAO.getAllAvailableTools());
+		} else {
+			request.setAttribute("availableTools", toolDAO.getAllAvailableTools());
 		}
 		return "availableToolList";
 	}
-	
+
 	@RequestMapping("/checkedOutTools")
 	public String displayCheckedOutTools(HttpServletRequest request) {
 
 		request.setAttribute("allCheckedOutTools", toolDAO.getAllCheckedOutTools());
-				
+
 		return "checkedOutTools";
 	}
 }

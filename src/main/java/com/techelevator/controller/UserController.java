@@ -86,9 +86,6 @@ public class UserController {
 		
 		User userInSession = (User) session.getAttribute("currentUser");
 		String newDriverLicense = (String) request.getParameter("newDL");
-		
-		System.out.println("Your user in session is " + userInSession.getUserName());
-		System.out.println("Your new driver's license is " + newDriverLicense);
 	
 		userDAO.updateDL(userInSession.getUserName(), newDriverLicense);
 		
@@ -110,12 +107,8 @@ public class UserController {
 		}
 		
 		User userInSession = (User) session.getAttribute("currentUser");
-		
-		//changed newPasswordJSP to password
+
 		String newPassword = (String) request.getParameter("password");
-		
-//		System.out.println("Your user in session is " + userInSession.getUserName());
-//		System.out.println("Your password is " + newPassword);
 		
 		userDAO.updatePassword(userInSession.getUserName(), newPassword);
 		
@@ -126,12 +119,9 @@ public class UserController {
 	public String confirmProfileChange(HttpServletRequest request, HttpSession session, ModelMap model) {
 		
 		User userInSession = (User) session.getAttribute("currentUser");
-//		System.out.println(userInSession.getDriversLicense());
 		User updatedUser = userDAO.getUserByUserName(userInSession.getUserName());
-//		System.out.println(updatedUser.getDriversLicense());
 		session.removeAttribute("currentUser");
 		model.addAttribute("currentUser", updatedUser);
-//		session.setAttribute("currentUser", updatedUser);
 		
 		return "profileChangeConfirmation";
 	}

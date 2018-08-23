@@ -1,6 +1,5 @@
 package com.techelevator.controller;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -16,68 +15,59 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.techelevator.model.dao.ToolDAO;
+
 import com.techelevator.model.dao.UserDAO;
 import com.techelevator.model.domain.Login;
-import com.techelevator.model.domain.User;
 
 
-@SessionAttributes({"userName", "currentUser", "shoppingCart", "member", "confNum"})
-
+@SessionAttributes({ "userName", "currentUser", "shoppingCart", "member", "confNum" })
 
 @Controller
 public class AuthenticationController {
 
 	@Autowired
 	private UserDAO userDAO;
-	
-	@Autowired
-	private ToolDAO toolDAO;
 
-	@RequestMapping(path="/login", method=RequestMethod.GET)
+	@RequestMapping(path = "/login", method = RequestMethod.GET)
 	public String displayLoginForm(Model modelHolder) {
-		if(!modelHolder.containsAttribute("login")) {
+		if (!modelHolder.containsAttribute("login")) {
 			modelHolder.addAttribute("login", new Login());
 		}
 		return "login";
 	}
 
-	@RequestMapping(path="/doLogin", method=RequestMethod.POST)
-	public String login(@Valid @ModelAttribute("login") Login login,
-						BindingResult result,
-						RedirectAttributes attr,
-						HttpSession session,
-						@RequestParam(required=false) String destination) {
-		
-		attr.addFlashAttribute("loginFail", false);	
+	@RequestMapping(path = "/doLogin", method = RequestMethod.POST)
+	public String login(@Valid @ModelAttribute("login") Login login, BindingResult result, RedirectAttributes attr,
+			HttpSession session, @RequestParam(required = false) String destination) {
+
+		attr.addFlashAttribute("loginFail", false);
 		attr.addFlashAttribute("login", login);
-		if(result.hasErrors()) {
+		if (result.hasErrors()) {
 			attr.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "login", result);
-			System.out.println("result has errors");
 			return "redirect:/login";
 		}
-		
-		if(userDAO.searchForUsernameAndPassword(login.getUserName(), login.getPassword())) {
+
+		if (userDAO.searchForUsernameAndPassword(login.getUserName(), login.getPassword())) {
 			session.setAttribute("currentUser", userDAO.getUserByUserName(login.getUserName()));
-			
-			if(destination != null && ! destination.isEmpty()) {
+
+			if (destination != null && !destination.isEmpty()) {
 				return "redirect:" + destination;
 			} else {
 				return "redirect:/";
 			}
-		}	else {
+		} else {
 			attr.addFlashAttribute("loginFail", true);
 			return "redirect:/login";
-		}		
+		}
 	}
 
-	@RequestMapping(path="/logout", method=RequestMethod.GET)
+	@RequestMapping(path = "/logout", method = RequestMethod.GET)
 	public String logout(ModelMap model, HttpSession session) {
-		
+
 		model.remove("currentUser");
 		model.clear();
 		session.invalidate();
 		return "redirect:/";
-		
+
 	}
 }
