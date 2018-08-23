@@ -62,7 +62,7 @@ $(document).ready(function() {
 				},
 				confirmDL : {
 					required : true,
-					equalTo: "#newDL"
+					equalTo : "#newDL"
 				}
 			},
 		messages : {
