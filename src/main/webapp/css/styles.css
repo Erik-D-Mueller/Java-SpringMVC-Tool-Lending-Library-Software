@@ -12,8 +12,6 @@ html{height: 100%;}
 
 }
 
-
-
 #everything{
 	
 	text-align:center;
@@ -22,11 +20,9 @@ html{height: 100%;}
 
 
 #rotatingPicture{
-	
-	
+		
 	padding-left: 180px;
 
-	
 }
 
 #member{
@@ -159,7 +155,6 @@ text-align:center;
 .current{
 	color: blue;
 }
-
 
 
 #login-error{
