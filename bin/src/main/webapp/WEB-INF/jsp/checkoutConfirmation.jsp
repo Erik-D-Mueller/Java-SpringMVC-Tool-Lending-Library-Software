@@ -2,8 +2,11 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
+
+<div class="blueBox">
 <h1>${memberName}, you have successfully checked out the following items: </h1>
 <h3> Your confirmation number is ${confNum}</h3>
+</div>
 
 <div class="table-responsive" id="toolTable">
 			<table class="table table-striped table-hover table-bordered">
