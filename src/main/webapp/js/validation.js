@@ -43,7 +43,7 @@ $(document).ready(function() {
 			},
 		messages : {
 				password : {
-					minlength : "Password but be at least 8 characters",
+					minlength : "Password must be at least 8 characters",
 					capitals : "Password must contain a capital letter.",
 				},
 				confirmPassword : {
