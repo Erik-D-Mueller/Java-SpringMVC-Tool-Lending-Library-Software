@@ -44,9 +44,11 @@ html {
 }
 
 table {
+
 	background-color: LightGray;
 	margin-top: 10px;
 	font-weight: bold;
+	opacity: 1;
 }
 
 .toolListHeader {
