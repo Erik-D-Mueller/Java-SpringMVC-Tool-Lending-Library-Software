@@ -6,7 +6,6 @@ public class CheckedOutTool extends Tool{
 	private String memberName;
 	private String checkoutDate;
 	private String returnDate;
-	private Boolean isAvailable;
 	
 	public CheckedOutTool() {
 		
@@ -35,8 +34,4 @@ public class CheckedOutTool extends Tool{
 	public void setReturnDate(String returnDate) {
 		this.returnDate = returnDate;
 	}
-	 public boolean getIsAvailable() {
-		 return true;
-	 }
-	
 }

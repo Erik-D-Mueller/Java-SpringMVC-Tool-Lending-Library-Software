@@ -26,7 +26,6 @@ public class User {
 	@NotBlank(message="Please confirm your password")
 	private String confirmPassword;
 	
-	private boolean passwordMatching;
 	@AssertTrue(message="Passwords must match")
 	public boolean isPasswordMatching() {
 		if(password != null) {

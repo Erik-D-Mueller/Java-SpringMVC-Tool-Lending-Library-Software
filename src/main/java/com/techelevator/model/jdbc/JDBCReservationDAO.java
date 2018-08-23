@@ -29,7 +29,6 @@ public class JDBCReservationDAO implements ReservationDAO {
 	public int saveNewReservation(ShoppingCart cart, int memberId) {
 
 		LocalDate date = LocalDate.now();
-		System.out.println(memberId);
 		
 		List<Tool> items = cart.getItems();
 		
@@ -64,14 +63,8 @@ public class JDBCReservationDAO implements ReservationDAO {
 	public void deleteReservation(int toolId) {
 
 		String sqlDeleteReservation = "DELETE FROM tool_reservation WHERE tool_id = ? ";
-
-		
-		
 		
 		jdbcTemplate.update(sqlDeleteReservation, toolId);
-		
-		
-
 	}
 
 	@Override
@@ -91,8 +84,6 @@ public class JDBCReservationDAO implements ReservationDAO {
 			theReservation = mapRowToReservation(results);
 		
 		}
-		
-//		theReservation.setTools(toolDAO.getToolsByReservationId(reservationId));		
 		
 		return theReservation;
 	}
