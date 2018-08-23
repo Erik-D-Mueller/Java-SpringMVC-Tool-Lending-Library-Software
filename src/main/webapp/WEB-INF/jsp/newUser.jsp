@@ -3,7 +3,6 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-<div class="blueBox">
 <c:url var="formAction" value="/users" />
 <form:form method="POST" action="${formAction}" id="newUserForm"
 	modelAttribute="registration">
@@ -53,5 +52,5 @@
 		<div class="col-sm-4"></div>
 	</div>
 </form:form>
-</div>
+
 <c:import url="/WEB-INF/jsp/footer.jsp" />
