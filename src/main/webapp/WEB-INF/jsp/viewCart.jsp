@@ -4,7 +4,7 @@
 
 <c:if test="${member != null}">
 
-	<h3>${member.memberName}'scart currently contains:</h3>
+	<h3>${member.memberName}'s cart currently contains:</h3>
 
 	<c:url value="/removeItem" var="formAction" />
 	<form action="${formAction}" method="POST">

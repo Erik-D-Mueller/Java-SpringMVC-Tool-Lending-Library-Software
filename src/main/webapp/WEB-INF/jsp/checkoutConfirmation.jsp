@@ -1,11 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
-
+<div class="blueBox">
 <h4>You have successfully checked out the below items for
 	${memberName}</h4>
 <h4>The confirmation number is ${confNum}</h4>
-
+</div>
 <div class="table-responsive" id="toolTable">
 	<table class="table table-striped table-hover table-bordered">
 		<thead class="thead-dark">
