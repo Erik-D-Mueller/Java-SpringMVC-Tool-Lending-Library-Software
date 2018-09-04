@@ -43,7 +43,7 @@ The back end is in the java spring MVC framework.
 <li>User</li>
 </ul>
 
-## It has 4 DAOs: 
+## Uses 4 DAOs: 
 <ul>
 <li>Member</li>
 <li>Reservation</li>
@@ -53,7 +53,7 @@ The back end is in the java spring MVC framework.
 
 It has DAO integration tests built in.
 
-## It uses 11 classes:
+## Uses 11 classes:
 <ul>
 <li>AvailableTool</li>
 <li>CheckedOutTool</li>
