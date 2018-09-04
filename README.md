@@ -30,7 +30,7 @@ Password: Librarian
 
 The back end is in the java spring MVC framework.
 
-#The app uses 9 controllers:
+# The app uses 9 controllers:
  <ul>
 <li>Authentication</li>
 <li>Cart</li>
@@ -43,7 +43,7 @@ The back end is in the java spring MVC framework.
 <li>User</li>
 </ul>
 
-#It has 4 DAOs: 
+# It has 4 DAOs: 
 <ul>
 <li>Member</li>
 <li>Reservation</li>
@@ -53,7 +53,7 @@ The back end is in the java spring MVC framework.
 
 It has DAO integration tests built in.
 
-#It uses 11 classes:
+# It uses 11 classes:
 <ul>
 <li>AvailableTool</li>
 <li>CheckedOutTool</li>
@@ -68,7 +68,7 @@ It has DAO integration tests built in.
 <li>User</li>
 </ul>
 
-#The postgresql database has four tables:
+# The postgresql database has four tables:
 <ul>
 <li>app_user</li>
 <li>tool</li>
