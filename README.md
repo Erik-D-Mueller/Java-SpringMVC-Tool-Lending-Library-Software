@@ -6,16 +6,18 @@ It is currently running on heroku:
 
 https://fast-temple-14445.herokuapp.com
 
-It has two user modes: Member or librarian.  A member can log in and edit their personal information and view what tools they currently have checked out.
+It has two user modes: Member or librarian.
+
+<br>A member can log in and edit their personal information and view what tools they currently have checked out.
 
 A librarian can: 
 <ul>
 <li>Sign up members</li>
+<li>Check tools in and out to members</li>
+<li>See the lists of available tools and checked out tools</li>
+<li>See to whom who tools are checked out and see when they're due back</li>
+<li>See what tools are checked out to a particular member</li>
 </ul>
--Check tools in and out to members
--See the lists of available tools and checked out tools
--See to whom who tools are checked out and see when they're due back
--See what tools are checked out to a particular member
 
 For a librarian to check tools in our out to a member, they first select the member then add the tools to the shopping cart then select "Check Out".
 
@@ -23,7 +25,7 @@ There is a status bar at the top right that always displays the username that is
 
 If you want to log in as a librarian too see and play with the functionality use:
 
-Username: Librarian
+Username: Librarian<br>
 Password: Librarian
 
 
