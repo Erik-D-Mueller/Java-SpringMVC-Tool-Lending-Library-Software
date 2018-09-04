@@ -1,4 +1,4 @@
-## Database
+## Community Tool Lending Library Demo App
 
 This is a demo web-app for a free tool lending community library that I and a team of three other people built from scratch in about three business days.
 
@@ -30,30 +30,30 @@ Password: Librarian
 
 The back end is in the java spring MVC framework.
 
-The app uses 9 controllers:
+#The app uses 9 controllers:
  <ul>
 <li>Authentication</li>
 <li>Cart</li>
 <li>Checkout</li>
 <li>Homepage</li>
 <li>Member</li>
-<li>Reservation</ul>
-<li>Return</ul>
+<li>Reservation</li>
+<li>Return</li>
 <li>Tool</li>
 <li>User</li>
 </ul>
 
-It has 4 DAOs: 
+#It has 4 DAOs: 
 <ul>
 <li>Member</li>
 <li>Reservation</li>
 <li>Tool</li>
 <li>User</li>
-<ul>
+</ul>
 
 It has DAO integration tests built in.
 
-It uses 11 classes:
+#It uses 11 classes:
 <ul>
 <li>AvailableTool</li>
 <li>CheckedOutTool</li>
@@ -68,7 +68,7 @@ It uses 11 classes:
 <li>User</li>
 </ul>
 
-The postgresql database has four tables:
+#The postgresql database has four tables:
 <ul>
 <li>app_user</li>
 <li>tool</li>
