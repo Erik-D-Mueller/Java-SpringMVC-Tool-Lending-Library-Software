@@ -9,8 +9,9 @@ https://fast-temple-14445.herokuapp.com
 It has two user modes: Member or librarian.  A member can log in and edit their personal information and view what tools they currently have checked out.
 
 A librarian can: 
-
--Sign up members
+<ul>
+<li>Sign up members</li>
+</ul>
 -Check tools in and out to members
 -See the lists of available tools and checked out tools
 -See to whom who tools are checked out and see when they're due back
