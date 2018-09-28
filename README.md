@@ -4,7 +4,7 @@ This is a demo web-app for a free tool lending community library that I and a te
 
 It is currently running on heroku:
 
-https://fast-temple-14445.herokuapp.com
+https://tool-lending-software.herokuapp.com/
 
 It has two user modes: Member or librarian.
 
